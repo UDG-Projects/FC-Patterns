@@ -1,11 +1,16 @@
+#include <iostream>
+#include <vector>
+using namespace std;
 #include "Matrix.h"
 
 Matrix::Matrix()
 {
-    //ctor
+
 }
 
-Matrix::~Matrix()
-{
-    //dtor
+void Matrix::generateFromString(string matrixL2,char delimiter){
+
 }
+
+
+

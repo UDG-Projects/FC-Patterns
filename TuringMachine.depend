@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1543859542 source:c:\users\gil\desktop\3r geinf\arquitecturacompus\turingmachine\main.cpp
+	<iostream>
+	"Matrix.h"
+	<fstream>
+	<vector>
+
+1543856982 c:\users\gil\desktop\3r geinf\arquitecturacompus\turingmachine\matrix.h
+	<iostream>
+
+1543858183 source:c:\users\gil\desktop\3r geinf\arquitecturacompus\turingmachine\matrix.cpp
+	<iostream>
+	<vector>
+	"Matrix.h"
+
