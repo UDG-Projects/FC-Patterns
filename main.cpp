@@ -40,11 +40,7 @@ vector<string> split(string matrixL2, char delimiter){
         }
     }
     fields.push_back(bread);
-
-
     return fields;
-
-
 }
 
 
