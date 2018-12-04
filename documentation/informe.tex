@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color}
+\usepackage{imakeidx}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+\makeindex
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{} 
+
+% Definició dels colors ---------------------------------------------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Definició de l'estil del codi 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+% Títol de la pràctica -----------------------------------------------
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.55\textwidth]{udg_logo.png}\par\vspace{1cm}
+	{\scshape\LARGE Universitat de girona \par}
+	\vspace{1cm}
+	{\scshape\Large Pràctica final\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Fonaments de la computació\par}
+	\vspace{2cm}
+	{\Large\itshape Francesc Xavier Bullich Parra\par}
+	{\Large\itshape Gil Gassó Rovira\par}
+	{\Large\itshape Marc Sànchez Pifarré\par}
+			
+	\vfill
+	Tutor de la pràctica\par
+	Jaume Rigau
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+% Índex -----------------------------------------------
+\tableofcontents
+\clearpage
+
+
+\chapter{Introduction}
+\setcounter{chapter}{1}
+
+\section{Definició del problema}
+
+\begin{multicols}{2}
+
+El problema presentat rep una entrada i accepta o rebutja en funció de l’entrada rebuda. L’entrada rebuda segons la definició, és un conjunt de llesques concatenades per el caràcter 13 del codi ASCII. 
+
+En l’escenari presentat, una llesca es pot considerar un seguit de caràcters representats com una tira de símbols ‘+’ i ‘-’ on no importa l’ordre i que pot ser formada per un nombre de símbols >=0.
+
+Donada una entrada com la descrita anteriorment, es tracta de trobar si una de les llesques que formen l’entrada conté una representació del patró definit a la \textcolor{red}{secció X.X}. Sí es pot afirmar l’existència del patró, l’entrada es dona com a accpetada, en cas contrari es dona com a rebutjada.
+\end{multicols}
+
+\section{Patró}
+
+\begin{multicols}{2}
+
+Per estudiar aquest problema tenim clar que només estem analitzant una llesca horitzontal donat un patró P on P és mínim. Es demana la cerca de 3 cel·les actives aïllades (considerant una cel·la activa aïllada quan està envoltada d’inactives) i flanquejades (ambdós costats) per un grup de cel·les actives seguides superior a 3.
+
+\end{multicols}
+
+Un exemple de llesca horitzontal que compleix el patró : 
+
+\begin{lstlisting}[columns=fullflexible]
+++++-+-+-+-++++ 
+\end{lstlisting}
+
+Un exemple de llesca horitzontal que no compleix el patró : 
+
+\begin{lstlisting}[columns=fullflexible]
+++++-+---+-++++ 
+\end{lstlisting}
+
+\clearpage
+
+\textcolor{red}{Exemple de codi incrustat en latex}
+
+\lstinputlisting[language=C++, caption=Matrix example]{Matrix.cpp}
+
+\chapter{Finite Automata}
+
+\chapter{Push-Down Automata}
+
+\chapter{Turing Machine}
+ 
+\printindex
+\end{document}
