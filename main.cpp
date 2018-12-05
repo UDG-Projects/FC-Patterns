@@ -2,6 +2,7 @@
 #include "Matrix.h"
 #include <fstream>
 #include <vector>
+#include "DFA.h"
 using namespace std;
 
 
@@ -10,9 +11,8 @@ string readPatternFromFile(string nFile){
     string matrix1D = "";
     ifstream fileIn(nFile);
     if (fileIn.is_open()) {
-        getline (fileIn,bread);
-
         while(! fileIn.eof()){
+            getline (fileIn,bread);
             matrix1D+=bread; // versio tota la matriu
             if(bread == "\0"){
                 matrix1D += "j";
@@ -20,7 +20,6 @@ string readPatternFromFile(string nFile){
             else {
                 matrix1D+="i";
             }
-            getline (fileIn,bread);
         }
         fileIn.close();
     }
@@ -46,6 +45,8 @@ vector<string> split(string matrixL2, char delimiter){
 
 int main()
 {
+
+    /*
     string patternL2;
     Matrix a;
     patternL2 = readPatternFromFile("data.txt");
@@ -53,7 +54,7 @@ int main()
     for(int field = 0; field < splittedMatrix.size(); field ++){
         cout << splittedMatrix[field] <<  endl;
     }
-     cout << "sdfgasfdgasd" <<  endl;
+    cout << "sdfgasfdgasd" <<  endl;
 
     vector<vector<string>> allMatrix;
     for(int field = 0; field < splittedMatrix.size(); field ++){
@@ -65,8 +66,14 @@ int main()
         for(int j = 0; j < allMatrix[i].size(); j++){
             cout << allMatrix[i][j] << endl;
         }
-
     }
-    //a.generateFromString(patternL2,'i');
+    cout << endl;
+
+     */
+
+    DFA automata = DFA();
+
+    cout << automata.eval("++++-+-+-+-++++") << endl;
+
 
 }
