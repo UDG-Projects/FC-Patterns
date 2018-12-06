@@ -2,6 +2,8 @@
 #include "Matrix.h"
 #include <fstream>
 #include <vector>
+#include "DFA.h"
+#include "PDA.h"
 using namespace std;
 
 
@@ -10,19 +12,19 @@ string readPatternFromFile(string nFile){
     string matrix1D = "";
     ifstream fileIn(nFile);
     if (fileIn.is_open()) {
-        getline (fileIn,bread);
-
         while(! fileIn.eof()){
+            getline (fileIn,bread);
             matrix1D+=bread; // versio tota la matriu
             if(bread == "\0"){
+                matrix1D = matrix1D.substr(0, matrix1D.size() -1);
                 matrix1D += "j";
             }
             else {
                 matrix1D+="i";
             }
-            getline (fileIn,bread);
         }
         fileIn.close();
+        matrix1D = matrix1D.substr(0, matrix1D.size() -1);
     }
      cout << matrix1D << endl;
     return matrix1D;
@@ -40,24 +42,34 @@ vector<string> split(string matrixL2, char delimiter){
         }
     }
     fields.push_back(bread);
-
-
     return fields;
-
-
 }
 
 
 int main()
 {
-    string patternL2;
+    /** DFA WORKS!!! **/
+//    DFA automata = DFA();
+//    cout << automata.eval("++++-+-+-+-++++") << endl;
+
+
+    string patterns;
     Matrix a;
-    patternL2 = readPatternFromFile("data.txt");
-    vector<string> splittedMatrix = split(patternL2, 'j');
+    patterns = readPatternFromFile("data.txt");
+    vector<string> splittedMatrix = split(patterns, 'j');
+
+    PDA automata = PDA();
+
+    for(int i = 0; i< splittedMatrix.size(); i++){
+        cout << automata.eval(splittedMatrix[i]) << endl;
+    }
+}
+
+    /*
     for(int field = 0; field < splittedMatrix.size(); field ++){
         cout << splittedMatrix[field] <<  endl;
     }
-     cout << "sdfgasfdgasd" <<  endl;
+    cout << "sdfgasfdgasd" <<  endl;
 
     vector<vector<string>> allMatrix;
     for(int field = 0; field < splittedMatrix.size(); field ++){
@@ -69,8 +81,8 @@ int main()
         for(int j = 0; j < allMatrix[i].size(); j++){
             cout << allMatrix[i][j] << endl;
         }
-
     }
-    //a.generateFromString(patternL2,'i');
+    cout << endl;
 
 }
+*/
