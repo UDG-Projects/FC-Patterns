@@ -27,7 +27,7 @@ string readPatternFromFile(string nFile){
         fileIn.close();
         matrix1D = matrix1D.substr(0, matrix1D.size() -1);
     }
-     cout << matrix1D << endl;
+    // cout << matrix1D << endl;
     return matrix1D;
 }
 
@@ -52,23 +52,43 @@ int main()
     patterns = readPatternFromFile("data.txt");
     vector<string> splittedMatrix = Utils::split(patterns, 'j');
 
-    for(int i = 0; i< splittedMatrix.size(); i++){
+    /*for(int i = 0; i< splittedMatrix.size(); i++){
         Matrix matrix = Matrix(splittedMatrix[i], 'i');
         matrix.minimize();
         matrix.show();
+
         cout << endl;
         cout << endl;
 
         matrix.performTick();
         matrix.show();
+        cout << endl;
+        matrix.performTick();
+        matrix.show();
 
         cout << endl;
+    }*/
+
+    if(splittedMatrix.size()==2){
+        Matrix matrixA = Matrix(splittedMatrix[0], 'i');
+        Matrix matrixB = Matrix(splittedMatrix[1], 'i');
+        matrixA.minimize();
+        matrixB.minimize();
+        matrixA.show();
+        cout<<endl;
+      //  matrixB.show();
+
+        int ticks=0;
+        while(!matrixB.equals(matrixA) && ticks<4){
+            matrixA.performTick();
+            ticks++;
+            matrixA.show();
+            cout << ticks << endl;
+
+        }
+        //matrixA.show();
+
     }
-
-
-
-
-
 
 
 }

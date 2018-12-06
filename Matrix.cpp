@@ -121,12 +121,13 @@ char Matrix::newCellValue(vector<vector<char>> wrappedMatrix, int wrappedRows,in
                 actives++;
         }
     }
-
-    if((row > 0 && row <= rows() && column > 0 && column <= cols()) &&
-            ((_matrix[row - 1][column - 1]=='+' && (actives ==2 || actives ==3)) || (_matrix[row - 1][column - 1]!='+' && actives >=3)))
+    if((row > 0 && row <= rows() && column > 0 && column <= cols()) && ((_matrix[row - 1][column - 1]=='+' && (actives ==2 || actives ==3)) || (_matrix[row - 1][column - 1]!='+' && actives ==3)))
+        return '+';
+    else if(!(row > 0 && row <= rows() && column > 0 && column <= cols()) && actives ==3)
         return '+';
     else
         return '-';
+
 }
 
 bool Matrix::equals(Matrix matrixToEval){
