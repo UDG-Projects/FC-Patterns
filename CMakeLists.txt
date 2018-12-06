@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(practicafinal
         main.cpp
         Matrix.cpp
-        Matrix.h DFA.cpp DFA.h)
+        Matrix.h DFA.cpp DFA.h PDA.cpp PDA.h Alphabet.cpp Alphabet.h)

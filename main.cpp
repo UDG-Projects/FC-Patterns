@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include "DFA.h"
+#include "PDA.h"
 using namespace std;
 
 
@@ -15,6 +16,7 @@ string readPatternFromFile(string nFile){
             getline (fileIn,bread);
             matrix1D+=bread; // versio tota la matriu
             if(bread == "\0"){
+                matrix1D = matrix1D.substr(0, matrix1D.size() -1);
                 matrix1D += "j";
             }
             else {
@@ -22,6 +24,7 @@ string readPatternFromFile(string nFile){
             }
         }
         fileIn.close();
+        matrix1D = matrix1D.substr(0, matrix1D.size() -1);
     }
      cout << matrix1D << endl;
     return matrix1D;
@@ -45,12 +48,24 @@ vector<string> split(string matrixL2, char delimiter){
 
 int main()
 {
+    /** DFA WORKS!!! **/
+//    DFA automata = DFA();
+//    cout << automata.eval("++++-+-+-+-++++") << endl;
+
+
+    string patterns;
+    Matrix a;
+    patterns = readPatternFromFile("data.txt");
+    vector<string> splittedMatrix = split(patterns, 'j');
+
+    PDA automata = PDA();
+
+    for(int i = 0; i< splittedMatrix.size(); i++){
+        cout << automata.eval(splittedMatrix[i]) << endl;
+    }
+}
 
     /*
-    string patternL2;
-    Matrix a;
-    patternL2 = readPatternFromFile("data.txt");
-    vector<string> splittedMatrix = split(patternL2, 'j');
     for(int field = 0; field < splittedMatrix.size(); field ++){
         cout << splittedMatrix[field] <<  endl;
     }
@@ -69,11 +84,5 @@ int main()
     }
     cout << endl;
 
-     */
-
-    DFA automata = DFA();
-
-    cout << automata.eval("++++-+-+-+-++++") << endl;
-
-
 }
+*/

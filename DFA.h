@@ -26,6 +26,7 @@ public:
 
 private:
 
+    /** Declarin all states as a private constants **/
     const string q0 = "";
     const string q1 = "+";
     const string q2 = "++";
@@ -45,7 +46,9 @@ private:
     const string q16 = "+++";
     const string q17 = "++++";
 
+    /** Attribute actual state to save where the machine is. **/
     string _actualState;
+
 };
 
 
