@@ -4,6 +4,7 @@
 #include <vector>
 #include "DFA.h"
 #include "PDA.h"
+#include "Utils.h"
 using namespace std;
 
 
@@ -30,20 +31,6 @@ string readPatternFromFile(string nFile){
     return matrix1D;
 }
 
-vector<string> split(string matrixL2, char delimiter){
-    vector <string> fields;
-    string bread="";
-    for(int i =0; i<matrixL2.size(); i++){
-        if(matrixL2[i]!=delimiter){
-            bread+=matrixL2[i];
-        }else{
-            fields.push_back(bread);
-            bread="";
-        }
-    }
-    fields.push_back(bread);
-    return fields;
-}
 
 
 int main()
@@ -52,17 +39,38 @@ int main()
 //    DFA automata = DFA();
 //    cout << automata.eval("++++-+-+-+-++++") << endl;
 
-
-    string patterns;
-    Matrix a;
-    patterns = readPatternFromFile("data.txt");
-    vector<string> splittedMatrix = split(patterns, 'j');
-
+    /** PDA WORKS!!! **/
+    /*
     PDA automata = PDA();
 
     for(int i = 0; i< splittedMatrix.size(); i++){
         cout << automata.eval(splittedMatrix[i]) << endl;
+    }*/
+
+
+    string patterns;
+    patterns = readPatternFromFile("data.txt");
+    vector<string> splittedMatrix = Utils::split(patterns, 'j');
+
+    for(int i = 0; i< splittedMatrix.size(); i++){
+        Matrix matrix = Matrix(splittedMatrix[i], 'i');
+        matrix.minimize();
+        matrix.show();
+        cout << endl;
+        cout << endl;
+
+        matrix.performTick();
+        matrix.show();
+
+        cout << endl;
     }
+
+
+
+
+
+
+
 }
 
     /*

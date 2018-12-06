@@ -7,9 +7,9 @@
 
 using namespace std;
 
-#import <string>
-#import <stack>
-#import "Alphabet.h"
+#include <string>
+#include <stack>
+#include "Alphabet.h"
 
 class PDA {
 

@@ -1,6 +1,6 @@
-The system is: Windows - 10.0.17134 - AMD64
+The system is: Linux - 4.15.0-42-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: C:/Program Files/Haskell Platform/8.2.2/mingw/bin/gcc.exe 
+Compiler: /usr/bin/cc 
 Build flags: 
 Id flags:  
 
@@ -8,12 +8,12 @@ The output was:
 0
 
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/3.13.1/CompilerIdC/a.exe"
+The C compiler identification is GNU, found in "/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/3.13.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: C:/Program Files/Haskell Platform/8.2.2/mingw/bin/g++.exe 
+Compiler: /usr/bin/c++ 
 Build flags: 
 Id flags:  
 
@@ -21,191 +21,153 @@ The output was:
 0
 
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/3.13.1/CompilerIdCXX/a.exe"
+The CXX compiler identification is GNU, found in "/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/3.13.1/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_1c632/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_1c632.dir\build.make CMakeFiles/cmTC_1c632.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1c632.dir/testCCompiler.c.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe    -o CMakeFiles\cmTC_1c632.dir\testCCompiler.c.obj   -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c"
-Linking C executable cmTC_1c632.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1c632.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1c632.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_1c632.dir/objects.a @CMakeFiles\cmTC_1c632.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_1c632.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1c632.exe -Wl,--out-implib,libcmTC_1c632.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1c632.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_ee615/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ee615.dir/build.make CMakeFiles/cmTC_ee615.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ee615.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_ee615.dir/testCCompiler.c.o   -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_ee615
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ee615.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_ee615.dir/testCCompiler.c.o  -o cmTC_ee615 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_8602a/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8602a.dir\build.make CMakeFiles/cmTC_8602a.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8602a.dir/CMakeCCompilerABI.c.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe    -o CMakeFiles\cmTC_8602a.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\share\cmake-3.13\Modules\CMakeCCompilerABI.c"
-Linking C executable cmTC_8602a.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8602a.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8602a.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_8602a.dir/objects.a @CMakeFiles\cmTC_8602a.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_8602a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8602a.exe -Wl,--out-implib,libcmTC_8602a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-Using built-in specs.
-COLLECT_GCC=C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/realgcc.exe
-COLLECT_LTO_WRAPPER=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe
-Target: x86_64-w64-mingw32
-Configured with: ../gcc-6.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/x86_64-w64-mingw32/include --libexecdir=/mingw64/lib --enable-bootstrap --with-arch=x86-64 --with-tune=generic --enable-languages=c,lto,c++,objc,obj-c++,fortran,ada --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-time=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-isl-version-check --enable-lto --enable-libgomp --disable-multilib --enable-checking=release --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://sourceforge.net/projects/msys2 --with-gnu-as --with-gnu-ld
-Thread model: posix
-gcc version 6.2.0 (Rev2, Built by MSYS2 project) 
-COMPILER_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/
-LIBRARY_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../
-COLLECT_GCC_OPTIONS='-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../lib' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../lib/gcc/x86_64-w64-mingw32/6.2.0' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../libexec/gcc/x86_64-w64-mingw32/6.2.0' '-v' '-o' 'cmTC_8602a.exe' '-mtune=generic' '-march=x86-64'
- C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/collect2.exe -plugin C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/liblto_plugin-0.dll -plugin-opt=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Gil\AppData\Local\Temp\cc8V7pVN.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep -Bdynamic -o cmTC_8602a.exe C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtbegin.o -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0 -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0 -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../.. --whole-archive CMakeFiles\cmTC_8602a.dir/objects.a --no-whole-archive --out-implib libcmTC_8602a.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtend.o
-COLLECT_GCC_OPTIONS='-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../lib' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../lib/gcc/x86_64-w64-mingw32/6.2.0' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../libexec/gcc/x86_64-w64-mingw32/6.2.0' '-v' '-o' 'cmTC_8602a.exe' '-mtune=generic' '-march=x86-64'
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_ae54f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ae54f.dir/build.make CMakeFiles/cmTC_ae54f.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o   -c /snap/clion/56/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_ae54f
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae54f.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o  -o cmTC_ae54f 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.3.0-27ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae54f' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cckva73v.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ae54f /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae54f' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp]
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_8602a/fast"]
-  ignore line: [C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8602a.dir\build.make CMakeFiles/cmTC_8602a.dir/build]
-  ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_8602a.dir/CMakeCCompilerABI.c.obj]
-  ignore line: [C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe    -o CMakeFiles\cmTC_8602a.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\share\cmake-3.13\Modules\CMakeCCompilerABI.c"]
-  ignore line: [Linking C executable cmTC_8602a.exe]
-  ignore line: ["C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8602a.dir\link.txt --verbose=1]
-  ignore line: ["C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8602a.dir/objects.a]
-  ignore line: [C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_8602a.dir/objects.a @CMakeFiles\cmTC_8602a.dir\objects1.rsp]
-  ignore line: [C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe     -v -Wl,--whole-archive CMakeFiles\cmTC_8602a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8602a.exe -Wl,--out-implib,libcmTC_8602a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_ae54f/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_ae54f.dir/build.make CMakeFiles/cmTC_ae54f.dir/build]
+  ignore line: [make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o   -c /snap/clion/56/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_ae54f]
+  ignore line: [/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae54f.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o  -o cmTC_ae54f ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/realgcc.exe]
-  ignore line: [COLLECT_LTO_WRAPPER=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe]
-  ignore line: [Target: x86_64-w64-mingw32]
-  ignore line: [Configured with: ../gcc-6.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/x86_64-w64-mingw32/include --libexecdir=/mingw64/lib --enable-bootstrap --with-arch=x86-64 --with-tune=generic --enable-languages=c,lto,c++,objc,obj-c++,fortran,ada --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-time=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-isl-version-check --enable-lto --enable-libgomp --disable-multilib --enable-checking=release --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://sourceforge.net/projects/msys2 --with-gnu-as --with-gnu-ld]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.3.0-27ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
-  ignore line: [gcc version 6.2.0 (Rev2, Built by MSYS2 project) ]
-  ignore line: [COMPILER_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/]
-  ignore line: [LIBRARY_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../lib' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../lib/gcc/x86_64-w64-mingw32/6.2.0' '-B' 'C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin/../libexec/gcc/x86_64-w64-mingw32/6.2.0' '-v' '-o' 'cmTC_8602a.exe' '-mtune=generic' '-march=x86-64']
-  link line: [ C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/collect2.exe -plugin C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/liblto_plugin-0.dll -plugin-opt=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Gil\AppData\Local\Temp\cc8V7pVN.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep -Bdynamic -o cmTC_8602a.exe C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtbegin.o -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0 -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0 -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../.. --whole-archive CMakeFiles\cmTC_8602a.dir/objects.a --no-whole-archive --out-implib libcmTC_8602a.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtend.o]
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/collect2.exe] ==> ignore
+  ignore line: [gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae54f' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cckva73v.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ae54f /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/liblto_plugin-0.dll] ==> ignore
-    arg [-plugin-opt=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=C:\Users\Gil\AppData\Local\Temp\cc8V7pVN.res] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cckva73v.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-    arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
-    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
-    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
-    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
-    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
-    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-    arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
     arg [-m] ==> ignore
-    arg [i386pep] ==> ignore
-    arg [-Bdynamic] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_8602a.exe] ==> ignore
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtbegin.o] ==> ignore
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../..] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../..]
-    arg [--whole-archive] ==> ignore
-    arg [CMakeFiles\cmTC_8602a.dir/objects.a] ==> ignore
-    arg [--no-whole-archive] ==> ignore
-    arg [--out-implib] ==> ignore
-    arg [libcmTC_8602a.dll.a] ==> ignore
-    arg [--major-image-version] ==> ignore
-    arg [0] ==> ignore
-    arg [--minor-image-version] ==> ignore
-    arg [0] ==> ignore
-    arg [-lmingw32] ==> lib [mingw32]
+    arg [cmTC_ae54f] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
+    arg [CMakeFiles/cmTC_ae54f.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
-    arg [-lgcc_eh] ==> lib [gcc_eh]
-    arg [-lmoldname] ==> lib [moldname]
-    arg [-lmingwex] ==> lib [mingwex]
-    arg [-lmsvcrt] ==> lib [msvcrt]
-    arg [-lpthread] ==> lib [pthread]
-    arg [-ladvapi32] ==> lib [advapi32]
-    arg [-lshell32] ==> lib [shell32]
-    arg [-luser32] ==> lib [user32]
-    arg [-lkernel32] ==> lib [kernel32]
-    arg [-lmingw32] ==> lib [mingw32]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
     arg [-lgcc] ==> lib [gcc]
-    arg [-lgcc_eh] ==> lib [gcc_eh]
-    arg [-lmoldname] ==> lib [moldname]
-    arg [-lmingwex] ==> lib [mingwex]
-    arg [-lmsvcrt] ==> lib [msvcrt]
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtend.o] ==> ignore
-  remove lib [gcc_eh]
-  remove lib [msvcrt]
-  remove lib [gcc_eh]
-  remove lib [msvcrt]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/bin]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/x86_64-w64-mingw32/lib]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/x86_64-w64-mingw32/lib]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../..] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib]
-  implicit libs: [mingw32;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;moldname;mingwex]
-  implicit dirs: [C:/Program Files/Haskell Platform/8.2.2/mingw/bin;C:/Program Files/Haskell Platform/8.2.2/mingw/lib;C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0;C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc;C:/Program Files/Haskell Platform/8.2.2/mingw/x86_64-w64-mingw32/lib]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7] ==> [/usr/lib/gcc/x86_64-linux-gnu/7]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/7;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
   implicit fwks: []
 
 
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_dea39/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_dea39.dir\build.make CMakeFiles/cmTC_dea39.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_dea39.dir/feature_tests.c.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe   -std=c11 -o CMakeFiles\cmTC_dea39.dir\feature_tests.c.obj   -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\feature_tests.c"
-Linking C executable cmTC_dea39.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_dea39.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_dea39.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_dea39.dir/objects.a @CMakeFiles\cmTC_dea39.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_dea39.dir/objects.a -Wl,--no-whole-archive  -o cmTC_dea39.exe -Wl,--out-implib,libcmTC_dea39.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_dea39.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_1bb00/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1bb00.dir/build.make CMakeFiles/cmTC_1bb00.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1bb00.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_1bb00.dir/feature_tests.c.o   -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_1bb00
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1bb00.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_1bb00.dir/feature_tests.c.o  -o cmTC_1bb00 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -215,19 +177,17 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/Arquitectu
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_8c4dd/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8c4dd.dir\build.make CMakeFiles/cmTC_8c4dd.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8c4dd.dir/feature_tests.c.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe   -std=c99 -o CMakeFiles\cmTC_8c4dd.dir\feature_tests.c.obj   -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\feature_tests.c"
-Linking C executable cmTC_8c4dd.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8c4dd.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8c4dd.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_8c4dd.dir/objects.a @CMakeFiles\cmTC_8c4dd.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_8c4dd.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8c4dd.exe -Wl,--out-implib,libcmTC_8c4dd.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_8c4dd.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_31985/fast"
+/usr/bin/make -f CMakeFiles/cmTC_31985.dir/build.make CMakeFiles/cmTC_31985.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_31985.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_31985.dir/feature_tests.c.o   -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_31985
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31985.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_31985.dir/feature_tests.c.o  -o cmTC_31985 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -237,19 +197,17 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/Arquitectu
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_88022/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_88022.dir\build.make CMakeFiles/cmTC_88022.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_88022.dir/feature_tests.c.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe   -std=c90 -o CMakeFiles\cmTC_88022.dir\feature_tests.c.obj   -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\feature_tests.c"
-Linking C executable cmTC_88022.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_88022.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_88022.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_88022.dir/objects.a @CMakeFiles\cmTC_88022.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\gcc.exe      -Wl,--whole-archive CMakeFiles\cmTC_88022.dir/objects.a -Wl,--no-whole-archive  -o cmTC_88022.exe -Wl,--out-implib,libcmTC_88022.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_88022.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_b270e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b270e.dir/build.make CMakeFiles/cmTC_b270e.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b270e.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_b270e.dir/feature_tests.c.o   -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_b270e
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b270e.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_b270e.dir/feature_tests.c.o  -o cmTC_b270e 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -257,177 +215,144 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/Arquitectu
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_0a18a/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_0a18a.dir\build.make CMakeFiles/cmTC_0a18a.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0a18a.dir/testCXXCompiler.cxx.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE     -o CMakeFiles\cmTC_0a18a.dir\testCXXCompiler.cxx.obj -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
-Linking CXX executable cmTC_0a18a.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0a18a.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_0a18a.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_0a18a.dir/objects.a @CMakeFiles\cmTC_0a18a.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE      -Wl,--whole-archive CMakeFiles\cmTC_0a18a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_0a18a.exe -Wl,--out-implib,libcmTC_0a18a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_0a18a.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_b3c94/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b3c94.dir/build.make CMakeFiles/cmTC_b3c94.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b3c94.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_b3c94.dir/testCXXCompiler.cxx.o -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_b3c94
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3c94.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_b3c94.dir/testCXXCompiler.cxx.o  -o cmTC_b3c94 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_83aee/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_83aee.dir\build.make CMakeFiles/cmTC_83aee.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_83aee.dir/CMakeCXXCompilerABI.cpp.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE     -o CMakeFiles\cmTC_83aee.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\share\cmake-3.13\Modules\CMakeCXXCompilerABI.cpp"
-Linking CXX executable cmTC_83aee.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_83aee.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_83aee.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_83aee.dir/objects.a @CMakeFiles\cmTC_83aee.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE     -v -Wl,--whole-archive CMakeFiles\cmTC_83aee.dir/objects.a -Wl,--no-whole-archive  -o cmTC_83aee.exe -Wl,--out-implib,libcmTC_83aee.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-Using built-in specs.
-COLLECT_GCC=C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE
-COLLECT_LTO_WRAPPER=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe
-Target: x86_64-w64-mingw32
-Configured with: ../gcc-6.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/x86_64-w64-mingw32/include --libexecdir=/mingw64/lib --enable-bootstrap --with-arch=x86-64 --with-tune=generic --enable-languages=c,lto,c++,objc,obj-c++,fortran,ada --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-time=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-isl-version-check --enable-lto --enable-libgomp --disable-multilib --enable-checking=release --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://sourceforge.net/projects/msys2 --with-gnu-as --with-gnu-ld
-Thread model: posix
-gcc version 6.2.0 (Rev2, Built by MSYS2 project) 
-COMPILER_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/
-LIBRARY_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/;C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_83aee.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/collect2.exe -plugin C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/liblto_plugin-0.dll -plugin-opt=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Gil\AppData\Local\Temp\ccDBI1at.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep -Bdynamic -o cmTC_83aee.exe C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtbegin.o -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0 -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../.. --whole-archive CMakeFiles\cmTC_83aee.dir/objects.a --no-whole-archive --out-implib libcmTC_83aee.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmoldname -lmingwex -lmsvcrt C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtend.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_83aee.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_01158/fast"
+/usr/bin/make -f CMakeFiles/cmTC_01158.dir/build.make CMakeFiles/cmTC_01158.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o -c /snap/clion/56/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_01158
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01158.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_01158 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.3.0-27ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_01158' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cceYsR11.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_01158 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_01158' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
-  link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp]
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_83aee/fast"]
-  ignore line: [C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_83aee.dir\build.make CMakeFiles/cmTC_83aee.dir/build]
-  ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_83aee.dir/CMakeCXXCompilerABI.cpp.obj]
-  ignore line: [C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE     -o CMakeFiles\cmTC_83aee.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\share\cmake-3.13\Modules\CMakeCXXCompilerABI.cpp"]
-  ignore line: [Linking CXX executable cmTC_83aee.exe]
-  ignore line: ["C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_83aee.dir\link.txt --verbose=1]
-  ignore line: ["C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_83aee.dir/objects.a]
-  ignore line: [C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_83aee.dir/objects.a @CMakeFiles\cmTC_83aee.dir\objects1.rsp]
-  ignore line: [C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE     -v -Wl,--whole-archive CMakeFiles\cmTC_83aee.dir/objects.a -Wl,--no-whole-archive  -o cmTC_83aee.exe -Wl,--out-implib,libcmTC_83aee.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_01158/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_01158.dir/build.make CMakeFiles/cmTC_01158.dir/build]
+  ignore line: [make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o -c /snap/clion/56/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_01158]
+  ignore line: [/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01158.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_01158 ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE]
-  ignore line: [COLLECT_LTO_WRAPPER=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe]
-  ignore line: [Target: x86_64-w64-mingw32]
-  ignore line: [Configured with: ../gcc-6.2.0/configure --prefix=/mingw64 --with-local-prefix=/mingw64/local --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-native-system-header-dir=/mingw64/x86_64-w64-mingw32/include --libexecdir=/mingw64/lib --enable-bootstrap --with-arch=x86-64 --with-tune=generic --enable-languages=c,lto,c++,objc,obj-c++,fortran,ada --enable-shared --enable-static --enable-libatomic --enable-threads=posix --enable-graphite --enable-fully-dynamic-string --enable-libstdcxx-time=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-isl-version-check --enable-lto --enable-libgomp --disable-multilib --enable-checking=release --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-libiconv --with-system-zlib --with-gmp=/mingw64 --with-mpfr=/mingw64 --with-mpc=/mingw64 --with-isl=/mingw64 --with-pkgversion='Rev2, Built by MSYS2 project' --with-bugurl=https://sourceforge.net/projects/msys2 --with-gnu-as --with-gnu-ld]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.3.0-27ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
-  ignore line: [gcc version 6.2.0 (Rev2, Built by MSYS2 project) ]
-  ignore line: [COMPILER_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/bin/]
-  ignore line: [LIBRARY_PATH=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/]
-  ignore line: [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_83aee.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/collect2.exe -plugin C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/liblto_plugin-0.dll -plugin-opt=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\Gil\AppData\Local\Temp\ccDBI1at.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep -Bdynamic -o cmTC_83aee.exe C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtbegin.o -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0 -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib -LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../.. --whole-archive CMakeFiles\cmTC_83aee.dir/objects.a --no-whole-archive --out-implib libcmTC_83aee.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s --undefined=___deregister_frame_info --undefined=___register_frame_info -lgcc -lmoldname -lmingwex -lmsvcrt C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtend.o]
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/collect2.exe] ==> ignore
+  ignore line: [gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_01158' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cceYsR11.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_01158 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/liblto_plugin-0.dll] ==> ignore
-    arg [-plugin-opt=C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=C:\Users\Gil\AppData\Local\Temp\ccDBI1at.res] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cceYsR11.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
-    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
-    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
-    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
-    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
-    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
-    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
     arg [-m] ==> ignore
-    arg [i386pep] ==> ignore
-    arg [-Bdynamic] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_83aee.exe] ==> ignore
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtbegin.o] ==> ignore
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib]
-    arg [-LC:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../..] ==> dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../..]
-    arg [--whole-archive] ==> ignore
-    arg [CMakeFiles\cmTC_83aee.dir/objects.a] ==> ignore
-    arg [--no-whole-archive] ==> ignore
-    arg [--out-implib] ==> ignore
-    arg [libcmTC_83aee.dll.a] ==> ignore
-    arg [--major-image-version] ==> ignore
-    arg [0] ==> ignore
-    arg [--minor-image-version] ==> ignore
-    arg [0] ==> ignore
+    arg [cmTC_01158] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
+    arg [CMakeFiles/cmTC_01158.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
-    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
-    arg [--undefined=___deregister_frame_info] ==> ignore
-    arg [--undefined=___register_frame_info] ==> ignore
     arg [-lgcc] ==> lib [gcc]
-    arg [-lmoldname] ==> lib [moldname]
-    arg [-lmingwex] ==> lib [mingwex]
-    arg [-lmsvcrt] ==> lib [msvcrt]
-    arg [-lpthread] ==> lib [pthread]
-    arg [-ladvapi32] ==> lib [advapi32]
-    arg [-lshell32] ==> lib [shell32]
-    arg [-luser32] ==> lib [user32]
-    arg [-lkernel32] ==> lib [kernel32]
-    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lc] ==> lib [c]
     arg [-lgcc_s] ==> lib [gcc_s]
-    arg [--undefined=___deregister_frame_info] ==> ignore
-    arg [--undefined=___register_frame_info] ==> ignore
     arg [-lgcc] ==> lib [gcc]
-    arg [-lmoldname] ==> lib [moldname]
-    arg [-lmingwex] ==> lib [mingwex]
-    arg [-lmsvcrt] ==> lib [msvcrt]
-    arg [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/crtend.o] ==> ignore
-  remove lib [msvcrt]
-  remove lib [msvcrt]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/x86_64-w64-mingw32/lib]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../lib] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/lib] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/x86_64-w64-mingw32/lib]
-  collapse library dir [C:/PROGRA~1/HASKEL~1/828BF2~1.2/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../..] ==> [C:/Program Files/Haskell Platform/8.2.2/mingw/lib]
-  implicit libs: [stdc++;mingw32;gcc_s;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc_s;gcc;moldname;mingwex]
-  implicit dirs: [C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc/x86_64-w64-mingw32/6.2.0;C:/Program Files/Haskell Platform/8.2.2/mingw/lib/gcc;C:/Program Files/Haskell Platform/8.2.2/mingw/x86_64-w64-mingw32/lib;C:/Program Files/Haskell Platform/8.2.2/mingw/lib]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7] ==> [/usr/lib/gcc/x86_64-linux-gnu/7]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/7;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
   implicit fwks: []
 
 
 
 
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_9d902/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_9d902.dir\build.make CMakeFiles/cmTC_9d902.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9d902.dir/feature_tests.cxx.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE    -std=c++1z -o CMakeFiles\cmTC_9d902.dir\feature_tests.cxx.obj -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\feature_tests.cxx"
-Linking CXX executable cmTC_9d902.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9d902.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_9d902.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_9d902.dir/objects.a @CMakeFiles\cmTC_9d902.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE      -Wl,--whole-archive CMakeFiles\cmTC_9d902.dir/objects.a -Wl,--no-whole-archive  -o cmTC_9d902.exe -Wl,--out-implib,libcmTC_9d902.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9d902.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_130d2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_130d2.dir/build.make CMakeFiles/cmTC_130d2.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_130d2.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_130d2.dir/feature_tests.cxx.o -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_130d2
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_130d2.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_130d2.dir/feature_tests.cxx.o  -o cmTC_130d2 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -490,19 +415,17 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/Arquitectu
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_67c1c/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_67c1c.dir\build.make CMakeFiles/cmTC_67c1c.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_67c1c.dir/feature_tests.cxx.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE    -std=c++14 -o CMakeFiles\cmTC_67c1c.dir\feature_tests.cxx.obj -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\feature_tests.cxx"
-Linking CXX executable cmTC_67c1c.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_67c1c.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_67c1c.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_67c1c.dir/objects.a @CMakeFiles\cmTC_67c1c.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE      -Wl,--whole-archive CMakeFiles\cmTC_67c1c.dir/objects.a -Wl,--no-whole-archive  -o cmTC_67c1c.exe -Wl,--out-implib,libcmTC_67c1c.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_67c1c.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_87ce9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_87ce9.dir/build.make CMakeFiles/cmTC_87ce9.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_87ce9.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_87ce9.dir/feature_tests.cxx.o -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_87ce9
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_87ce9.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_87ce9.dir/feature_tests.cxx.o  -o cmTC_87ce9 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -565,19 +488,17 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/Arquitectu
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_8d52a/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8d52a.dir\build.make CMakeFiles/cmTC_8d52a.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_8d52a.dir/feature_tests.cxx.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE    -std=c++11 -o CMakeFiles\cmTC_8d52a.dir\feature_tests.cxx.obj -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\feature_tests.cxx"
-Linking CXX executable cmTC_8d52a.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8d52a.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8d52a.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_8d52a.dir/objects.a @CMakeFiles\cmTC_8d52a.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE      -Wl,--whole-archive CMakeFiles\cmTC_8d52a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8d52a.exe -Wl,--out-implib,libcmTC_8d52a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_8d52a.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_e9af7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e9af7.dir/build.make CMakeFiles/cmTC_e9af7.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e9af7.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_e9af7.dir/feature_tests.cxx.o -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e9af7
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9af7.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_e9af7.dir/feature_tests.cxx.o  -o cmTC_e9af7 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -640,19 +561,17 @@ mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/Arquitectu
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe" "cmTC_7d8b3/fast"
-C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_7d8b3.dir\build.make CMakeFiles/cmTC_7d8b3.dir/build
-mingw32-make.exe[1]: Entering directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7d8b3.dir/feature_tests.cxx.obj
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE    -std=c++98 -o CMakeFiles\cmTC_7d8b3.dir\feature_tests.cxx.obj -c "C:\Users\Gil\Desktop\3r GEINF\ArquitecturaCompus\TuringMachine\cmake-build-debug\CMakeFiles\feature_tests.cxx"
-Linking CXX executable cmTC_7d8b3.exe
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_7d8b3.dir\link.txt --verbose=1
-"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_7d8b3.dir/objects.a
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\ar.exe cr CMakeFiles\cmTC_7d8b3.dir/objects.a @CMakeFiles\cmTC_7d8b3.dir\objects1.rsp
-C:\PROGRA~1\HASKEL~1\828BF2~1.2\mingw\bin\G__~1.EXE      -Wl,--whole-archive CMakeFiles\cmTC_7d8b3.dir/objects.a -Wl,--no-whole-archive  -o cmTC_7d8b3.exe -Wl,--out-implib,libcmTC_7d8b3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_7d8b3.dir\linklibs.rsp
-mingw32-make.exe[1]: Leaving directory 'C:/Users/Gil/Desktop/3r GEINF/ArquitecturaCompus/TuringMachine/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_e97c5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e97c5.dir/build.make CMakeFiles/cmTC_e97c5.dir/build
+make[1]: Entering directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e97c5.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_e97c5.dir/feature_tests.cxx.o -c /home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e97c5
+/snap/clion/56/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e97c5.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_e97c5.dir/feature_tests.cxx.o  -o cmTC_e97c5 
+make[1]: Leaving directory '/home/marc/projects/practicafinal/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
