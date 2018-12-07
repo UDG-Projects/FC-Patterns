@@ -3,6 +3,11 @@
 using namespace std;
 #include "Matrix.h"
 
+Matrix::Matrix(){
+    _delimiter=' ';
+    _matrix= vector<vector<char>>(0);
+}
+
 Matrix::Matrix(string patternAsString, char delimiter)
 {
     _delimiter = delimiter;
@@ -111,6 +116,19 @@ void Matrix::performTick(){
     }
     _matrix=wrapped;
     minimize();
+}
+
+string Matrix::toString(){
+    string pattern="";
+    for(int row=0; row<rows();row++){
+        for(int col = 0; col < cols();col++){
+            pattern+=_matrix[row][col];
+        }
+        pattern+=_delimiter;
+    }
+
+     return pattern.substr(0, pattern.size() - 1);
+
 }
 
 char Matrix::newCellValue(vector<vector<char>> wrappedMatrix, int wrappedRows,int wrappedColumns, int row, int column){

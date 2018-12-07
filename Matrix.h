@@ -10,9 +10,16 @@ using namespace std;
 class Matrix
 {
 public:
+
+    /**
+     *
+     */
+    Matrix();
+
     /**
      *
      * @param patternAsString
+     * @param delimiter
      */
     Matrix(string patternAsString, char delimiter);
 
@@ -47,6 +54,12 @@ public:
      * @return
      */
     bool equals(Matrix matrixToEval);
+
+    /**
+     *
+     */
+    string toString();
+
 
 private:
     /**
