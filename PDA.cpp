@@ -9,6 +9,9 @@ PDA::PDA(){
     _actualState = q0;
 }
 
+void PDA::init(){
+    _actualState = q0;
+}
 bool PDA::eval(string word) {
 
     // Going from q0 to q1 and adding the delimiter to the stack.
@@ -31,7 +34,8 @@ bool PDA::eval(string word) {
                     while(_stack.top() == Alphabet::Delta::PLUS_D){
                         _stack.pop();
                     }
-                    return _stack.top() == Alphabet::Delta::DOLLAR;
+                    if(_stack.top() == Alphabet::Delta::DOLLAR)
+                        _actualState=q8;
                 }
             }
             else {
@@ -51,7 +55,8 @@ bool PDA::eval(string word) {
                     while(_stack.top() == Alphabet::Delta::PLUS_D){
                         _stack.pop();
                     }
-                    return _stack.top() == Alphabet::Delta::DOLLAR;
+                    if(_stack.top() == Alphabet::Delta::DOLLAR)
+                        _actualState=q8;
                 }
             }
             else if(symbol == Alphabet::Sigma::PLUS_S){
@@ -61,7 +66,8 @@ bool PDA::eval(string word) {
                     while(_stack.top() == Alphabet::Delta::PLUS_D){
                         _stack.pop();
                     }
-                    return _stack.top() == Alphabet::Delta::DOLLAR;
+                    if(_stack.top() == Alphabet::Delta::DOLLAR)
+                        _actualState=q8;
                 }
             }
             else {
@@ -84,7 +90,8 @@ bool PDA::eval(string word) {
                             while(_stack.top() == Alphabet::Delta::PLUS_D){
                                 _stack.pop();
                             }
-                            return _stack.top() == Alphabet::Delta::DOLLAR;
+                            if(_stack.top() == Alphabet::Delta::DOLLAR)
+                                _actualState=q8;
                         }
                     }
                 }
@@ -127,12 +134,13 @@ bool PDA::eval(string word) {
             while(_stack.top() == Alphabet::Delta::PLUS_D){
                 _stack.pop();
             }
-            return _stack.top() == Alphabet::Delta::DOLLAR;
+            if(_stack.top() == Alphabet::Delta::DOLLAR)
+                _actualState=q8;
         }
         else {
             // Do nothing...
         }
         symbolNumber++;
     }
-    return false;
+    return _actualState==q8;
 }

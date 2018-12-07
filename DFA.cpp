@@ -5,7 +5,11 @@
 #include "DFA.h"
 
 DFA::DFA(){
-    _actualState = q1;
+    _actualState = q0;
+}
+
+void DFA::init(){
+    _actualState = q0;
 }
 
 bool DFA::eval(string word){
@@ -156,12 +160,7 @@ bool DFA::eval(string word){
                 }
             }
             else if(_actualState == q17){
-                if(input == '+'){
-                    _actualState = q17;
-                }
-                else{
-                    _actualState = q17;
-                }
+                _actualState = q17;
             }
             else {
                 // do nothing..

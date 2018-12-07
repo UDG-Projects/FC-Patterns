@@ -28,13 +28,13 @@ int main()
         string firstPattern1D = matrixA.toString();
         string secondPattern1D = matrixB.toString();
 
-        cout << firstPattern1D << endl;
-        cout << secondPattern1D << endl;
-
         DFA dfa;
 
         int firstPatternDfaResult = dfa.eval(firstPattern1D)? 1 : -1;
+        dfa.init();
         int secondPatternDfaResult = dfa.eval(secondPattern1D)? 1 : -1;
+
+        cout << "DFA: " << firstPatternDfaResult << ", " << secondPatternDfaResult << endl;
 
         PDA pda;
         int firstPatternPdaResult = pda.eval(firstPattern1D)? 1 : -1;
@@ -42,6 +42,16 @@ int main()
 
         cout << "PDA: " << firstPatternPdaResult << ", " << secondPatternPdaResult << endl;
 
+        int ticks = 0;
+        Matrix estabilizedMatrix;
+        while(!matrixB.equals(matrixA)  &&  !matrixA.equals(estabilizedMatrix)){
+            estabilizedMatrix = matrixA;
+            matrixA.performTick();
+            ticks++;
+        }
+
+        int patternTmResult = matrixB.equals(matrixA)? ticks : -1;
+        cout << "TM: " << patternTmResult << endl;
 
     }
 

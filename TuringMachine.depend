@@ -13,7 +13,7 @@
 	<vector>
 	"Matrix.h"
 
-1544182569 source:d:\bitbucket\practicafinal\main.cpp
+1544189040 source:d:\bitbucket\practicafinal\main.cpp
 	<iostream>
 	"Matrix.h"
 	<fstream>
@@ -31,12 +31,12 @@
 	<string>
 	<vector>
 
-1544174573 d:\bitbucket\practicafinal\dfa.h
+1544190242 d:\bitbucket\practicafinal\dfa.h
 	<set>
 	<iostream>
 	<string>
 
-1544174573 d:\bitbucket\practicafinal\pda.h
+1544190345 d:\bitbucket\practicafinal\pda.h
 	<string>
 	<stack>
 	"Alphabet.h"
@@ -46,7 +46,7 @@
 1544174573 source:d:\bitbucket\practicafinal\alphabet.cpp
 	"Alphabet.h"
 
-1544174573 source:d:\bitbucket\practicafinal\dfa.cpp
+1544190281 source:d:\bitbucket\practicafinal\dfa.cpp
 	"DFA.h"
 
 1544178595 source:d:\bitbucket\practicafinal\matrix.cpp
@@ -54,7 +54,7 @@
 	<vector>
 	"Matrix.h"
 
-1544174573 source:d:\bitbucket\practicafinal\pda.cpp
+1544190326 source:d:\bitbucket\practicafinal\pda.cpp
 	"PDA.h"
 	"Alphabet.h"
 
