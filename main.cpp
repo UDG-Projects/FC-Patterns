@@ -28,12 +28,13 @@ int main()
         string firstPattern1D = matrixA.toString();
         string secondPattern1D = matrixB.toString();
 
+        cout << firstPattern1D << endl;
+        cout << secondPattern1D << endl;
+
         DFA dfa;
+
         int firstPatternDfaResult = dfa.eval(firstPattern1D)? 1 : -1;
         int secondPatternDfaResult = dfa.eval(secondPattern1D)? 1 : -1;
-
-        cout << "DFA: " << firstPatternDfaResult << ", " << secondPatternDfaResult << endl;
-
 
         PDA pda;
         int firstPatternPdaResult = pda.eval(firstPattern1D)? 1 : -1;

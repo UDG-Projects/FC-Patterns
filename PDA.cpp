@@ -56,6 +56,13 @@ bool PDA::eval(string word) {
             }
             else if(symbol == Alphabet::Sigma::PLUS_S){
                 _stack.push(Alphabet::Delta::PLUS_D);
+                 if(symbolNumber == word.size() -1) { // Si estic l'últim symbol del mot...
+                    _actualState = q7;
+                    while(_stack.top() == Alphabet::Delta::PLUS_D){
+                        _stack.pop();
+                    }
+                    return _stack.top() == Alphabet::Delta::DOLLAR;
+                }
             }
             else {
                 _actualState = q2;
