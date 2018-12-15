@@ -32,6 +32,18 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Alphabet.cpp" />
+		<Unit filename="Alphabet.h" />
+		<Unit filename="CMakeLists.txt" />
+		<Unit filename="DFA.cpp" />
+		<Unit filename="DFA.h" />
+		<Unit filename="Matrix.cpp" />
+		<Unit filename="Matrix.h" />
+		<Unit filename="PDA.cpp" />
+		<Unit filename="PDA.h" />
+		<Unit filename="Utils.cpp" />
+		<Unit filename="Utils.h" />
+		<Unit filename="data.txt" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -13,6 +13,9 @@ class Utils {
 
 public:
 
+    static const char L2_PATTERN_DELIMITER;
+    static const char L_PATTERN_DELIMITER;
+
     /**
      * Trnasform a string into a vector splitted with the char delimiter
      * @param patternToSplit string to be divided.
@@ -21,6 +24,13 @@ public:
      */
     static vector<string> split(string patternToSplit, char delimiter);
 
+    /**
+     *
+     * @param nFile
+     * @param l2Delimiter
+     * @param lDelimiter
+     */
+    static string readPatternFromFile(string nFile, char l2Delimiter, char lDelimiter);
 private:
 
 

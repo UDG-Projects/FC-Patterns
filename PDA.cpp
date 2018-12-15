@@ -9,6 +9,9 @@ PDA::PDA(){
     _actualState = q0;
 }
 
+void PDA::init(){
+    _actualState = q0;
+}
 bool PDA::eval(string word) {
 
     // Going from q0 to q1 and adding the delimiter to the stack.
@@ -31,7 +34,8 @@ bool PDA::eval(string word) {
                     while(_stack.top() == Alphabet::Delta::PLUS_D){
                         _stack.pop();
                     }
-                    return _stack.top() == Alphabet::Delta::DOLLAR;
+                    if(_stack.top() == Alphabet::Delta::DOLLAR)
+                        _actualState=q8;
                 }
             }
             else {
@@ -51,11 +55,20 @@ bool PDA::eval(string word) {
                     while(_stack.top() == Alphabet::Delta::PLUS_D){
                         _stack.pop();
                     }
-                    return _stack.top() == Alphabet::Delta::DOLLAR;
+                    if(_stack.top() == Alphabet::Delta::DOLLAR)
+                        _actualState=q8;
                 }
             }
             else if(symbol == Alphabet::Sigma::PLUS_S){
                 _stack.push(Alphabet::Delta::PLUS_D);
+                 if(symbolNumber == word.size() -1) { // Si estic l'últim symbol del mot...
+                    _actualState = q7;
+                    while(_stack.top() == Alphabet::Delta::PLUS_D){
+                        _stack.pop();
+                    }
+                    if(_stack.top() == Alphabet::Delta::DOLLAR)
+                        _actualState=q8;
+                }
             }
             else {
                 _actualState = q2;
@@ -77,7 +90,8 @@ bool PDA::eval(string word) {
                             while(_stack.top() == Alphabet::Delta::PLUS_D){
                                 _stack.pop();
                             }
-                            return _stack.top() == Alphabet::Delta::DOLLAR;
+                            if(_stack.top() == Alphabet::Delta::DOLLAR)
+                                _actualState=q8;
                         }
                     }
                 }
@@ -120,12 +134,13 @@ bool PDA::eval(string word) {
             while(_stack.top() == Alphabet::Delta::PLUS_D){
                 _stack.pop();
             }
-            return _stack.top() == Alphabet::Delta::DOLLAR;
+            if(_stack.top() == Alphabet::Delta::DOLLAR)
+                _actualState=q8;
         }
         else {
             // Do nothing...
         }
         symbolNumber++;
     }
-    return false;
+    return _actualState==q8;
 }

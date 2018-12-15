@@ -26,6 +26,11 @@ public:
      */
     bool eval(string word);
 
+    /**
+     *
+     */
+    void init();
+
 private:
 
     const string q0 = "";

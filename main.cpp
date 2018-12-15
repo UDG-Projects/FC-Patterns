@@ -8,34 +8,56 @@
 using namespace std;
 
 
-string readPatternFromFile(string nFile){
-    string bread = "";
-    string matrix1D = "";
-    ifstream fileIn(nFile);
-    if (fileIn.is_open()) {
-        while(! fileIn.eof()){
-            getline (fileIn,bread);
-            matrix1D+=bread; // versio tota la matriu
-            if(bread == "\0"){
-                matrix1D = matrix1D.substr(0, matrix1D.size() -1);
-                matrix1D += "j";
-            }
-            else {
-                matrix1D+="i";
-            }
-        }
-        fileIn.close();
-        matrix1D = matrix1D.substr(0, matrix1D.size() -1);
-    }
-    // cout << matrix1D << endl;
-    return matrix1D;
-}
-
-
-
 int main()
 {
-    /** DFA WORKS!!! **/
+    //TODO: GET FILENAME FROM CONSOLE INPUT OR ARGUMENTS
+
+    string fileName="data.txt";
+    string pattern1D = Utils::readPatternFromFile(fileName, Utils::L2_PATTERN_DELIMITER, Utils::L_PATTERN_DELIMITER);
+
+    vector<string> splittedMatrix = Utils::split(pattern1D, Utils::L2_PATTERN_DELIMITER);
+    if(splittedMatrix.size()==2){
+        Matrix matrixA = Matrix(splittedMatrix[0], Utils::L_PATTERN_DELIMITER);
+        Matrix matrixB = Matrix(splittedMatrix[1], Utils::L_PATTERN_DELIMITER);
+
+
+        //ALL AUTOMATAS MUST EVAL MINIMAL REPRESENTATION OF THE PATTERNS
+        matrixA.minimize();
+        matrixB.minimize();
+
+        string firstPattern1D = matrixA.toString();
+        string secondPattern1D = matrixB.toString();
+
+        DFA dfa;
+
+        int firstPatternDfaResult = dfa.eval(firstPattern1D)? 1 : -1;
+        dfa.init();
+        int secondPatternDfaResult = dfa.eval(secondPattern1D)? 1 : -1;
+
+        cout << "DFA: " << firstPatternDfaResult << ", " << secondPatternDfaResult << endl;
+
+        PDA pda;
+        int firstPatternPdaResult = pda.eval(firstPattern1D)? 1 : -1;
+        int secondPatternPdaResult = pda.eval(secondPattern1D)? 1 : -1;
+
+        cout << "PDA: " << firstPatternPdaResult << ", " << secondPatternPdaResult << endl;
+
+        int ticks = 0;
+        Matrix estabilizedMatrix;
+        while(!matrixB.equals(matrixA)  &&  !matrixA.equals(estabilizedMatrix)){
+            estabilizedMatrix = matrixA;
+            matrixA.performTick();
+            ticks++;
+        }
+
+        int patternTmResult = matrixB.equals(matrixA)? ticks : -1;
+        cout << "TM: " << patternTmResult << endl;
+
+    }
+
+}
+
+       /** DFA WORKS!!! **/
 //    DFA automata = DFA();
 //    cout << automata.eval("++++-+-+-+-++++") << endl;
 
@@ -47,9 +69,10 @@ int main()
         cout << automata.eval(splittedMatrix[i]) << endl;
     }*/
 
-
+    /** TURING SHOW WORKS!! (CAN BE LOOP) **/
+    /*
     string patterns;
-    patterns = readPatternFromFile("data.txt");
+    patterns = Utils::readPatternFromFile("data.txt");
     vector<string> splittedMatrix = Utils::split(patterns, 'j');
 
     /*for(int i = 0; i< splittedMatrix.size(); i++){
@@ -67,7 +90,7 @@ int main()
         matrix.show();
 
         cout << endl;
-    }*/
+    }
 
     if(splittedMatrix.size()==2){
         Matrix matrixA = Matrix(splittedMatrix[0], 'i');
@@ -76,41 +99,26 @@ int main()
         matrixB.minimize();
         matrixA.show();
         cout<<endl;
-      //  matrixB.show();
+       //  matrixB.show();
 
         int ticks=0;
-        while(!matrixB.equals(matrixA) && ticks<4){
+        Matrix estabilizedMatrix;
+        while(!matrixB.equals(matrixA)  &&  !matrixA.equals(estabilizedMatrix)){
+            estabilizedMatrix = matrixA;
             matrixA.performTick();
             ticks++;
-            matrixA.show();
+
             cout << ticks << endl;
+            matrixA.show();
 
         }
-        //matrixA.show();
 
-    }
-
-
-}
-
-    /*
-    for(int field = 0; field < splittedMatrix.size(); field ++){
-        cout << splittedMatrix[field] <<  endl;
-    }
-    cout << "sdfgasfdgasd" <<  endl;
-
-    vector<vector<string>> allMatrix;
-    for(int field = 0; field < splittedMatrix.size(); field ++){
-        allMatrix.push_back(split(splittedMatrix[field], 'i'));
-    }
-    cout << allMatrix.size() << endl;
-    for(int i = 0; i< allMatrix.size(); i++){
-        cout << "Matriu num " << i << endl;
-        for(int j = 0; j < allMatrix[i].size(); j++){
-            cout << allMatrix[i][j] << endl;
+        if (matrixB.equals(matrixA)){
+            cout << ticks << endl;
         }
+        else
+            cout << -1 << endl;
     }
-    cout << endl;
 
-}
-*/
+    */
+

@@ -23,6 +23,10 @@ public:
      */
     bool eval(string word);
 
+    /**
+     *
+     */
+    void init();
 
 private:
 
@@ -41,10 +45,10 @@ private:
     const string q11 = "3+";
     const string q12 = "3-+";
     const string q13 = "3a";
-    const string q14 = "+";
-    const string q15 = "++";
-    const string q16 = "+++";
-    const string q17 = "++++";
+    const string q14 = "+2";
+    const string q15 = "++2";
+    const string q16 = "+++2";
+    const string q17 = "++++2";
 
     /** Attribute actual state to save where the machine is. **/
     string _actualState;
