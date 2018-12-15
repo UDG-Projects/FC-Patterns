@@ -37,11 +37,10 @@ private:
     const string q1 = "buida";
     const string q2 = "trec +";
     const string q3 = "top +";
-    const string q4 = "pila buida";
+    const string q4 = "on soc";
     const string q5 = "top -";
     const string q6 = "push -";
-    const string q7 = "pop +";
-    const string q8 = "final";
+
 
     /** Store the actual state */
     string _actualState;

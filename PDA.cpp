@@ -29,14 +29,6 @@ bool PDA::eval(string word) {
             else if(symbol == Alphabet::Sigma::PLUS_S){
                 _actualState = q3;
                 _stack.push(Alphabet::Delta::PLUS_D);
-                if(_stack.top() == Alphabet::Delta::PLUS_D && symbolNumber == word.size() -1) { // Si estic l'últim symbol del mot...
-                    _actualState = q7;
-                    while(_stack.top() == Alphabet::Delta::PLUS_D){
-                        _stack.pop();
-                    }
-                    if(_stack.top() == Alphabet::Delta::DOLLAR)
-                        _actualState=q8;
-                }
             }
             else {
                 _actualState = q6;
@@ -50,53 +42,33 @@ bool PDA::eval(string word) {
         }
         else if(_actualState == q3){
             if(symbol == Alphabet::Sigma::ENTER){
-                if(symbolNumber == word.size() -1) { // Si estic l'últim symbol del mot...
-                    _actualState = q7;
-                    while(_stack.top() == Alphabet::Delta::PLUS_D){
-                        _stack.pop();
-                    }
-                    if(_stack.top() == Alphabet::Delta::DOLLAR)
-                        _actualState=q8;
-                }
+               //do nothing
             }
             else if(symbol == Alphabet::Sigma::PLUS_S){
                 _stack.push(Alphabet::Delta::PLUS_D);
-                 if(symbolNumber == word.size() -1) { // Si estic l'últim symbol del mot...
-                    _actualState = q7;
-                    while(_stack.top() == Alphabet::Delta::PLUS_D){
-                        _stack.pop();
-                    }
-                    if(_stack.top() == Alphabet::Delta::DOLLAR)
-                        _actualState=q8;
-                }
             }
             else {
                 _actualState = q2;
                 _stack.pop();
                 if(_stack.top() == Alphabet::Delta::DOLLAR){
-                    _actualState = q4;
+                    _actualState = q6;
                     _stack.push(Alphabet::Delta::MINUS_D);
                     _actualState = q5;
                 }
-                else{
+                else if(_stack.top() == Alphabet::Delta::PLUS_D){
                     _stack.pop();
+                    _actualState = q4;
                     if(_stack.top() == Alphabet::Delta::DOLLAR){
                         _actualState = q1;
                     }
-                    else{
+                    else if(_stack.top() == Alphabet::Delta::PLUS_D){
                         _actualState = q3;
-                        if(symbolNumber == word.size() -1) { // Si estic l'últim symbol del mot...
-                            _actualState = q7;
-                            while(_stack.top() == Alphabet::Delta::PLUS_D){
-                                _stack.pop();
-                            }
-                            if(_stack.top() == Alphabet::Delta::DOLLAR)
-                                _actualState=q8;
-                        }
+                    }
+                    else{
+                        _actualState = q5;
                     }
                 }
             }
-
         }
         else if(_actualState == q4){
             // Epsilon transitions
@@ -107,18 +79,16 @@ bool PDA::eval(string word) {
             }
             else if(symbol == Alphabet::Sigma::PLUS_S){
                 _stack.pop();
-                if(_stack.top() == Alphabet::Delta::MINUS_D){
-                    // DO nothing
-                }
-                else if (_stack.top() == Alphabet::Delta::PLUS_D){
-                    _actualState = q3;
-                    if(symbolNumber == word.size() -1) { // Si estic l'últim symbol del mot...
-                        _actualState = q7;
+                _actualState=q4;
+                 if(_stack.top() == Alphabet::Delta::DOLLAR){
+                        _actualState = q1;
                     }
-                }
-                else{
-                    _actualState = q1;
-                }
+                    else if(_stack.top() == Alphabet::Delta::PLUS_D){
+                        _actualState = q3;
+                    }
+                    else{
+                        _actualState = q5;
+                    }
             }
             else {
                 _stack.push(Alphabet::Delta::MINUS_D);
@@ -130,17 +100,10 @@ bool PDA::eval(string word) {
         else if(_actualState == q6){
             // Epsilon transitions
         }
-        else if(_actualState == q7){
-            while(_stack.top() == Alphabet::Delta::PLUS_D){
-                _stack.pop();
-            }
-            if(_stack.top() == Alphabet::Delta::DOLLAR)
-                _actualState=q8;
-        }
         else {
             // Do nothing...
         }
         symbolNumber++;
     }
-    return _actualState==q8;
+    return _actualState == q3;
 }
