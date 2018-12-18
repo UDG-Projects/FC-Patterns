@@ -13,6 +13,13 @@
 \usepackage{amssymb}
 \usepackage{keystroke}
 \usepackage{tikz}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
 
 
 \newtheorem{definition}{Definition} 
@@ -116,7 +123,7 @@ Es defineixen una série de noms que seran utilitzats al llarc de la pràctica p
 
 \section{Definició del context}
 
-Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la Secció 3.Patrons[2]. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, veure [2].
+Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la Secció 3.Patrons[1]. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, veure [1].
 
 \textbf{Fem les següents afirmacions sobre \pre{} :}
 \begin{itemize}
@@ -129,7 +136,7 @@ Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'es
 \item retorna True quan \dfa{} Accepta \w{} $\leftrightarrow$ $\exists$ \llesca{} $\in$ $P$ que compleix PIP.
 \item retorna False quan $\nexists$ \llesca{} $\in$ $P$ que compleix PIP. 
 \end{itemize}
-on : PIP és la propietat dels patrons implícits parcials definida a [2] apartat 3.3.1. 
+on : PIP és la propietat dels patrons implícits parcials definida a [1] apartat 3.3.1. 
 
 \section{Dissenyant el nostre autòmata finit}
 
@@ -574,70 +581,475 @@ q17   & q17 & q17 & q17 \\
 
 \end{center}
 
+\section{Operacions regulars amb autòmates}
 
-\begin{multicols}{2}
-\end{multicols}
+La definició 1.23 del llibre parla sobre les operacions que es poden realitzar sobre autòmates finits deterministes. En el nostre cas s’ha emprat una tècnica de construcció per el disseny de l’autòmata peró es podria emprar una construcció de subautòmates i mitjançant la concatenació dels mateixos (representada amb el caràcter $\bullet$ ) construïr el nostre \dfa{}. Hi ha hagut intents de la creació de l’autòmata mitjançant concatenació dels autòmates \dfa$_1$ i \dfa$_2$ intentant dividir el problema en : 
 
+\begin{center}
+\dfa$_1$ $=$ 4+
+\end{center}
 
+\begin{center}
+\dfa$_2$ $=$ 3aïllades
+\end{center}
 
+on: 
 
+\begin{center}
+4+ $\bullet$ 3aïllades $\bullet$ 4+
+\end{center}
 
+No s’ha seguit per la complexitat de tractar la funcionalitat del RESET, en el cas hipotètic que haguéssim presentat aquest tipus de construcció haguéssim derivat a el conjunt {\dfa$_1$, \dfa$_2$} que concatenat mitjançant l'ús d'un autòmata finit indeterminista s'hauria pogut agrupar en \nfa{}.
 
+\section{Minimització de \dfa{}}
 
+L’objectiu d’aquesta secció és cercar el \dfa{} mínim partint del \dfa{}.
 
+\textbf{Considerem que dos estats fan el mateix si i només si el resultat de les transicions és el mateix considerant tots els símbols de l’alfabet. }
 
+L'idea de la minimització parteix de la fusió d'estats. Podem trobar explicats els processos de minimització al document [3]. Podem utilitzar la manera manual aplicant l'algoritme de Hopcroft, o bé, podem obtar per utilitzar UTM.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+En aquest cas utilitzem l’algoritme de HopCroft per a la seva minimització implementant una matriu que ens permeti detectar les repeticions de les transicions donadat un estat. 
 
 
+\begin{center}
+\textbf{El nostre autòmata és mínim.}
+\end{center}
 
 
+\begin{table}[ht]
+\caption{\label{tab:table-name} Passos de $PI0$ - $PI2$}
+\centering
+\begin{tabular}{ l l l l l l l l l l l l l l l l l l l l}
+\hline
+\hline
+T      &   & + & - & E & PI0 & + & - & E & PI1 & + & - & E & PI2 &  &  &  &  &  &  \\ \hline
+INICI  & A & B & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
++      & B & C & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+++     & C & D & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
++++    & D & E & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+++++   & E & E & F & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+1CA-   & F & G & F & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+1CA+   & G & E & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+1/2CA- & H & J & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+BR     & I & I & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+2CA+   & J & I & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+2/3CA- & K & M & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+BR2    & L & L & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+3CA+   & M & L & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+3CA-   & N & O & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+d+     & O & P & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+d++    & P & Q & N & A & 1   & 1 & 1 & 1 & 1   & 3 & 1 & 1 & 4   &  &  &  &  &  &  \\
+d+++   & Q & R & N & A & 1   & 2 & 1 & 1 & 3   & 2 & 1 & 1 & 3   &  &  &  &  &  &  \\
+d++++  & R & R & R & R & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  \\
+       &   &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  \\ 
+       \hline
+\end{tabular}
+\end{table}
 
 
+\begin{table}[ht]
+\caption{\label{tab:table-name} Passos de $PI3$ - $PI5$}
+\centering
+\begin{tabular}{ l l l l l l l l l l l l l l l l l l l l }
+\hline
+\hline
+T      & + & - & E & PI3 & + & - & E & PI4 & + & - & E & PI5 &  &  &  &  &  &  &  \\ \hline
+INICI  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
++      & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+++     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
++++    & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+++++   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+1CA-   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+1CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+1/2CA- & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+BR     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+2CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+2/3CA- & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+BR2    & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+3CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 6 & 1 & 7   &  &  &  &  &  &  &  \\
+3CA-   & 1 & 1 & 1 & 1   & 5 & 1 & 1 & 6   & 5 & 6 & 1 & 6   &  &  &  &  &  &  &  \\
+d+     & 4 & 1 & 1 & 5   & 4 & 1 & 1 & 5   & 4 & 6 & 1 & 5   &  &  &  &  &  &  &  \\
+d++    & 3 & 1 & 1 & 4   & 3 & 1 & 1 & 4   & 3 & 6 & 1 & 4   &  &  &  &  &  &  &  \\
+d+++   & 2 & 1 & 1 & 3   & 2 & 1 & 1 & 3   & 2 & 6 & 1 & 3   &  &  &  &  &  &  &  \\
+d++++  & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &  \\
+       &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  &  \\ 
+       \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{\label{tab:table-name} Passos de $PI9$ - $PI11$}
+\centering
+\begin{tabular}{ l l l l l l l l l l l l l l l l l l l l }
+\hline
+\hline
+T      & + & - & E & PI6 & + & - & E & PI7 & + & - & E & PI8 &  &  &  &  &  &  &  \\ \hline
+INICI  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
++      & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+++     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
++++    & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+++++   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+1CA-   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+1CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+1/2CA- & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 9 & 1 & 1 & 11  &  &  &  &  &  &  &  \\
+BR     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+2CA+   & 1 & 1 & 1 & 1   & 1 & 8 & 1 & 9   & 1 & 8 & 1 & 9   &  &  &  &  &  &  &  \\
+2/3CA- & 7 & 1 & 1 & 8   & 7 & 8 & 1 & 8   & 7 & 8 & 1 & 8   &  &  &  &  &  &  &  \\
+BR2    & 1 & 1 & 1 & 1   & 1 & 8 & 1 & 9   & 9 & 8 & 1 & 10  &  &  &  &  &  &  &  \\
+3CA+   & 1 & 6 & 1 & 7   & 1 & 6 & 1 & 7   & 9 & 6 & 1 & 7   &  &  &  &  &  &  &  \\
+3CA-   & 5 & 6 & 1 & 6   & 5 & 6 & 1 & 6   & 5 & 6 & 1 & 6   &  &  &  &  &  &  &  \\
+d+     & 4 & 6 & 1 & 5   & 4 & 6 & 1 & 5   & 4 & 6 & 1 & 5   &  &  &  &  &  &  &  \\
+d++    & 3 & 6 & 1 & 4   & 3 & 6 & 1 & 4   & 3 & 6 & 1 & 4   &  &  &  &  &  &  &  \\
+d+++   & 2 & 6 & 1 & 3   & 2 & 6 & 1 & 3   & 2 & 6 & 1 & 3   &  &  &  &  &  &  &  \\
+d++++  & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &  \\
+       &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  &  \\
+       \hline
+\end{tabular}
+\end{table}
 
 
+\begin{table}[ht]
+\caption{\label{tab:table-name} Passos de $PI12$ - $PI14$}
+\centering
+\begin{tabular}{ l l l l l l l l l l l l l l l l l l l l }
+\hline
+\hline
+T      & +  & -  & E & PI9 & +  & -  & E & PI10 & +  & -  & E & PI11 &  &  &  &  &  &  &  \\ \hline
+INICI  & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
++      & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
+++     & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
++++    & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
+++++   & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 14 & 1 & 15   &  &  &  &  &  &  &  \\
+1CA-   & 1  & 1  & 1 & 1   & 12 & 1  & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  \\
+1CA+   & 1  & 11 & 1 & 12  & 1  & 11 & 1 & 12   & 1  & 11 & 1 & 12   &  &  &  &  &  &  &  \\
+1/2CA- & 9  & 11 & 1 & 11  & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  \\
+BR     & 1  & 11 & 1 & 12  & 12 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  \\
+2CA+   & 1  & 8  & 1 & 9   & 12 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  \\
+2/3CA- & 7  & 8  & 1 & 8   & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  \\
+BR2    & 10 & 8  & 1 & 10  & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  \\
+3CA+   & 10 & 6  & 1 & 7   & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  \\
+3CA-   & 5  & 6  & 1 & 6   & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  \\
+d+     & 4  & 6  & 1 & 5   & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  \\
+d++    & 3  & 6  & 1 & 4   & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  \\
+d+++   & 2  & 6  & 1 & 3   & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  \\
+d++++  & 2  & 2  & 2 & 2   & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  \\
+       &    &    &   &     &    &    &   &      &    &    &   &      &  &  &  &  &  &  & \\
+       \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{\label{tab:table-name} Passos de $PI15$ - $PI16$}
+\centering
+\begin{tabular}{ l l l l l l l l l l l l l l l l l l l l }
+\hline
+\hline
+T      & +  & -  & E & PI12 & +  & -  & E & PI13 & +  & -  & E & PI14 &  &  &  &  &  &  &  \\ \hline
+INICI  & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
++      & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    & 17 & 1  & 1 & 18   &  &  &  &  &  &  &  \\
+++     & 1  & 1  & 1 & 1    & 16 & 1  & 1 & 17   & 16 & 1  & 1 & 17   &  &  &  &  &  &  &  \\
++++    & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   &  &  &  &  &  &  &  \\
+++++   & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   &  &  &  &  &  &  &  \\
+1CA-   & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  \\
+1CA+   & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   &  &  &  &  &  &  &  \\
+1/2CA- & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  \\
+BR     & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  \\
+2CA+   & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  \\
+2/3CA- & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  \\
+BR2    & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  \\
+3CA+   & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  \\
+3CA-   & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  \\
+d+     & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  \\
+d++    & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  \\
+d+++   & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  \\
+d++++  & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  \\
+       &    &    &   &      &    &    &   &      &    &    &   &      &  &  &  &  &  &  & \\
+       \hline
+\end{tabular}
+\end{table}
 
 
-
-Un exemple de llesca horitzontal que compleix el patró : 
-
-\begin{lstlisting}[columns=fullflexible]
-++++-+-+-+-++++ 
-\end{lstlisting}
-
-Un exemple de llesca horitzontal que no compleix el patró : 
-
-\begin{lstlisting}[columns=fullflexible]
-++++-+---+-++++ 
-\end{lstlisting}
+\begin{table}[ht]
+\caption{\label{tab:table-name} Passos de $PI0$ - $PI2$}
+\centering
+\begin{tabular}{ l l l l l l l l l l l l l l l l l l l l }
+\hline
+\hline
+T      & +  & -  & E & PI15 & +  & -  & E & PI16 &  &  &  &  &  &  &  &  &  &  &  \\
+INICI  & 18 & 1  & 1 & 1    & 18 & 1  & 1 & 1    &  &  &  &  &  &  &  &  &  &  &  \\
++      & 17 & 1  & 1 & 18   & 17 & 1  & 1 & 18   &  &  &  &  &  &  &  &  &  &  &  \\
+++     & 16 & 1  & 1 & 17   & 16 & 1  & 1 & 17   &  &  &  &  &  &  &  &  &  &  &  \\
++++    & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   &  &  &  &  &  &  &  &  &  &  &  \\
+++++   & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   &  &  &  &  &  &  &  &  &  &  &  \\
+1CA-   & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  &  &  &  &  \\
+1CA+   & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   &  &  &  &  &  &  &  &  &  &  &  \\
+1/2CA- & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  &  &  &  &  \\
+BR     & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  &  &  &  &  \\
+2CA+   & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  &  &  &  &  \\
+2/3CA- & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  &  &  &  &  \\
+BR2    & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  &  &  &  &  \\
+3CA+   & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  &  &  &  &  \\
+3CA-   & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  &  &  &  &  \\
+d+     & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  &  &  &  &  \\
+d++    & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  &  &  &  &  \\
+d+++   & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  &  &  &  &  \\
+d++++  & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+       &    &    &   &      &    &    &   &      &  &  &  &  &  &  &  &  &  &  &  \\
+       \hline
+\end{tabular}
+\end{table}
 
 \clearpage
 
-\textcolor{red}{Exemple de codi incrustat en latex}
+\section{NFA (Nondeterministic finit automata)}
 
-\lstinputlisting[language=C++, caption=Matrix example]{Matrix.cpp}
+L’equivalència de NFA i DFA està demostrada al capítol 1.2 del llibre [1], donat un autòmata NFA existeix un DFA equivalent. Per equivalència entenem que ambdós reconeixen el mateix llenguatge, en aquest cas el llenguatge L(\dfa{}). 
+
+Definim doncs \nfa{} com l’autòmata finit indeterminista equivalent a \dfa{}.
+
+\subsection{Disseny de \nfa{}}
+
+Dissenyem ANFA, en aquest cas ens convé només cercar el camí que ens porta directes a QAccept. Directament tracem un camí acceptador i el modifiquem per que es comporti de manera correcte afegint les branques indeterministes oportunes. 
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (6.2,-11.8) circle (3);
+\draw (6.2,-11.8) node {$q0$};
+\draw [black] (16.6,-11.7) circle (3);
+\draw (16.6,-11.7) node {$q1$};
+\draw [black] (26.2,-11.7) circle (3);
+\draw (26.2,-11.7) node {$q2$};
+\draw [black] (35.2,-11.7) circle (3);
+\draw (35.2,-11.7) node {$q3$};
+\draw [black] (44.3,-11.7) circle (3);
+\draw (44.3,-11.7) node {$q4$};
+\draw [black] (53.5,-11.7) circle (3);
+\draw (53.5,-11.7) node {$q5$};
+\draw [black] (63.3,-11.7) circle (3);
+\draw (63.3,-11.7) node {$q6$};
+\draw [black] (63.3,-21.1) circle (3);
+\draw (63.3,-21.1) node {$q7$};
+\draw [black] (52.2,-25.5) circle (3);
+\draw (52.2,-25.5) node {$q8$};
+\draw [black] (64,-31.2) circle (3);
+\draw (64,-31.2) node {$q9$};
+\draw [black] (45.5,-31.2) circle (3);
+\draw (45.5,-31.2) node {$q10$};
+\draw [black] (35.8,-31.2) circle (3);
+\draw (35.8,-31.2) node {$q11$};
+\draw [black] (29,-22.3) circle (3);
+\draw (29,-22.3) node {$q12$};
+\draw [black] (20.8,-31.2) circle (3);
+\draw (20.8,-31.2) node {$q13$};
+\draw [black] (7.9,-31.2) circle (3);
+\draw (7.9,-31.2) node {$q14$};
+\draw [black] (7.9,-41.7) circle (3);
+\draw (7.9,-41.7) node {$q15$};
+\draw [black] (18.9,-41.7) circle (3);
+\draw (18.9,-41.7) node {$q16$};
+\draw [black] (30.7,-41.7) circle (3);
+\draw (30.7,-41.7) node {$q17$};
+\draw [black] (42.1,-41.7) circle (3);
+\draw (42.1,-41.7) node {$q18$};
+\draw [black] (52.2,-41.7) circle (3);
+\draw (52.2,-41.7) node {$q19$};
+\draw [black] (52.2,-41.7) circle (2.4);
+\draw [black] (4.877,-9.12) arc (234:-54:2.25);
+\draw (6.2,-4.55) node [above] {$-,+,i,\epsilon$};
+\fill [black] (7.52,-9.12) -- (8.4,-8.77) -- (7.59,-8.18);
+\draw [black] (9.2,-11.77) -- (13.6,-11.73);
+\fill [black] (13.6,-11.73) -- (12.8,-11.24) -- (12.8,-12.24);
+\draw (11.4,-12.26) node [below] {$+$};
+\fill [black] (0,-11.7) -- (2.5,-11.7);
+\fill [black] (3.2,-11.7) -- (2.4,-11.2) -- (2.4,-12.2);
+\draw [black] (19.6,-11.7) -- (23.2,-11.7);
+\fill [black] (23.2,-11.7) -- (22.4,-11.2) -- (22.4,-12.2);
+\draw (21.4,-12.2) node [below] {$+$};
+\draw [black] (29.2,-11.7) -- (32.2,-11.7);
+\fill [black] (32.2,-11.7) -- (31.4,-11.2) -- (31.4,-12.2);
+\draw (30.7,-12.2) node [below] {$+$};
+\draw [black] (38.2,-11.7) -- (41.3,-11.7);
+\fill [black] (41.3,-11.7) -- (40.5,-11.2) -- (40.5,-12.2);
+\draw (39.75,-12.2) node [below] {$+$};
+\draw [black] (42.977,-9.02) arc (234:-54:2.25);
+\draw (44.3,-4.45) node [above] {$+,-$};
+\fill [black] (45.62,-9.02) -- (46.5,-8.67) -- (45.69,-8.08);
+\draw [black] (47.3,-11.7) -- (50.5,-11.7);
+\fill [black] (50.5,-11.7) -- (49.7,-11.2) -- (49.7,-12.2);
+\draw (48.9,-12.2) node [below] {$-$};
+\draw [black] (56.5,-11.7) -- (60.3,-11.7);
+\fill [black] (60.3,-11.7) -- (59.5,-11.2) -- (59.5,-12.2);
+\draw (58.4,-12.2) node [below] {$+$};
+\draw [black] (63.3,-14.7) -- (63.3,-18.1);
+\fill [black] (63.3,-18.1) -- (63.8,-17.3) -- (62.8,-17.3);
+\draw (62.8,-16.4) node [left] {$-$};
+\draw [black] (63.51,-24.09) -- (63.79,-28.21);
+\fill [black] (63.79,-28.21) -- (64.24,-27.37) -- (63.24,-27.44);
+\draw (63.05,-26.19) node [left] {$\epsilon$};
+\draw [black] (60.51,-22.21) -- (54.99,-24.39);
+\fill [black] (54.99,-24.39) -- (55.92,-24.56) -- (55.55,-23.63);
+\draw (57.01,-22.79) node [above] {$\epsilon$};
+\draw [black] (50.587,-22.984) arc (240.4032:-47.5968:2.25);
+\draw (51.07,-18.15) node [above] {$+,-$};
+\fill [black] (53.22,-22.69) -- (54.05,-22.24) -- (53.18,-21.75);
+\draw [black] (54.9,-26.8) -- (61.3,-29.9);
+\fill [black] (61.3,-29.9) -- (60.8,-29.1) -- (60.36,-30);
+\draw (57.28,-28.85) node [below] {$-$};
+\draw [black] (61.276,-32.45) arc (-69.87784:-110.12216:18.97);
+\fill [black] (48.22,-32.45) -- (48.8,-33.19) -- (49.15,-32.26);
+\draw (54.75,-34.11) node [below] {$+$};
+\draw [black] (42.5,-31.2) -- (38.8,-31.2);
+\fill [black] (38.8,-31.2) -- (39.6,-31.7) -- (39.6,-30.7);
+\draw (40.65,-30.7) node [above] {$-$};
+\draw [black] (33.98,-28.82) -- (30.82,-24.68);
+\fill [black] (30.82,-24.68) -- (30.91,-25.62) -- (31.7,-25.02);
+\draw (32.97,-25.35) node [right] {$\epsilon$};
+\draw [black] (32.8,-31.2) -- (23.8,-31.2);
+\fill [black] (23.8,-31.2) -- (24.6,-31.7) -- (24.6,-30.7);
+\draw (28.3,-30.7) node [above] {$\epsilon$};
+\draw [black] (17.8,-31.2) -- (10.9,-31.2);
+\fill [black] (10.9,-31.2) -- (11.7,-31.7) -- (11.7,-30.7);
+\draw (14.35,-30.7) node [above] {$+$};
+\draw [black] (30.465,-19.696) arc (178.36885:-109.63115:2.25);
+\draw (35.17,-17.14) node [right] {$+,-$};
+\fill [black] (31.96,-21.88) -- (32.74,-22.4) -- (32.77,-21.4);
+\draw [black] (26.97,-24.51) -- (22.83,-28.99);
+\fill [black] (22.83,-28.99) -- (23.74,-28.74) -- (23.01,-28.07);
+\draw (24.37,-25.29) node [left] {$-$};
+\draw [black] (7.9,-34.2) -- (7.9,-38.7);
+\fill [black] (7.9,-38.7) -- (8.4,-37.9) -- (7.4,-37.9);
+\draw (7.4,-36.45) node [left] {$-$};
+\draw [black] (7.941,-44.688) arc (28.51765:-259.48235:2.25);
+\draw (3.37,-48.3) node [below] {$+,-$};
+\fill [black] (5.55,-43.55) -- (4.61,-43.49) -- (5.09,-44.37);
+\draw [black] (10.9,-41.7) -- (15.9,-41.7);
+\fill [black] (15.9,-41.7) -- (15.1,-41.2) -- (15.1,-42.2);
+\draw (13.4,-42.2) node [below] {$+$};
+\draw [black] (21.9,-41.7) -- (27.7,-41.7);
+\fill [black] (27.7,-41.7) -- (26.9,-41.2) -- (26.9,-42.2);
+\draw (24.8,-42.2) node [below] {$+$};
+\draw [black] (33.7,-41.7) -- (39.1,-41.7);
+\fill [black] (39.1,-41.7) -- (38.3,-41.2) -- (38.3,-42.2);
+\draw (36.4,-42.2) node [below] {$+$};
+\draw [black] (45.1,-41.7) -- (49.2,-41.7);
+\fill [black] (49.2,-41.7) -- (48.4,-41.2) -- (48.4,-42.2);
+\draw (47.15,-42.2) node [below] {$+$};
+\draw [black] (54.503,-39.796) arc (157.30497:-130.69503:2.25);
+\draw (59.52,-39.73) node [right] {$+,-,i$};
+\fill [black] (55.11,-42.37) -- (55.66,-43.14) -- (56.04,-42.22);
+\end{tikzpicture}
+\end{center}
+
+
+\section{Definició formal de \nfa{}}
+
+Definim formalment el nostre autòmata. 
+
+\begin{center}
+	\dfa $=$ \{Q, $\Sigma{}$*, $\delta$, q0, q19\}
+\end{center}
+
+\begin{itemize}
+\item \textbf{Q} = \{q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19\}
+\item $\Sigma$* $=$ \{ + , - , \Return{} , $\epsilon$ \}
+\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ P(Q) on P(Q) son possibles subconjunts de Q 
+\item q0 $\in{}$ Q
+\item q19 $\subseteq{}$ Q
+\end{itemize}
+
+
+\subsection{Representació taula $\delta$}
+
+\begin{center}
+\begin{table}[ht]
+\caption{\label{tab:table-name} $\delta$ table}
+\centering
+\begin{tabular}{ l l l l l l l l l l l l l l l l l l l l }
+\hline
+\hline
+State & +           & -           & \Return & $\epsilon$              &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+q0    & \{q0,q1\}   & \{q0\}      & \{q0\}                 & \{q0\}                  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q1    & \{q2\}      & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q2    & \{q3\}      & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q3    & \{q4\}      & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q4    & \{q4\}      & \{q4,q5\}   & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q5    & \{q6\}      & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q6    & $\emptyset$ & \{q7\}      & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q7    & $\emptyset$ & $\emptyset$ & $\emptyset$            & \{q8,q9\}               &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q8    & \{q8\}      & \{q8,q9\}   & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q9    & \{q10\}     & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q10   & $\emptyset$ & \{q11\}     & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q11   & $\emptyset$ & $\emptyset$ & $\emptyset$            & \{q12,q13\}             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q12   & \{q12\}     & \{q12,q13\} & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q13   & \{q14\}     & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q14   & $\emptyset$ & \{q15\}     & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q15   & \{q15,q16\} & \{q15\}     & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q16   & \{q17\}     & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q17   & \{q18\}     & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q18   & \{q19\}     & $\emptyset$ & $\emptyset$            & $\emptyset$             &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+q19   & \{q19\}     & \{q19\}     & \{q19\}                & $\emptyset$ &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\ \hline
+
+\end{tabular}
+\end{table}
+
+\end{center}
+
+\clearpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \chapter{Push-Down Automata}
 
 \chapter{Turing Machine}
+
+
+
+\begin{multicols}{2}
+\end{multicols}
+
+
 
 \begin{thebibliography}{9}
 \bibitem{FC} 
@@ -646,7 +1058,15 @@ Fundamental of Computation - Michael Sipser
 \bibitem{patterns}
 \hyperlink{http://ima.udg.edu/~rigau/FC/FC_patterns.pdf}{Problema Patterns (i.e., Cerca de Patrons) - Jaume Rigau} 
 
+\bibitem{Hopcroft}
+\hyperlink{http://ima.udg.edu/~rigau/FC/MFAP.pdf}{Lexical analisys - part 4}
+
+\bibitem{Manual UTM}
+\hyperlink{http://ima.udg.edu/~rigau/FC/utm_read_me.pdf}{Universal Turing Machine - Manual}
+
 \end{thebibliography}
 
 \printindex
 \end{document}
+
+
