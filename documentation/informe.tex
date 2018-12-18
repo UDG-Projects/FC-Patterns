@@ -533,16 +533,17 @@ Definim formalment el nostre autòmata.
 \end{center}
 
 \begin{itemize}
-\item \textbf{Q} = \{Q0,Q1,Q2,Q3,Q4Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17\}
+\item \textbf{Q} = \{q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17\}
 \item $\Sigma$* $=$ \{ + , - , \Return{} , $\epsilon$ \}
-\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ Q Represented by : 
+\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ Q 
 \item q0 $\in{}$ Q
 \item q17 $\subseteq{}$ Q
 \end{itemize}
 
-\subsection{$\delta$ table representation}
+\subsection{Representació taula $\delta$}
 
-\begin{table}[]
+\begin{center}
+\begin{table}[ht]
 \caption{\label{tab:table-name} $\delta$ table}
 \centering
 \begin{tabular}{ c c c c }
@@ -571,7 +572,7 @@ q17   & q17 & q17 & q17 \\
 \end{tabular}
 \end{table}
 
-
+\end{center}
 
 
 \begin{multicols}{2}

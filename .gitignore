@@ -3,6 +3,8 @@
 bin/
 obj/
 
+cmake-build-debug/
+
 *.iml
 *.xml
 CMakeLists.txt

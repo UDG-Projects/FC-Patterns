@@ -42,15 +42,28 @@ int main()
 
         cout << "PDA: " << firstPatternPdaResult << ", " << secondPatternPdaResult << endl;
 
+        int entrada = 0;
+
         int ticks = 0;
         Matrix estabilizedMatrix;
         while(!matrixB.equals(matrixA)  &&  !matrixA.equals(estabilizedMatrix)){
             estabilizedMatrix = matrixA;
             matrixA.performTick();
+            matrixA.show();
+            cout << endl;
             ticks++;
         }
 
+
+        cout << "Mostrem MATRIX A : " << endl;
+        matrixA.show();
+
+        cout << "Mostrem MATRIX B : " << endl;
+        matrixB.show();
+
+
         int patternTmResult = matrixB.equals(matrixA)? ticks : -1;
+        cout << "T = " << ticks << endl;
         cout << "TM: " << patternTmResult << endl;
 
     }
