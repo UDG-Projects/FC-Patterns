@@ -46,10 +46,13 @@ int main()
 
         int ticks = 0;
         Matrix estabilizedMatrix;
-        while(!matrixB.equals(matrixA)  &&  !matrixA.equals(estabilizedMatrix)){
+        Matrix window3OscilationMatrix;
+        while(!matrixB.equals(matrixA)  &&  !matrixA.equals(estabilizedMatrix) && !matrixA.equals(window3OscilationMatrix)){
+            window3OscilationMatrix = estabilizedMatrix;
             estabilizedMatrix = matrixA;
             matrixA.performTick();
             matrixA.show();
+            cout << "TICK = " << ticks << endl;
             cout << endl;
             ticks++;
         }
