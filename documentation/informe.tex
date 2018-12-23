@@ -8,7 +8,7 @@
 \usepackage{imakeidx}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
-\usepackage{fancybox, calc} 
+\usepackage{fancybox, calc}
 \usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{keystroke}
@@ -22,10 +22,10 @@
  }
 
 
-\newtheorem{definition}{Definition} 
+\newtheorem{definition}{Definition}
 
 \makeindex
-\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{} 
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{}
 
 % Definició dels colors ---------------------------------------------
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -33,43 +33,57 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-% Definició de l'estil del codi 
+% Definició de l'estil del codi
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
-\lstset{style=mystyle}
+\lstset{
+style=mystyle,
+columns=flexible,	
+breaklines=true,
+inputencoding=utf8}
 
 
-% VARIABLES 
+% VARIABLES
 \def \w{$\omega$}
 \def \dfa{$FXBP_{DFA} $}
 \def \alphabetDFA{$\Sigma$*\dfa}
+\def \alphabetPDA{$\Sigma$*\pda}
 \def \nfa{$FXBP_{NFA} $}
-\def \pfa{$GGR_{PDA} $}
+\def \mfa{$FXBP_{MDFA} $}
+\def \wdfa{$\sigma_{DFA} $}
+\def \wpda{$\sigma_{PDA} $}
+\def \re{$FXBP_{RE} $}
+\def \rg{$FXBP_{rg} $}
+\def \cfg{$CFG$}
+\def \pdaCFG{$GGRCFG{PDA} $}
+\def \pda{$GGR_{PDA} $}
 \def \tm{$MSP_{TM} $}
 \def \context{$\Phi$}
 \def \contextDFA{$\Phi_{DFA}$}
+\def \contextPDA{$\Phi_{PDA}$}
 \def \pre{$\Upsilon$}
 \def \preDFA{$\Upsilon_{DFA}$}
+\def \prePDA{$\Upsilon_{PDA}$}
 \def \post{$\Psi$}
 \def \postDFA{$\Psi_{DFA}$}
+\def \postPDA{$\Psi_{PDA}$}
 \def \llesca{$\gamma$}
-
 
 \begin{document}
 
@@ -86,7 +100,7 @@
 	{\Large\itshape Francesc Xavier Bullich Parra\par}
 	{\Large\itshape Gil Gassó Rovira\par}
 	{\Large\itshape Marc Sànchez Pifarré\par}
-			
+
 	\vfill
 	Tutor de la pràctica\par
 	Jaume Rigau
@@ -107,16 +121,21 @@
 
 \section{Definicions}
 
-Es defineixen una série de noms que seran utilitzats al llarc de la pràctica per ajudar a la simplificació i l'enteniment de la mateixa. 
+Es defineixen una série de noms que seran utilitzats al llarc de la pràctica per ajudar a la simplificació i l'enteniment de la mateixa.
 
 \begin{itemize}
 \item Definim \dfa{} com l’autòmata finit determinista capaç de reconéixer el llenguatge L(\dfa{}).
 \item Definim L (\dfa{}) com el conjunt infinit de mots \w{} que accepta \dfa{}
-\item Definim \w{} com un mot tal que \w{} $\in$ L(\dfa{})
+\item Definim \wdfa{} com un mot tal que \wdfa{} $\in$ L(\dfa{})
 \item Definim \alphabetDFA{} com el conjunt de símbols amb el que es construeix el llenguatge L(\dfa{})
-\item Definim context \context{} com l’escenari ideal en el que l’autòmata a dissenyar es comportarà de manera correcta, \context{} = < \pre{}, \post{} >  
-\item Definim \pre{} com la precondició que s'ha de complir al utilitzar els nostres autòmates. 
+\item Definim context \context{} com l’escenari ideal en el que l’autòmata a dissenyar es comportarà de manera correcta, \context{} = < \pre{}, \post{} >
+\item Definim \pre{} com la precondició que s'ha de complir al utilitzar els nostres autòmates.
 \item Definim \post{} com la postcondició de l'autómata.
+\item Definim \pda{} com l'autòmata de Pila capaç de reconèixer el llenguatge L(\pda{}).
+\item Definim L(\pda{}) com el conjunt finit de mots $\sigma$ que accepta \pda{}.
+\item Definim \wpda{} com un mot del llenguatge L(\pda{}).
+\item Definim \alphabetPDA{} com el conjunt de símbols amb el que es construeix el llenguatge L(\pda).
+
 \end{itemize}
 
 \chapter{Autòmata Finit}
@@ -125,43 +144,43 @@ Es defineixen una série de noms que seran utilitzats al llarc de la pràctica p
 
 Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la Secció 3.Patrons[1]. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, veure [1].
 
-\textbf{Fem les següents afirmacions sobre \pre{} :}
+\textbf{Fem les següents afirmacions sobre \preDFA{} :}
 \begin{itemize}
-\item \w{} $\in$ $P_0$ $\wedge$ $P_0$ $\in$ $P$
-\item \llesca{} com a llesca continguda dins d'un $P$ on \llesca{} $\in$ \w $\vee$ \llesca{} = $\epsilon$
+\item \wdfa{} $\in$ $P_0$ $\wedge$ $P_0$ $\in$ $P$
+\item \llesca{} com a llesca continguda dins d'un $P$ on \llesca{} $\in$ \wdfa $\vee$ \llesca{} = $\epsilon$
 \end{itemize}
 
-\textbf{Fem les següents afirmacions sobre \post{} :}
+\textbf{Fem les següents afirmacions sobre \postDFA{} :}
 \begin{itemize}
-\item retorna True quan \dfa{} Accepta \w{} $\leftrightarrow$ $\exists$ \llesca{} $\in$ $P$ que compleix PIP.
-\item retorna False quan $\nexists$ \llesca{} $\in$ $P$ que compleix PIP. 
+\item retorna True quan \dfa{} Accepta \wdfa{} $\leftrightarrow$ $\exists$ \llesca{} $\in$ $P$ que compleix PIP.
+\item retorna False quan $\nexists$ \llesca{} $\in$ $P$ que compleix PIP.
 \end{itemize}
-on : PIP és la propietat dels patrons implícits parcials definida a [1] apartat 3.3.1. 
+on : PIP és la propietat dels patrons implícits parcials definida a [1] apartat 3.3.1.
 
 \section{Dissenyant el nostre autòmata finit}
 
 Primerament cal observar possibles propietats del problema que ens puguin servir per a la construcció de l’autòmata.
 
 \begin{itemize}
-\item Definim 4+ com la seqüència de símbols ‘++++’ d’un mot \w{} comprés dins del llenguatge L(\dfa{}).
+\item Definim 4+ com la seqüència de símbols ‘++++’ d’un mot \wdfa{} comprés dins del llenguatge L(\dfa{}).
 \end{itemize}
 
 \textbf{Realitzem les següents observacions :}
 
 \begin{enumerate}
 \item Abans i després de la seqüència 4+ hi pot haver qualsevol símbol 0 o més vegades comprés dins de \alphabetDFA{}.
-\item Aïllada és la seqüència de simbols ‘-+-’ dins de \w{}
-\item Entre dues seqüències 4+ hi trobem 3 aïllades. 
-\item 2 aïllades poden compartir el symbol inicial o el symbol final o ambdós. 
-\item S’accepta ‘-+-+-’ com a dues cèl·lules aïllades on -+ comparteix - amb +-. 
+\item Aïllada és la seqüència de simbols ‘-+-’ dins de \wdfa{}
+\item Entre dues seqüències 4+ hi trobem 3 aïllades.
+\item 2 aïllades poden compartir el symbol inicial o el symbol final o ambdós.
+\item S’accepta ‘-+-+-’ com a dues cèl·lules aïllades on -+ comparteix - amb +-.
 \item S’accepta ‘-+-+-+-’ coma  tres cèl·lules aïllades on -+ comparteix- amb +-+- i -+-+ comparteix - amb +-.
 \item Entre 2 aïllades hi pot aparèixer qualsevol combinació de symbols pertanyent a \alphabetDFA{}.
-\item El symbol \Return ens fa tornar a començar a cercar el PIP (RESET). 
+\item El symbol \Return ens fa tornar a començar a cercar el PIP (RESET).
 \end{enumerate}
 
 
 Dissenyarem doncs l’autòmata per construcció tenint en compte les anteriors propietats. En la construcció del nostre autòmata reduim el problema al tractament d’un subconjunt dels símbols de l’alfabet, concretament es construeix a partir del subconjunt {+,-}, ja que detectem que el símbol \Return actúa com a RESET. La funció del RESET en \dfa{} és exemplificada al capítol 1 del llibre [1], concretament als exemples 1.15 i 1.17.
- 
+
 Incorporarem el RESET al nostre disseny a l’últim pas de la construcció.
 
 \textbf{Fem les següents definicions en l’escenari sense RESET :}
@@ -169,14 +188,14 @@ Incorporarem el RESET al nostre disseny a l’últim pas de la construcció.
 \begin{itemize}
 \item Definim pa com la seqüència ‘-+’
 \item Definim fa com la seqüència ‘+-’
-\item Definim l’operació CONCATENACIÓ amb el symbol | 
+\item Definim l’operació CONCATENACIÓ amb el symbol |
 \item Definim 3aïllades com :
 \begin{itemize}
 \item ({+-}* | pa | (-{+-}*)* | pa | (-{+-}*)* | pa | - | {+-}*) $\vee$ ({+-}* | - | fa | (-{+-}*)* | fa | (-{+-}*)* | fa | {+-}*)
 \end{itemize}
 \end{itemize}
 
-Per tant podem concebre que en un entorn on no hi ha RESET es cerca si el mot conté la següent seqüència de simbols : 
+Per tant podem concebre que en un entorn on no hi ha RESET es cerca si el mot conté la següent seqüència de simbols :
 
 \begin{center}
 {+-}* | 4+ | 3aïllades | 4+ | {+-}*
@@ -184,7 +203,7 @@ Per tant podem concebre que en un entorn on no hi ha RESET es cerca si el mot co
 
 \subsection{Construïm l’autòmata sense RESET}
 
-Veiem que els estats de l'autòmata van avançant a mesura que es van trobant el patró. Hi distingim cicles que ens interessen per controlar els casos que on per exemple hi pot haver qualsevol cosa entre cel·les actives o entre cel·les actives i principi o final del patró. 
+Veiem que els estats de l'autòmata van avançant a mesura que es van trobant el patró. Hi distingim cicles que ens interessen per controlar els casos que on per exemple hi pot haver qualsevol cosa entre cel·les actives o entre cel·les actives i principi o final del patró.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
@@ -338,10 +357,10 @@ Veiem que els estats de l'autòmata van avançant a mesura que es van trobant el
 
 \subsection{Construïm l’Autòmata Complet}
 
-Afegim RESET a l’autòmata, en aquest cas tots els estats menys l’estat final tindran una transició a l’estat inicial amb el símbol \Return. L’estat final com que el mot ja està acceptat tindrà una transició a ell mateix amb el símbol \Return. 
+Afegim RESET a l’autòmata, en aquest cas tots els estats menys l’estat final tindran una transició a l’estat inicial amb el símbol \Return. L’estat final com que el mot ja està acceptat tindrà una transició a ell mateix amb el símbol \Return.
 
 
-En aquest disseny, per simplificar la codificació del caràcter \Return el codifiquem com una \textit{i}. 
+En aquest disseny, per simplificar la codificació del caràcter \Return el codifiquem com una \textit{i}.
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
 \tikzstyle{every node}+=[inner sep=0pt]
@@ -533,7 +552,7 @@ En aquest disseny, per simplificar la codificació del caràcter \Return el codi
 
 \section{Definició formal de \dfa{}}
 
-Definim formalment el nostre autòmata. 
+Definim formalment el nostre autòmata.
 
 \begin{center}
 	\dfa $=$ \{Q, $\Sigma{}$*, $\delta$, q0, q17\}
@@ -542,7 +561,7 @@ Definim formalment el nostre autòmata.
 \begin{itemize}
 \item \textbf{Q} = \{q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17\}
 \item $\Sigma$* $=$ \{ + , - , \Return{} , $\epsilon$ \}
-\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ Q 
+\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ Q
 \item q0 $\in{}$ Q
 \item q17 $\subseteq{}$ Q
 \end{itemize}
@@ -557,24 +576,24 @@ Definim formalment el nostre autòmata.
 \hline
 \hline
 State & +   & -   & \Return   \\ \hline
-$\rightarrow$ q0  & q1  & q0  & q0  \\ 
-q1    & q2  & q0  & q0  \\ 
-q2    & q3  & q0  & q0  \\ 
-q3    & q4  & q0  & q0  \\ 
-q4    & q4  & q5  & q0  \\ 
-q5    & q6  & q5  & q0  \\ 
-q6    & q4  & q7  & q0  \\ 
+$\rightarrow$ q0  & q1  & q0  & q0  \\
+q1    & q2  & q0  & q0  \\
+q2    & q3  & q0  & q0  \\
+q3    & q4  & q0  & q0  \\
+q4    & q4  & q5  & q0  \\
+q5    & q6  & q5  & q0  \\
+q6    & q4  & q7  & q0  \\
 q7    & q9  & q7  & q0  \\
-q8    & q8  & q7  & q0  \\ 
-q9    & q8  & q10 & q0  \\ 
-q10   & q12 & q10 & q0  \\ 
-q11   & q11 & q10 & q0  \\ 
-q12   & q11 & q13 & q0  \\ 
-q13   & q14 & q13 & q0  \\ 
-q14   & q15 & q13 & q0  \\ 
-q15   & q16 & q13 & q0  \\ 
-q16   & q17 & q13 & q0  \\ 
-q17   & q17 & q17 & q17 \\ 
+q8    & q8  & q7  & q0  \\
+q9    & q8  & q10 & q0  \\
+q10   & q12 & q10 & q0  \\
+q11   & q11 & q10 & q0  \\
+q12   & q11 & q13 & q0  \\
+q13   & q14 & q13 & q0  \\
+q14   & q15 & q13 & q0  \\
+q15   & q16 & q13 & q0  \\
+q16   & q17 & q13 & q0  \\
+q17   & q17 & q17 & q17 \\
 \hline
 \end{tabular}
 \end{table}
@@ -583,7 +602,7 @@ q17   & q17 & q17 & q17 \\
 
 \section{Operacions regulars amb autòmates}
 
-La definició 1.23 del llibre parla sobre les operacions que es poden realitzar sobre autòmates finits deterministes. En el nostre cas s’ha emprat una tècnica de construcció per el disseny de l’autòmata peró es podria emprar una construcció de subautòmates i mitjançant la concatenació dels mateixos (representada amb el caràcter $\bullet$ ) construïr el nostre \dfa{}. Hi ha hagut intents de la creació de l’autòmata mitjançant concatenació dels autòmates \dfa$_1$ i \dfa$_2$ intentant dividir el problema en : 
+La definició 1.23 del llibre parla sobre les operacions que es poden realitzar sobre autòmates finits deterministes. En el nostre cas s’ha emprat una tècnica de construcció per el disseny de l’autòmata peró es podria emprar una construcció de subautòmates i mitjançant la concatenació dels mateixos (representada amb el caràcter $\bullet$ ) construïr el nostre \dfa{}. Hi ha hagut intents de la creació de l’autòmata mitjançant concatenació dels autòmates \dfa$_1$ i \dfa$_2$ intentant dividir el problema en :
 
 \begin{center}
 \dfa$_1$ $=$ 4+
@@ -593,7 +612,7 @@ La definició 1.23 del llibre parla sobre les operacions que es poden realitzar 
 \dfa$_2$ $=$ 3aïllades
 \end{center}
 
-on: 
+on:
 
 \begin{center}
 4+ $\bullet$ 3aïllades $\bullet$ 4+
@@ -609,7 +628,7 @@ L’objectiu d’aquesta secció és cercar el \dfa{} mínim partint del \dfa{}.
 
 L'idea de la minimització parteix de la fusió d'estats. Podem trobar explicats els processos de minimització al document [3]. Podem utilitzar la manera manual aplicant l'algoritme de Hopcroft, o bé, podem obtar per utilitzar UTM.
 
-En aquest cas utilitzem l’algoritme de HopCroft per a la seva minimització implementant una matriu que ens permeti detectar les repeticions de les transicions donadat un estat. 
+En aquest cas utilitzem l’algoritme de HopCroft per a la seva minimització implementant una matriu que ens permeti detectar les repeticions de les transicions donadat un estat.
 
 
 \begin{center}
@@ -624,25 +643,25 @@ En aquest cas utilitzem l’algoritme de HopCroft per a la seva minimització im
 \hline
 \hline
 T      &   & + & - & E & PI0 & + & - & E & PI1 & + & - & E & PI2 &  &  &  &  &  &  \\ \hline
-INICI  & A & B & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-+      & B & C & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-++     & C & D & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-+++    & D & E & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-++++   & E & E & F & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-1CA-   & F & G & F & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-1CA+   & G & E & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-1/2CA- & H & J & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-BR     & I & I & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-2CA+   & J & I & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-2/3CA- & K & M & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-BR2    & L & L & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-3CA+   & M & L & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-3CA-   & N & O & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-d+     & O & P & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
-d++    & P & Q & N & A & 1   & 1 & 1 & 1 & 1   & 3 & 1 & 1 & 4   &  &  &  &  &  &  \\
-d+++   & Q & R & N & A & 1   & 2 & 1 & 1 & 3   & 2 & 1 & 1 & 3   &  &  &  &  &  &  \\
-d++++  & R & R & R & R & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  \\
-       &   &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  \\ 
+q0  & A & B & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q1      & B & C & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q2     & C & D & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q3    & D & E & A & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q4   & E & E & F & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q5   & F & G & F & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q6   & G & E & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q7 & H & J & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q8     & I & I & H & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q9   & J & I & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q10 & K & M & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q11    & L & L & K & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q12   & M & L & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q13   & N & O & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q14     & O & P & N & A & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  \\
+q15    & P & Q & N & A & 1   & 1 & 1 & 1 & 1   & 3 & 1 & 1 & 4   &  &  &  &  &  &  \\
+q16   & Q & R & N & A & 1   & 2 & 1 & 1 & 3   & 2 & 1 & 1 & 3   &  &  &  &  &  &  \\
+q17  & R & R & R & R & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  \\
+       &   &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  \\
        \hline
 \end{tabular}
 \end{table}
@@ -655,25 +674,25 @@ d++++  & R & R & R & R & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  
 \hline
 \hline
 T      & + & - & E & PI3 & + & - & E & PI4 & + & - & E & PI5 &  &  &  &  &  &  &  \\ \hline
-INICI  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-+      & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-++     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-+++    & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-++++   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-1CA-   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-1CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-1/2CA- & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-BR     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-2CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-2/3CA- & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-BR2    & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-3CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 6 & 1 & 7   &  &  &  &  &  &  &  \\
-3CA-   & 1 & 1 & 1 & 1   & 5 & 1 & 1 & 6   & 5 & 6 & 1 & 6   &  &  &  &  &  &  &  \\
-d+     & 4 & 1 & 1 & 5   & 4 & 1 & 1 & 5   & 4 & 6 & 1 & 5   &  &  &  &  &  &  &  \\
-d++    & 3 & 1 & 1 & 4   & 3 & 1 & 1 & 4   & 3 & 6 & 1 & 4   &  &  &  &  &  &  &  \\
-d+++   & 2 & 1 & 1 & 3   & 2 & 1 & 1 & 3   & 2 & 6 & 1 & 3   &  &  &  &  &  &  &  \\
-d++++  & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &  \\
-       &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  &  \\ 
+q0  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q1  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q2  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q3  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q4  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q5  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q6  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q7  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q8  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q9  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q10 & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q11 & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q12 & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 6 & 1 & 7   &  &  &  &  &  &  &  \\
+q13 & 1 & 1 & 1 & 1   & 5 & 1 & 1 & 6   & 5 & 6 & 1 & 6   &  &  &  &  &  &  &  \\
+q14 & 4 & 1 & 1 & 5   & 4 & 1 & 1 & 5   & 4 & 6 & 1 & 5   &  &  &  &  &  &  &  \\
+q15 & 3 & 1 & 1 & 4   & 3 & 1 & 1 & 4   & 3 & 6 & 1 & 4   &  &  &  &  &  &  &  \\
+q16 & 2 & 1 & 1 & 3   & 2 & 1 & 1 & 3   & 2 & 6 & 1 & 3   &  &  &  &  &  &  &  \\
+q17 & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &  \\
+       &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  &  \\
        \hline
 \end{tabular}
 \end{table}
@@ -685,24 +704,24 @@ d++++  & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &
 \hline
 \hline
 T      & + & - & E & PI6 & + & - & E & PI7 & + & - & E & PI8 &  &  &  &  &  &  &  \\ \hline
-INICI  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-+      & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-++     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-+++    & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-++++   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-1CA-   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-1CA+   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-1/2CA- & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 9 & 1 & 1 & 11  &  &  &  &  &  &  &  \\
-BR     & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
-2CA+   & 1 & 1 & 1 & 1   & 1 & 8 & 1 & 9   & 1 & 8 & 1 & 9   &  &  &  &  &  &  &  \\
-2/3CA- & 7 & 1 & 1 & 8   & 7 & 8 & 1 & 8   & 7 & 8 & 1 & 8   &  &  &  &  &  &  &  \\
-BR2    & 1 & 1 & 1 & 1   & 1 & 8 & 1 & 9   & 9 & 8 & 1 & 10  &  &  &  &  &  &  &  \\
-3CA+   & 1 & 6 & 1 & 7   & 1 & 6 & 1 & 7   & 9 & 6 & 1 & 7   &  &  &  &  &  &  &  \\
-3CA-   & 5 & 6 & 1 & 6   & 5 & 6 & 1 & 6   & 5 & 6 & 1 & 6   &  &  &  &  &  &  &  \\
-d+     & 4 & 6 & 1 & 5   & 4 & 6 & 1 & 5   & 4 & 6 & 1 & 5   &  &  &  &  &  &  &  \\
-d++    & 3 & 6 & 1 & 4   & 3 & 6 & 1 & 4   & 3 & 6 & 1 & 4   &  &  &  &  &  &  &  \\
-d+++   & 2 & 6 & 1 & 3   & 2 & 6 & 1 & 3   & 2 & 6 & 1 & 3   &  &  &  &  &  &  &  \\
-d++++  & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &  \\
+q0  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q1  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q2  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q3  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q4  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q5  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q6  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q7  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 9 & 1 & 1 & 11  &  &  &  &  &  &  &  \\
+q8  & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   & 1 & 1 & 1 & 1   &  &  &  &  &  &  &  \\
+q9  & 1 & 1 & 1 & 1   & 1 & 8 & 1 & 9   & 1 & 8 & 1 & 9   &  &  &  &  &  &  &  \\
+q10 & 7 & 1 & 1 & 8   & 7 & 8 & 1 & 8   & 7 & 8 & 1 & 8   &  &  &  &  &  &  &  \\
+q11 & 1 & 1 & 1 & 1   & 1 & 8 & 1 & 9   & 9 & 8 & 1 & 10  &  &  &  &  &  &  &  \\
+q12 & 1 & 6 & 1 & 7   & 1 & 6 & 1 & 7   & 9 & 6 & 1 & 7   &  &  &  &  &  &  &  \\
+q13 & 5 & 6 & 1 & 6   & 5 & 6 & 1 & 6   & 5 & 6 & 1 & 6   &  &  &  &  &  &  &  \\
+q14 & 4 & 6 & 1 & 5   & 4 & 6 & 1 & 5   & 4 & 6 & 1 & 5   &  &  &  &  &  &  &  \\
+q15 & 3 & 6 & 1 & 4   & 3 & 6 & 1 & 4   & 3 & 6 & 1 & 4   &  &  &  &  &  &  &  \\
+q16 & 2 & 6 & 1 & 3   & 2 & 6 & 1 & 3   & 2 & 6 & 1 & 3   &  &  &  &  &  &  &  \\
+q17 & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &  \\
        &   &   &   &     &   &   &   &     &   &   &   &     &  &  &  &  &  &  &  \\
        \hline
 \end{tabular}
@@ -716,24 +735,24 @@ d++++  & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   & 2 & 2 & 2 & 2   &  &  &  &  &  &  &
 \hline
 \hline
 T      & +  & -  & E & PI9 & +  & -  & E & PI10 & +  & -  & E & PI11 &  &  &  &  &  &  &  \\ \hline
-INICI  & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
-+      & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
-++     & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
-+++    & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
-++++   & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 14 & 1 & 15   &  &  &  &  &  &  &  \\
-1CA-   & 1  & 1  & 1 & 1   & 12 & 1  & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  \\
-1CA+   & 1  & 11 & 1 & 12  & 1  & 11 & 1 & 12   & 1  & 11 & 1 & 12   &  &  &  &  &  &  &  \\
-1/2CA- & 9  & 11 & 1 & 11  & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  \\
-BR     & 1  & 11 & 1 & 12  & 12 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  \\
-2CA+   & 1  & 8  & 1 & 9   & 12 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  \\
-2/3CA- & 7  & 8  & 1 & 8   & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  \\
-BR2    & 10 & 8  & 1 & 10  & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  \\
-3CA+   & 10 & 6  & 1 & 7   & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  \\
-3CA-   & 5  & 6  & 1 & 6   & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  \\
-d+     & 4  & 6  & 1 & 5   & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  \\
-d++    & 3  & 6  & 1 & 4   & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  \\
-d+++   & 2  & 6  & 1 & 3   & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  \\
-d++++  & 2  & 2  & 2 & 2   & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  \\
+q0  & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
+q1  & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
+q2  & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
+q3  & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
+q4  & 1  & 1  & 1 & 1   & 1  & 1  & 1 & 1    & 1  & 14 & 1 & 15   &  &  &  &  &  &  &  \\
+q5  & 1  & 1  & 1 & 1   & 12 & 1  & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  \\
+q6  & 1  & 11 & 1 & 12  & 1  & 11 & 1 & 12   & 1  & 11 & 1 & 12   &  &  &  &  &  &  &  \\
+q7  & 9  & 11 & 1 & 11  & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  \\
+q8  & 1  & 11 & 1 & 12  & 12 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  \\
+q9  & 1  & 8  & 1 & 9   & 12 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  \\
+q10 & 7  & 8  & 1 & 8   & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  \\
+q11 & 10 & 8  & 1 & 10  & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  \\
+q12 & 10 & 6  & 1 & 7   & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  \\
+q13 & 5  & 6  & 1 & 6   & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  \\
+q14 & 4  & 6  & 1 & 5   & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  \\
+q15 & 3  & 6  & 1 & 4   & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  \\
+q16 & 2  & 6  & 1 & 3   & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  \\
+q17 & 2  & 2  & 2 & 2   & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  \\
        &    &    &   &     &    &    &   &      &    &    &   &      &  &  &  &  &  &  & \\
        \hline
 \end{tabular}
@@ -746,24 +765,24 @@ d++++  & 2  & 2  & 2 & 2   & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  & 
 \hline
 \hline
 T      & +  & -  & E & PI12 & +  & -  & E & PI13 & +  & -  & E & PI14 &  &  &  &  &  &  &  \\ \hline
-INICI  & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
-+      & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    & 17 & 1  & 1 & 18   &  &  &  &  &  &  &  \\
-++     & 1  & 1  & 1 & 1    & 16 & 1  & 1 & 17   & 16 & 1  & 1 & 17   &  &  &  &  &  &  &  \\
-+++    & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   &  &  &  &  &  &  &  \\
-++++   & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   &  &  &  &  &  &  &  \\
-1CA-   & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  \\
-1CA+   & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   &  &  &  &  &  &  &  \\
-1/2CA- & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  \\
-BR     & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  \\
-2CA+   & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  \\
-2/3CA- & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  \\
-BR2    & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  \\
-3CA+   & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  \\
-3CA-   & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  \\
-d+     & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  \\
-d++    & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  \\
-d+++   & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  \\
-d++++  & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  \\
+q0  & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    &  &  &  &  &  &  &  \\
+q1  & 1  & 1  & 1 & 1    & 1  & 1  & 1 & 1    & 17 & 1  & 1 & 18   &  &  &  &  &  &  &  \\
+q2  & 1  & 1  & 1 & 1    & 16 & 1  & 1 & 17   & 16 & 1  & 1 & 17   &  &  &  &  &  &  &  \\
+q3  & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   &  &  &  &  &  &  &  \\
+q4  & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   &  &  &  &  &  &  &  \\
+q5  & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  \\
+q6  & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   &  &  &  &  &  &  &  \\
+q7  & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  \\
+q8  & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  \\
+q9  & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  \\
+q10 & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  \\
+q11 & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  \\
+q12 & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  \\
+q13 & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  \\
+q14 & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  \\
+q15 & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  \\
+q16 & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  \\
+q17 & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  \\
        &    &    &   &      &    &    &   &      &    &    &   &      &  &  &  &  &  &  & \\
        \hline
 \end{tabular}
@@ -777,24 +796,24 @@ d++++  & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &
 \hline
 \hline
 T      & +  & -  & E & PI15 & +  & -  & E & PI16 &  &  &  &  &  &  &  &  &  &  &  \\
-INICI  & 18 & 1  & 1 & 1    & 18 & 1  & 1 & 1    &  &  &  &  &  &  &  &  &  &  &  \\
-+      & 17 & 1  & 1 & 18   & 17 & 1  & 1 & 18   &  &  &  &  &  &  &  &  &  &  &  \\
-++     & 16 & 1  & 1 & 17   & 16 & 1  & 1 & 17   &  &  &  &  &  &  &  &  &  &  &  \\
-+++    & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   &  &  &  &  &  &  &  &  &  &  &  \\
-++++   & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   &  &  &  &  &  &  &  &  &  &  &  \\
-1CA-   & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  &  &  &  &  \\
-1CA+   & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   &  &  &  &  &  &  &  &  &  &  &  \\
-1/2CA- & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  &  &  &  &  \\
-BR     & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  &  &  &  &  \\
-2CA+   & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  &  &  &  &  \\
-2/3CA- & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  &  &  &  &  \\
-BR2    & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  &  &  &  &  \\
-3CA+   & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  &  &  &  &  \\
-3CA-   & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  &  &  &  &  \\
-d+     & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  &  &  &  &  \\
-d++    & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  &  &  &  &  \\
-d+++   & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  &  &  &  &  \\
-d++++  & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+q0  & 18 & 1  & 1 & 1    & 18 & 1  & 1 & 1    &  &  &  &  &  &  &  &  &  &  &  \\
+q1  & 17 & 1  & 1 & 18   & 17 & 1  & 1 & 18   &  &  &  &  &  &  &  &  &  &  &  \\
+q2  & 16 & 1  & 1 & 17   & 16 & 1  & 1 & 17   &  &  &  &  &  &  &  &  &  &  &  \\
+q3  & 15 & 1  & 1 & 16   & 15 & 1  & 1 & 16   &  &  &  &  &  &  &  &  &  &  &  \\
+q4  & 15 & 14 & 1 & 15   & 15 & 14 & 1 & 15   &  &  &  &  &  &  &  &  &  &  &  \\
+q5  & 12 & 14 & 1 & 14   & 12 & 14 & 1 & 14   &  &  &  &  &  &  &  &  &  &  &  \\
+q6  & 15 & 11 & 1 & 12   & 15 & 11 & 1 & 12   &  &  &  &  &  &  &  &  &  &  &  \\
+q7  & 9  & 11 & 1 & 11   & 9  & 11 & 1 & 11   &  &  &  &  &  &  &  &  &  &  &  \\
+q8  & 13 & 11 & 1 & 13   & 13 & 11 & 1 & 13   &  &  &  &  &  &  &  &  &  &  &  \\
+q9  & 13 & 8  & 1 & 9    & 13 & 8  & 1 & 9    &  &  &  &  &  &  &  &  &  &  &  \\
+q10 & 7  & 8  & 1 & 8    & 7  & 8  & 1 & 8    &  &  &  &  &  &  &  &  &  &  &  \\
+q11 & 10 & 8  & 1 & 10   & 10 & 8  & 1 & 10   &  &  &  &  &  &  &  &  &  &  &  \\
+q12 & 10 & 6  & 1 & 7    & 10 & 6  & 1 & 7    &  &  &  &  &  &  &  &  &  &  &  \\
+q13 & 5  & 6  & 1 & 6    & 5  & 6  & 1 & 6    &  &  &  &  &  &  &  &  &  &  &  \\
+q14 & 4  & 6  & 1 & 5    & 4  & 6  & 1 & 5    &  &  &  &  &  &  &  &  &  &  &  \\
+q15 & 3  & 6  & 1 & 4    & 3  & 6  & 1 & 4    &  &  &  &  &  &  &  &  &  &  &  \\
+q16 & 2  & 6  & 1 & 3    & 2  & 6  & 1 & 3    &  &  &  &  &  &  &  &  &  &  &  \\
+q17 & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  &  &  &  &  \\ \hline
        &    &    &   &      &    &    &   &      &  &  &  &  &  &  &  &  &  &  &  \\
        \hline
 \end{tabular}
@@ -804,13 +823,13 @@ d++++  & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  &  &  &  &
 
 \section{NFA (Nondeterministic finit automata)}
 
-L’equivalència de NFA i DFA està demostrada al capítol 1.2 del llibre [1], donat un autòmata NFA existeix un DFA equivalent. Per equivalència entenem que ambdós reconeixen el mateix llenguatge, en aquest cas el llenguatge L(\dfa{}). 
+L’equivalència de NFA i DFA està demostrada al capítol 1.2 del llibre [1], donat un autòmata NFA existeix un DFA equivalent. Per equivalència entenem que ambdós reconeixen el mateix llenguatge, en aquest cas el llenguatge L(\dfa{}).
 
 Definim doncs \nfa{} com l’autòmata finit indeterminista equivalent a \dfa{}.
 
 \subsection{Disseny de \nfa{}}
 
-Dissenyem ANFA, en aquest cas ens convé només cercar el camí que ens porta directes a QAccept. Directament tracem un camí acceptador i el modifiquem per que es comporti de manera correcte afegint les branques indeterministes oportunes. 
+Dissenyem ANFA, en aquest cas ens convé només cercar el camí que ens porta directes a QAccept. Directament tracem un camí acceptador i el modifiquem per que es comporti de manera correcte afegint les branques indeterministes oportunes.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
@@ -945,7 +964,7 @@ Dissenyem ANFA, en aquest cas ens convé només cercar el camí que ens porta di
 
 \section{Definició formal de \nfa{}}
 
-Definim formalment el nostre autòmata. 
+Definim formalment el nostre autòmata.
 
 \begin{center}
 	\dfa $=$ \{Q, $\Sigma{}$*, $\delta$, q0, q19\}
@@ -954,7 +973,7 @@ Definim formalment el nostre autòmata.
 \begin{itemize}
 \item \textbf{Q} = \{q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19\}
 \item $\Sigma$* $=$ \{ + , - , \Return{} , $\epsilon$ \}
-\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ P(Q) on P(Q) son possibles subconjunts de Q 
+\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ P(Q) on P(Q) son possibles subconjunts de Q
 \item q0 $\in{}$ Q
 \item q19 $\subseteq{}$ Q
 \end{itemize}
@@ -996,51 +1015,704 @@ q19   & \{q19\}     & \{q19\}     & \{q19\}                & $\emptyset$ &  &  &
 
 \end{center}
 
+\subsection{Demostrem l’equivalència de \nfa i \dfa}
+
+Per demostrar l’equivalència dels autòmates apliquem un procés de determinització sobre ANFA obtenint ADFA’. Ens ajudem de [UTM](referència al programa).
+
+Expressem l’autòmata en format UTM mitjançant un fitxer .def tenint en compte que UTM contempla alfabets $\Sigma$*
+
+\begin{lstlisting}
+
+Sigma=[-+i]
+Final=[q19]
+--------------------
+| Description: ANFA
+|   Sigma = {-,+,i}
+|   L = "exists the sequence '-+-' 3 times flanked both sides by the sequence '++++'"
+| Function: f : Sigma^* -> Boolean
+|   f(w) = 1, if word in L
+|        = 0, otherwise
+| Input: word w (e.g., ----+-+-+-+-+-+++-----+i++++---+-+-+++---+-++++i----+-+-+-+-+-+++-----+i)
+|   where i = \Return
+| Output: 0 or 1
+| Date: November, 2018
+| Version: 1.0
+| UTM-version: 0.2357111317192329313741434753
+| Author: Copyright 2011 Gil Gasso Rovira, Marc Sanchez Pifarre, Francesc Xavier Bullich Parra
+--------------------------------------------------------------
+[q0|-]=[q0]
+[q0|+]=[q0]
+[q0|i]=[q0]
+[q0|.]=[q0]
+[q0|+]=[q1]
+[q1|+]=[q2]
+[q2|+]=[q3]
+[q3|+]=[q4]
+[q4|+]=[q4]
+[q4|-]=[q4]
+[q4|-]=[q5]
+[q5|+]=[q6]
+[q6|-]=[q7]
+[q7|.]=[q8]
+[q7|.]=[q9]
+[q8|+]=[q8]
+[q8|-]=[q8]
+[q8|-]=[q9]
+[q9|+]=[q10]
+[q10|-]=[q11]
+[q11|.]=[q12]
+[q11|.]=[q13]
+[q12|+]=[q12]
+[q12|-]=[q12]
+[q12|-]=[q13]
+[q13|+]=[q14]
+[q14|-]=[q15]
+[q15|-]=[q15]
+[q15|+]=[q15]
+[q15|+]=[q16]
+[q16|+]=[q17]
+[q17|+]=[q18]
+[q18|+]=[q19]
+[q19|+]=[q19]
+[q19|-]=[q19]
+[q19|i]=[q19]
+
+
+\end{lstlisting}
+
+Aplicant el procés de determinització que permet UTM obtenim \dfa' on \dfa' Comprés dins del DFA. Tenir en compte que tal com comenta la PROOF IDEA de la pàgina 55 de la referència [1], NFA de k estats es pot determinitzar en un DFA de $n^k$ estats, és per aquest motiu que la següent representació pot semblar monstruosa. 
+
+\begin{lstlisting}
+==========================================
+| Description: ADFA
+|   Sigma = {-,+,i}
+|   L = "exists the sequence '-+-' 3 times flanked both sides by the sequence '++++'"
+| Function: f : Sigma^* -> Boolean
+|   f(w) = 1, if word in L
+|        = 0, otherwise
+| Input: word w (e.g., ----+-+-+-+-+-+++-----+i++++---+-+-+++---+-++++i----+-+-+-+-+-+++-----+i)
+|   where i = \Return
+| Output: 0 or 1
+| Date: November, 2018
+| Version: 1.0
+| UTM-version: 0.2357111317192329313741434753
+| Author: Copyright 2011 Gil Gasso Rovira, Marc Sanchez Pifarre, Francesc Xavier Bullich Parra
+==========================================
+Q = {{q1, q8, q6, q12, q10, q14, q15, q4, q16, q19, q0}, {q1, q8, q6, q12, q10, q14, q15, q4, q16, q0}, {q1, q8, q6, q12, q10, q14, q4, q19, q0}, {q1, q8, q6, q12, q10, q14, q4, q0}, {q1, q8, q6, q10, q4, q19, q0}, {q1, q8, q6, q10, q4, q0}, {q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}, {q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q0}, {q1, q8, q2, q12, q3, q4, q19, q0}, {q1, q8, q2, q12, q3, q4, q0}, {q1, q8, q2, q12, q15, q4, q16, q17, q19, q0}, {q1, q8, q2, q12, q15, q4, q16, q17, q0}, {q1, q8, q2, q12, q4, q19, q0}, {q1, q8, q2, q12, q4, q0}, {q1, q8, q2, q3, q4, q19, q0}, {q1, q8, q2, q3, q4, q0}, {q1, q8, q2, q4, q19, q0}, {q1, q8, q2, q4, q0}, {q1, q6, q4, q19, q0}, {q1, q6, q4, q0}, {q1, q2, q3, q4, q19, q0}, {q1, q2, q3, q4, q0}, {q1, q2, q3, q19, q0}, {q1, q2, q3, q0}, {q1, q2, q4, q19, q0}, {q1, q2, q4, q0}, {q1, q2, q19, q0}, {q1, q2, q0}, {q1, q19, q0}, {q1, q0}, {q8, q5, q7, q12, q9, q11, q13, q15, q4, q19, q0}, {q8, q5, q7, q12, q9, q11, q13, q15, q4, q0}, {q8, q5, q7, q12, q9, q11, q13, q4, q19, q0}, {q8, q5, q7, q12, q9, q11, q13, q4, q0}, {q8, q5, q7, q9, q4, q19, q0}, {q8, q5, q7, q9, q4, q0}, {q8, q5, q12, q9, q13, q15, q4, q19, q0}, {q8, q5, q12, q9, q13, q15, q4, q0}, {q8, q5, q12, q9, q13, q4, q19, q0}, {q8, q5, q12, q9, q13, q4, q0}, {q8, q5, q9, q4, q19, q0}, {q8, q5, q9, q4, q0}, {q5, q4, q19, q0}, {q5, q4, q0}, {q19, q0}, {q0}}
+Sigma = {+, -, i}
+Initial state = {q0}
+Final = {{q1, q8, q6, q12, q10, q14, q15, q4, q16, q19, q0}, {q1, q8, q6, q12, q10, q14, q4, q19, q0}, {q1, q8, q6, q10, q4, q19, q0}, {q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}, {q1, q8, q2, q12, q3, q4, q19, q0}, {q1, q8, q2, q12, q15, q4, q16, q17, q19, q0}, {q1, q8, q2, q12, q4, q19, q0}, {q1, q8, q2, q3, q4, q19, q0}, {q1, q8, q2, q4, q19, q0}, {q1, q6, q4, q19, q0}, {q1, q2, q3, q4, q19, q0}, {q1, q2, q3, q19, q0}, {q1, q2, q4, q19, q0}, {q1, q2, q19, q0}, {q1, q19, q0}, {q8, q5, q7, q12, q9, q11, q13, q15, q4, q19, q0}, {q8, q5, q7, q12, q9, q11, q13, q4, q19, q0}, {q8, q5, q7, q9, q4, q19, q0}, {q8, q5, q12, q9, q13, q15, q4, q19, q0}, {q8, q5, q12, q9, q13, q4, q19, q0}, {q8, q5, q9, q4, q19, q0}, {q5, q4, q19, q0}, {q19, q0}}
+==========================================
+delta({q1, q8, q6, q12, q10, q14, q15, q4, q16, q19, q0}, +) = {{q1, q8, q2, q12, q15, q4, q16, q17, q19, q0}}
+delta({q1, q8, q6, q12, q10, q14, q15, q4, q16, q19, q0}, -) = {{q8, q5, q7, q12, q9, q11, q13, q15, q4, q19, q0}}
+delta({q1, q8, q6, q12, q10, q14, q15, q4, q16, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q6, q12, q10, q14, q15, q4, q16, q0}, +) = {{q1, q8, q2, q12, q15, q4, q16, q17, q0}}
+delta({q1, q8, q6, q12, q10, q14, q15, q4, q16, q0}, -) = {{q8, q5, q7, q12, q9, q11, q13, q15, q4, q0}}
+delta({q1, q8, q6, q12, q10, q14, q15, q4, q16, q0}, i) = {{q0}}
+delta({q1, q8, q6, q12, q10, q14, q4, q19, q0}, +) = {{q1, q8, q2, q12, q4, q19, q0}}
+delta({q1, q8, q6, q12, q10, q14, q4, q19, q0}, -) = {{q8, q5, q7, q12, q9, q11, q13, q15, q4, q19, q0}}
+delta({q1, q8, q6, q12, q10, q14, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q6, q12, q10, q14, q4, q0}, +) = {{q1, q8, q2, q12, q4, q0}}
+delta({q1, q8, q6, q12, q10, q14, q4, q0}, -) = {{q8, q5, q7, q12, q9, q11, q13, q15, q4, q0}}
+delta({q1, q8, q6, q12, q10, q14, q4, q0}, i) = {{q0}}
+delta({q1, q8, q6, q10, q4, q19, q0}, +) = {{q1, q8, q2, q4, q19, q0}}
+delta({q1, q8, q6, q10, q4, q19, q0}, -) = {{q8, q5, q7, q12, q9, q11, q13, q4, q19, q0}}
+delta({q1, q8, q6, q10, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q6, q10, q4, q0}, +) = {{q1, q8, q2, q4, q0}}
+delta({q1, q8, q6, q10, q4, q0}, -) = {{q8, q5, q7, q12, q9, q11, q13, q4, q0}}
+delta({q1, q8, q6, q10, q4, q0}, i) = {{q0}}
+delta({q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}, +) = {{q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}}
+delta({q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q19, q0}}
+delta({q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q0}, +) = {{q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}}
+delta({q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q0}}
+delta({q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q0}, i) = {{q0}}
+delta({q1, q8, q2, q12, q3, q4, q19, q0}, +) = {{q1, q8, q2, q12, q3, q4, q19, q0}}
+delta({q1, q8, q2, q12, q3, q4, q19, q0}, -) = {{q8, q5, q12, q9, q13, q4, q19, q0}}
+delta({q1, q8, q2, q12, q3, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q2, q12, q3, q4, q0}, +) = {{q1, q8, q2, q12, q3, q4, q0}}
+delta({q1, q8, q2, q12, q3, q4, q0}, -) = {{q8, q5, q12, q9, q13, q4, q0}}
+delta({q1, q8, q2, q12, q3, q4, q0}, i) = {{q0}}
+delta({q1, q8, q2, q12, q15, q4, q16, q17, q19, q0}, +) = {{q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q19, q0}}
+delta({q1, q8, q2, q12, q15, q4, q16, q17, q19, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q19, q0}}
+delta({q1, q8, q2, q12, q15, q4, q16, q17, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q2, q12, q15, q4, q16, q17, q0}, +) = {{q1, q8, q2, q12, q3, q15, q4, q16, q17, q18, q0}}
+delta({q1, q8, q2, q12, q15, q4, q16, q17, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q0}}
+delta({q1, q8, q2, q12, q15, q4, q16, q17, q0}, i) = {{q0}}
+delta({q1, q8, q2, q12, q4, q19, q0}, +) = {{q1, q8, q2, q12, q3, q4, q19, q0}}
+delta({q1, q8, q2, q12, q4, q19, q0}, -) = {{q8, q5, q12, q9, q13, q4, q19, q0}}
+delta({q1, q8, q2, q12, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q2, q12, q4, q0}, +) = {{q1, q8, q2, q12, q3, q4, q0}}
+delta({q1, q8, q2, q12, q4, q0}, -) = {{q8, q5, q12, q9, q13, q4, q0}}
+delta({q1, q8, q2, q12, q4, q0}, i) = {{q0}}
+delta({q1, q8, q2, q3, q4, q19, q0}, +) = {{q1, q8, q2, q3, q4, q19, q0}}
+delta({q1, q8, q2, q3, q4, q19, q0}, -) = {{q8, q5, q9, q4, q19, q0}}
+delta({q1, q8, q2, q3, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q2, q3, q4, q0}, +) = {{q1, q8, q2, q3, q4, q0}}
+delta({q1, q8, q2, q3, q4, q0}, -) = {{q8, q5, q9, q4, q0}}
+delta({q1, q8, q2, q3, q4, q0}, i) = {{q0}}
+delta({q1, q8, q2, q4, q19, q0}, +) = {{q1, q8, q2, q3, q4, q19, q0}}
+delta({q1, q8, q2, q4, q19, q0}, -) = {{q8, q5, q9, q4, q19, q0}}
+delta({q1, q8, q2, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q8, q2, q4, q0}, +) = {{q1, q8, q2, q3, q4, q0}}
+delta({q1, q8, q2, q4, q0}, -) = {{q8, q5, q9, q4, q0}}
+delta({q1, q8, q2, q4, q0}, i) = {{q0}}
+delta({q1, q6, q4, q19, q0}, +) = {{q1, q2, q4, q19, q0}}
+delta({q1, q6, q4, q19, q0}, -) = {{q8, q5, q7, q9, q4, q19, q0}}
+delta({q1, q6, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q6, q4, q0}, +) = {{q1, q2, q4, q0}}
+delta({q1, q6, q4, q0}, -) = {{q8, q5, q7, q9, q4, q0}}
+delta({q1, q6, q4, q0}, i) = {{q0}}
+delta({q1, q2, q3, q4, q19, q0}, +) = {{q1, q2, q3, q4, q19, q0}}
+delta({q1, q2, q3, q4, q19, q0}, -) = {{q5, q4, q19, q0}}
+delta({q1, q2, q3, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q2, q3, q4, q0}, +) = {{q1, q2, q3, q4, q0}}
+delta({q1, q2, q3, q4, q0}, -) = {{q5, q4, q0}}
+delta({q1, q2, q3, q4, q0}, i) = {{q0}}
+delta({q1, q2, q3, q19, q0}, +) = {{q1, q2, q3, q4, q19, q0}}
+delta({q1, q2, q3, q19, q0}, -) = {{q19, q0}}
+delta({q1, q2, q3, q19, q0}, i) = {{q19, q0}}
+delta({q1, q2, q3, q0}, +) = {{q1, q2, q3, q4, q0}}
+delta({q1, q2, q3, q0}, -) = {{q0}}
+delta({q1, q2, q3, q0}, i) = {{q0}}
+delta({q1, q2, q4, q19, q0}, +) = {{q1, q2, q3, q4, q19, q0}}
+delta({q1, q2, q4, q19, q0}, -) = {{q5, q4, q19, q0}}
+delta({q1, q2, q4, q19, q0}, i) = {{q19, q0}}
+delta({q1, q2, q4, q0}, +) = {{q1, q2, q3, q4, q0}}
+delta({q1, q2, q4, q0}, -) = {{q5, q4, q0}}
+delta({q1, q2, q4, q0}, i) = {{q0}}
+delta({q1, q2, q19, q0}, +) = {{q1, q2, q3, q19, q0}}
+delta({q1, q2, q19, q0}, -) = {{q19, q0}}
+delta({q1, q2, q19, q0}, i) = {{q19, q0}}
+delta({q1, q2, q0}, +) = {{q1, q2, q3, q0}}
+delta({q1, q2, q0}, -) = {{q0}}
+delta({q1, q2, q0}, i) = {{q0}}
+delta({q1, q19, q0}, +) = {{q1, q2, q19, q0}}
+delta({q1, q19, q0}, -) = {{q19, q0}}
+delta({q1, q19, q0}, i) = {{q19, q0}}
+delta({q1, q0}, +) = {{q1, q2, q0}}
+delta({q1, q0}, -) = {{q0}}
+delta({q1, q0}, i) = {{q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q15, q4, q19, q0}, +) = {{q1, q8, q6, q12, q10, q14, q15, q4, q16, q19, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q15, q4, q19, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q19, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q15, q4, q19, q0}, i) = {{q19, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q15, q4, q0}, +) = {{q1, q8, q6, q12, q10, q14, q15, q4, q16, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q15, q4, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q15, q4, q0}, i) = {{q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q4, q19, q0}, +) = {{q1, q8, q6, q12, q10, q14, q4, q19, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q4, q19, q0}, -) = {{q8, q5, q12, q9, q13, q4, q19, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q4, q19, q0}, i) = {{q19, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q4, q0}, +) = {{q1, q8, q6, q12, q10, q14, q4, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q4, q0}, -) = {{q8, q5, q12, q9, q13, q4, q0}}
+delta({q8, q5, q7, q12, q9, q11, q13, q4, q0}, i) = {{q0}}
+delta({q8, q5, q7, q9, q4, q19, q0}, +) = {{q1, q8, q6, q10, q4, q19, q0}}
+delta({q8, q5, q7, q9, q4, q19, q0}, -) = {{q8, q5, q9, q4, q19, q0}}
+delta({q8, q5, q7, q9, q4, q19, q0}, i) = {{q19, q0}}
+delta({q8, q5, q7, q9, q4, q0}, +) = {{q1, q8, q6, q10, q4, q0}}
+delta({q8, q5, q7, q9, q4, q0}, -) = {{q8, q5, q9, q4, q0}}
+delta({q8, q5, q7, q9, q4, q0}, i) = {{q0}}
+delta({q8, q5, q12, q9, q13, q15, q4, q19, q0}, +) = {{q1, q8, q6, q12, q10, q14, q15, q4, q16, q19, q0}}
+delta({q8, q5, q12, q9, q13, q15, q4, q19, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q19, q0}}
+delta({q8, q5, q12, q9, q13, q15, q4, q19, q0}, i) = {{q19, q0}}
+delta({q8, q5, q12, q9, q13, q15, q4, q0}, +) = {{q1, q8, q6, q12, q10, q14, q15, q4, q16, q0}}
+delta({q8, q5, q12, q9, q13, q15, q4, q0}, -) = {{q8, q5, q12, q9, q13, q15, q4, q0}}
+delta({q8, q5, q12, q9, q13, q15, q4, q0}, i) = {{q0}}
+delta({q8, q5, q12, q9, q13, q4, q19, q0}, +) = {{q1, q8, q6, q12, q10, q14, q4, q19, q0}}
+delta({q8, q5, q12, q9, q13, q4, q19, q0}, -) = {{q8, q5, q12, q9, q13, q4, q19, q0}}
+delta({q8, q5, q12, q9, q13, q4, q19, q0}, i) = {{q19, q0}}
+delta({q8, q5, q12, q9, q13, q4, q0}, +) = {{q1, q8, q6, q12, q10, q14, q4, q0}}
+delta({q8, q5, q12, q9, q13, q4, q0}, -) = {{q8, q5, q12, q9, q13, q4, q0}}
+delta({q8, q5, q12, q9, q13, q4, q0}, i) = {{q0}}
+delta({q8, q5, q9, q4, q19, q0}, +) = {{q1, q8, q6, q10, q4, q19, q0}}
+delta({q8, q5, q9, q4, q19, q0}, -) = {{q8, q5, q9, q4, q19, q0}}
+delta({q8, q5, q9, q4, q19, q0}, i) = {{q19, q0}}
+delta({q8, q5, q9, q4, q0}, +) = {{q1, q8, q6, q10, q4, q0}}
+delta({q8, q5, q9, q4, q0}, -) = {{q8, q5, q9, q4, q0}}
+delta({q8, q5, q9, q4, q0}, i) = {{q0}}
+delta({q5, q4, q19, q0}, +) = {{q1, q6, q4, q19, q0}}
+delta({q5, q4, q19, q0}, -) = {{q5, q4, q19, q0}}
+delta({q5, q4, q19, q0}, i) = {{q19, q0}}
+delta({q5, q4, q0}, +) = {{q1, q6, q4, q0}}
+delta({q5, q4, q0}, -) = {{q5, q4, q0}}
+delta({q5, q4, q0}, i) = {{q0}}
+delta({q19, q0}, +) = {{q1, q19, q0}}
+delta({q19, q0}, -) = {{q19, q0}}
+delta({q19, q0}, i) = {{q19, q0}}
+delta({q0}, +) = {{q1, q0}}
+delta({q0}, -) = {{q0}}
+delta({q0}, i) = {{q0}}
+==========================================
+
+
+End DFA definition
+==========================================
+
+\end{lstlisting}
+
+Per poder verificar que els dos autòmates reconeixen el mateix llenguatge i per treballar amb autòmates més manegables emprem la minimització explicada a l’apartat \textit{2.5 Minimització de \dfa{}} per minimitzar \dfa', concretament s’utilitza la sortida generada per UTM anomenat mfa.def que representa l’autòmata finit determinista mínim. 
+
+\begin{lstlisting}
+
+==========================================
+| Description: ANFA
+|   Sigma = {-,+,i}
+|   L = "exists the sequence '-+-' 3 times flanked both sides by the sequence '++++'"
+| Function: f : Sigma^* -> Boolean
+|   f(w) = 1, if word in L
+|        = 0, otherwise
+| Input: word w (e.g., ----+-+-+-+-+-+++-----+i++++---+-+-+++---+-++++i----+-+-+-+-+-+++-----+i)
+|   where i = \Return
+| Output: 0 or 1
+| Date: November, 2018
+| Version: 1.0
+| UTM-version: 0.2357111317192329313741434753
+| Author: Copyright 2011 Gil Gasso Rovira, Marc Sanchez Pifarre, Francesc Xavier Bullich Parra
+==========================================
+Q = {1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 2, 3, 4, 5, 6, 7, 8, 9}
+Sigma = {+, -, i}
+Initial state = 1
+Final = {3}
+==========================================
+delta(1, +) = {14}
+delta(1, -) = {1}
+delta(1, i) = {1}
+delta(10, +) = {11}
+delta(10, -) = {17}
+delta(10, i) = {1}
+delta(11, +) = {11}
+delta(11, -) = {18}
+delta(11, i) = {1}
+delta(12, +) = {11}
+delta(12, -) = {1}
+delta(12, i) = {1}
+delta(13, +) = {12}
+delta(13, -) = {1}
+delta(13, i) = {1}
+delta(14, +) = {13}
+delta(14, -) = {1}
+delta(14, i) = {1}
+delta(15, +) = {2}
+delta(15, -) = {15}
+delta(15, i) = {1}
+delta(16, +) = {4}
+delta(16, -) = {16}
+delta(16, i) = {1}
+delta(17, +) = {5}
+delta(17, -) = {17}
+delta(17, i) = {1}
+delta(18, +) = {10}
+delta(18, -) = {18}
+delta(18, i) = {1}
+delta(2, +) = {8}
+delta(2, -) = {15}
+delta(2, i) = {1}
+delta(3, +) = {3}
+delta(3, -) = {3}
+delta(3, i) = {3}
+delta(4, +) = {7}
+delta(4, -) = {15}
+delta(4, i) = {1}
+delta(5, +) = {9}
+delta(5, -) = {16}
+delta(5, i) = {1}
+delta(6, +) = {3}
+delta(6, -) = {15}
+delta(6, i) = {1}
+delta(7, +) = {7}
+delta(7, -) = {16}
+delta(7, i) = {1}
+delta(8, +) = {6}
+delta(8, -) = {15}
+delta(8, i) = {1}
+delta(9, +) = {9}
+delta(9, -) = {17}
+delta(9, i) = {1}
+==========================================
+End MFA definition
+==========================================
+
+\end{lstlisting}
+
+Reconeixen el mateix llenguatge, per tant demostrem per construcció l’equivalència dels \dfa{} i \nfa{}. 
+
+\section{Regular expression}
+
+La definició formal d’una expressió regular està explicada al \textit{capítol 1.3 de la referència [1]}, concretament a la \textit{Definition 1.52}. S’explica que de la mateixa manera que una expressió aritmètica retorna un valor (numèric) el valor d’una expressió regular és un llenguatge. 
+\begin{center}
+\textit{“When we want to distinguish between a regular expression R and the lan-
+guage that it describes, we write L(R) to be the language of R.” - Michael Sipser}
+\end{center}
+
+\textbf{Es poden trobar exemples d’expressions regulars a \textit{l’exemple 1.53, pàgina 65 de la referència [1].}}
+
+\subsection{Equivalència de les expressions regulars i $FA$}
+
+Al llibre es comenta que les expressions regulars i els autòmates finits son equivalents en quan el poder descriptiu. Sent LR un llenguatge regular, al \textit{Theorem 1.54 de la referència [1]} es demostra que un llenguatge és regular si i només si existeix una expressió regular que el descriu (La demostració és ambidireccional).
+
+Podem doncs extreure l’expressió regular sobre l’autòmata ADFA utilitzant l’algoritme explicat al llibre. En aquest cas l’automatització d’aquest procediment està disponible mitjançant el \textit{programa referenciat a [6].}
+
+Sent doncs \mfa{} l’autòmat \dfa{} representat de manera mínima definim \re{} com l’expressió regular equivalent a \dfa{}. 
+
+\subsection{Expressió regular equivalent a \dfa{}}
+
+Definim els canvis de símbols : 
+
+\begin{itemize}
+\item p = -
+\item m = +
+\item i = \Return
+\end{itemize}
+
+Es fan els canvis de signe per evitar problemes a l’hora de validar el funcionament de l’expressió regular a l’hora d’implementar-la en qualsevol evaluador. El símbol ‘+’ en les expressions regulars és una restricció de l’estrella de Klean i representa l’aparició de com a mínim 1 cop el símbol anterior (no té un màxim establert). 
+
+\section{Regular Grammar}
+
+Les gramàtiques regulars son una especificació de les gramàtiques lliures de context. En el lllibre no se’n parla de gramàtiques regulars, es parla sobre gramàtiques lliures de context (\cfg{}). 
+
+Així doncs una gramàtica regular és capaç de generar tots els mots d’un llenguatge regular. Al dir tots es parla del conjunt infinit de mots finits possibles que \dfa{} pot acceptar. En aquest cas utilitzem el \textit{programari referenciat a [6]} per extreure la gramàtica regular sobre l’autòmata \mfa{}. 
+
+\begin{center}
+Quan dues gramàtiques regulars generen els mateixos mots es diu que son equivalents.
+\end{center}
+
+\subsection{\rg{} (generada amb jflap).}
+
+Representem $\epsilon$ amb el caràcter 3. 
+
+\begin{lstlisting}
+S -> iS|pS|mA
+A-> iS|mB|pS
+B-> pS|iS|mC
+C-> iS|mD|pS
+D-> iS|pE|mD
+E-> iS|mF|pE
+F-> iS|mD|pG
+G-> mI|iS|pG
+H-> pG|iS|mH
+I-> pM|mH|iS
+J-> mK|pL|iS
+K-> iS|pM|mK
+L-> mN|pL|iS
+M-> mJ|iS|pM
+N-> mO|iS|pL
+O-> iS|mP|pL
+P-> mQ|pL|iS
+Q-> 3|pQ|mQ|iQ
+\end{lstlisting}
+
+Una gramàtica regular està compresa dins de les gramàtiques lliures de context i es pot simplificar, ja que pot presentar ambigüetats \textit{Definition 2.7, referència [1]}. S’entén ambigüetat en una $CFG$ com l’existència de 2 maneres de generar un únic mot, llavors es diu que el mot és derivat de manera ambigua.
+
+Determinar si una gramàtica és ambigua comporta l’existència d’un mot generat per més d’una de les possibles branques de l’arbre de parsing. Per poder determinar que no hi ha dues branques possibles per un determinat mot es treballen les $CFG$ cercant la seva forma normal de chomsky. 
+
+\subsection{Chomsky Normal Form}
+
+S’utilitzen les CNF (Chomsky Normal Form), \textit{Definition 2.8 de la pàgina 107 de la referència [1]}, per representar les gramàtiques regulars de manera simplificada i sense ambigüetats. Utilitzem \textit{l’eina web [7]} per passar la nostre $CFG$ a $CNF$. 
+
+\begin{lstlisting}
+S-> RS|US|TA
+A-> RS|TB|US
+B-> US|TC|RS
+C-> US|RS|TD
+D-> RS|UE|TD
+E-> RS|TF|UE
+F-> RS|TD|UG
+G-> TI|RS|UG
+H-> UG|RS|TH
+I-> UM|TH|RS
+J-> TK|UL|RS
+K-> RS|UM|TK
+L-> TN|UL|RS
+M-> TJ|RS|UM
+N-> TO|RS|UL
+O-> UL|RS|TP
+P-> TQ|UL|RS|m
+Q-> UQ|TQ|RQ|p|m|i
+R-> i
+T-> m
+U-> p
+
+\end{lstlisting}
+
+En aquest format la $CNF$ està en la seva mínima expressió i no conté ambigüetats.
+
 \clearpage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \chapter{Push-Down Automata}
+
+\section{Definició del context}
+
+Sigui \contextPDA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la \textit{Secció 3.Patrons[2]}. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, \textit{veure [2]}.
+
+\textbf{Fem les següents afirmacions sobre \prePDA{} :}
+\begin{itemize}
+\item \wpda{} $\in$ $P_0$ $\wedge$ $P_0$ $\in$ $P$
+\end{itemize}
+
+\textbf{Fem les següents afirmacions sobre \postPDA{} :}
+\begin{itemize}
+\item retorna True quan \pda{} Accepta, és a dir quan \wpda{} $\in$ $PIG$ on $PIG$.
+\item retorna False altrament.
+\end{itemize}
+on : $PIG$ és el conjunt de patrons que compleixen la propietat de patró implícit global \textit{definida a [1] apartat 3.3.2}.
+
+\section{Anàlisi per el disseny}
+
+PIG requereix un nombre de cel·les actives (+) estrictament superior al doble de les negatives (-) : 
+
+\begin{center}
+| + | > 2 * | - |
+\end{center}
+
+Necesitem una manera de contar tant el nombre de cel·les actives com les inactives. Per aixó ens servirem de la pila. Utilitzant el lema del bombeig podem detectar si L(\pda{}) $\not\in$ $RL$ on $RL$ son el conjunt dels llenguatges regulars, \textit{Theorem 1.70 [1]}, Deduïm per tant que L(\pda) no és un llenguatge regular i que necessitem un autòmata més potent per reconèixer mots de L(\pda).
+
+\section{Definició informal de l’autòmata}
+
+Primerament cal observar possibles propietats del problema que ens puguin servir per a la construcció de l’autòmata. Per poder contar correctament que hi ha estrictament el doble de positus que negatius \pda{} fara servir les seguents regles:
+
+\begin{itemize}
+\item Les cel·les actives es contabilitzaran 1 sol cop a la pila.
+\item Les cel·les inactives es contabilitzaran 2 cops a la pila.
+\item Una cel·la activa pot cancelar 1 inacitva a la pila.
+\item Una cel·la inactiva pot cancel·lar 2 actives a la pila
+\item La prioritat de cada cel·la sera cancelar les de simbol contrari que hi hagi a la pila.
+\item Si no hi ha cel·les del simbol contrari a la pila, s’empilaran.
+\item A la pila només hi podrà haber 1 tipus de simbol simultaniament (apart del simbol de control de pila buida \$).
+\item Quan el mot hagi estat llegit s’acceptara només si hi ha 1 o més cel·les actives a la pila.
+\end{itemize}
+
+Realitzem un mètode constructiu per treure el diagrama d’estats i transicions que representa l’autòmata.
+
+\section{Diagrama \pda{}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (8.4,-10) circle (3);
+\draw (8.4,-10) node {$q0$};
+\draw [black] (27.7,-10) circle (3);
+\draw (27.7,-10) node {$q1$};
+\draw [black] (68.3,-11.1) circle (3);
+\draw (68.3,-11.1) node {$q3$};
+\draw [black] (68.3,-11.1) circle (2.4);
+\draw [black] (4,-36.8) circle (3);
+\draw (4,-36.8) node {$q6$};
+\draw [black] (26.3,-34) circle (3);
+\draw (26.3,-34) node {$q5$};
+\draw [black] (43.6,-32.6) circle (3);
+\draw (43.6,-32.6) node {$q4$};
+\draw [black] (74,-35.4) circle (3);
+\draw (74,-35.4) node {$q2$};
+\draw [black] (3.2,-10) -- (5.4,-10);
+\fill [black] (5.4,-10) -- (4.6,-9.5) -- (4.6,-10.5);
+\draw [black] (11.4,-10) -- (24.7,-10);
+\fill [black] (24.7,-10) -- (23.9,-9.5) -- (23.9,-10.5);
+\draw (18.05,-10.5) node [below] {$\epsilon,\$\rightarrow\epsilon$};
+\draw [black] (30.7,-10.08) -- (65.3,-11.02);
+\fill [black] (65.3,-11.02) -- (64.51,-10.5) -- (64.49,-11.5);
+\draw (47.9,-11.23) node [below] {$+,\epsilon\rightarrow+$};
+\draw [black] (69.163,-8.239) arc (190.95423:-97.04577:2.25);
+\draw (79.29,-5.68) node [above] {$i,\epsilon\rightarrow\epsilon$};
+\fill [black] (71.1,-10.04) -- (71.98,-10.38) -- (71.79,-9.4);
+\draw [black] (26.377,-7.32) arc (234:-54:2.25);
+\draw (27.7,-2.75) node [above] {$i,\epsilon\rightarrow\epsilon$};
+\fill [black] (29.02,-7.32) -- (29.9,-6.97) -- (29.09,-6.38);
+\draw [black] (4.857,-33.926) arc (161.21193:115.81358:39.304);
+\fill [black] (4.86,-33.93) -- (5.59,-33.33) -- (4.64,-33.01);
+\draw (12.08,-19.09) node [left] {$-,\epsilon\rightarrow-$};
+\draw [black] (6.667,-35.43) arc (114.19381:80.11946:28.739);
+\fill [black] (23.38,-33.33) -- (22.67,-32.7) -- (22.5,-33.69);
+\draw (13.07,-32.05) node [above] {$\epsilon,\epsilon\rightarrow-$};
+\draw [black] (24,-35.922) arc (-54.75838:-110.92835:18.515);
+\fill [black] (6.7,-38.09) -- (7.27,-38.85) -- (7.63,-37.91);
+\draw (17.4,-40.24) node [below] {$-,\epsilon\rightarrow-$};
+\draw [black] (68.99,-14.02) -- (73.31,-32.48);
+\fill [black] (73.31,-32.48) -- (73.62,-31.59) -- (72.65,-31.81);
+\draw (70.39,-23.66) node [left] {$-,+\rightarrow\epsilon$};
+\draw [black] (72.074,-37.7) arc (-41.84814:-135.86033:45.166);
+\fill [black] (6.02,-39.02) -- (6.21,-39.94) -- (6.93,-39.25);
+\draw (39.39,-53.36) node [below] {$\epsilon,\$\rightarrow\$$};
+\draw [black] (71.01,-35.12) -- (46.59,-32.88);
+\fill [black] (46.59,-32.88) -- (47.34,-33.45) -- (47.43,-32.45);
+\draw (59.88,-32.99) node [above] {$\epsilon,+\rightarrow\epsilon$};
+\draw [black] (28.553,-32.03) arc (124.37291:64.88023:12.644);
+\fill [black] (41.06,-31.02) -- (40.55,-30.23) -- (40.12,-31.13);
+\draw (33.83,-28.9) node [above] {$+,-\rightarrow\epsilon$};
+\draw [black] (41.578,-34.805) arc (-50.16196:-120.5849:11.248);
+\fill [black] (28.65,-35.85) -- (29.08,-36.69) -- (29.59,-35.83);
+\draw (36.09,-38.33) node [below] {$\epsilon,-\rightarrow-$};
+\draw [black] (45.86,-30.63) -- (66.04,-13.07);
+\fill [black] (66.04,-13.07) -- (65.11,-13.22) -- (65.76,-13.97);
+\draw (49.14,-21.36) node [above] {$\epsilon,+\rightarrow+$};
+\draw [black] (41.87,-30.15) -- (29.43,-12.45);
+\fill [black] (29.43,-12.45) -- (29.48,-13.4) -- (30.3,-12.82);
+\draw (35.06,-22.67) node [left] {$\epsilon,\$\rightarrow\$$};
+\draw [black] (24.256,-31.82) arc (250.89939:-37.10061:2.25);
+\draw (18.97,-26.74) node [above] {$i,\epsilon\rightarrow\epsilon$};
+\fill [black] (26.79,-31.05) -- (27.52,-30.46) -- (26.58,-30.13);
+\draw [black] (66.054,-9.129) arc (256.46211:-31.53789:2.25);
+\draw (59.17,-4.26) node [above] {$+,\epsilon\rightarrow+$};
+\fill [black] (68.5,-8.12) -- (69.17,-7.46) -- (68.2,-7.22);
+\end{tikzpicture}
+\end{center}
+
+\section{Definició formal de \pda{}}
+
+\pda{} = \{ Q, $\Sigma$*, $\Gamma$*, $\delta$, q0, q3 \}
+
+\begin{itemize}
+\item Q = {q0, q1, q2, q3, q4, q5, q6}
+\item $\Sigma$* = \{ +, -, \Return, $\epsilon$\}
+\item $\Gamma$* = \{ +, - , \$, $\epsilon$\}
+\item $\delta$ = Q X $\Sigma$* X $\Gamma$* $\rightarrow$ Q
+\item q0 $\in$ Q
+\item q6 $\subseteq{}$ Q
+\end{itemize}
+
+\subsection{Taula $\delta$ \pda{}}
+
+\begin{table}[ht]
+\caption{\label{tab:table-name} $\delta$ table for + and - inputs}
+\centering
+\begin{tabular}{ccccccccc}
+\hline
+\hline
+input            & \multicolumn{4}{c}{+}            & \multicolumn{4}{c}{-}            \\
+stack            & + & -          & \$ & $\epsilon$          & +          & - & \$ & $\epsilon$          \\
+-\textgreater Q0 &   &            &    &            &            &   &    &            \\
+Q1               &   &            &    & \{(Q3,+)\} &            &   &    & \{(Q6,-)\} \\
+Q2               &   &            &    &            &            &   &    &            \\
+Q3               &   &            &    & \{(Q3,+)\} & \{(Q2,$\epsilon$)\} &   &    &            \\
+Q4               &   &            &    &            &            &   &    &            \\
+Q5               &   & \{(Q4,$\epsilon$)\} &    &            &            &   &    & \{(Q6,-)\} \\
+Q6               &   &            &    &            &            &   &    &     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{\label{tab:table-name} $\delta$ table for $\epsilon$ and \$ inputs}
+\centering
+\begin{tabular}{cccccccccc}
+\hline
+\hline
+input            & \multicolumn{4}{c}{$\epsilon$} & \multicolumn{4}{c}{\$}                             \\
+stack            & +   & -   & \$   & $\epsilon$           & +          & -          & \$          & $\epsilon$          \\
+-\textgreater Q0 &     &     &      &             &            &            &             & \{Q1,\$)\} \\
+Q1               &     &     &      & \{(Q1,$\epsilon$)\}  &            &            &             &            \\
+Q2               &     &     &      &             & \{(Q4,$\epsilon$)\} &            & \{(Q6,\$)\} &            \\
+Q3               &     &     &      & \{(Q3,$\epsilon$)\}  &            &            &             &            \\
+Q4               &     &     &      &             & \{(Q3,+)\} & \{(Q5,-)\} & \{(Q1,\$)\} &            \\
+Q5               &     &     &      & \{(Q5,$\epsilon$)\}  &            &            &             &            \\
+Q6               &     &     &      &             &            &            &             & \{(Q5,-)\} \\ \hline
+
+\end{tabular}
+\end{table}
+
+
+\section{Equivalència entre PDA i CFG}
+
+Els PDA i el CFG son equivalents a nivell de potència. 
+
+Com diu al \textit{Theorem 2.20 de la referència [1]}, un llenguatge és lliure de context si i només si un autòmata de Pila és capaç de reconeixe’l i ho demostra al \textit{Lema 2.21 i al 2.27 [1]}.
+
+Afirmem doncs, que poguent representar l’autòmata \pda{} com un Push-Down autòmata existeix una $CFG$ capaç de generar tots els mots de \pda{}.
+
+\section{Gramàtica lliure de context}
+
+\textit{Veure Formal Definition de CFG, Definition 2.2, pàg 104 [1]}.
+
+Denotem la construcció dels possibles mots com la obligació d’afegir sempre un símbol + a un \wpda{} que tingui com a mínim el doble de símbols '+' que de '-'.
+
+Expressem \pdaCFG{} = (V,T,P,S)
+
+\begin{itemize}
+\item V  = {S , A , B}
+\item T = {+, -, i }
+\item P = {
+		S $\rightarrow$ A,
+		A $\rightarrow$ B+A | B+B,
+		B $\rightarrow$ -B+B+ | +B-B+ | +B+B- | BiB | $\epsilon$
+      }
+\end{itemize}
+
+Aquesta gramàtica és capaç de generar tots els mots del L(\pda{}).
+
+\section{Ambigüitat}
+
+Una gramàtica lliure de context pot donar pas a diferents generacions d’un mateix mot, \textit{Definition 2.7, pàg 108 [1]}. 
+
+Podem detectar ambigüitat amb el mot \wpda on \wpda = '++-+', ens ajudem de \textit{l'eina sobre autòmates de la pàgina web d'standford [8]} per demostrar-la. 
+
+Representem l'ambigüitat mitjançant les següents taules : 
+
+\begin{table}[ht]
+\caption{\label{tab:table-name} Ambigüitat Figura 1}
+\centering
+\begin{tabular}{lll}
+\hline
+\hline
+RULE                       & APPLICATION                        & RESULT \\
+Start $\rightarrow$ S      & Start                              & S      \\
+S $\rightarrow$ A          & \color{Blue}{S} & \color{Blue}{A}      \\
+A $\rightarrow$ B+B        & \color{Blue}{A}                                  & \color{Blue}{B+B}    \\
+B $\rightarrow$ $\epsilon$ & \color{Blue}{B}+B                                & +B     \\
+B $\rightarrow$ +B-B+      & +\color{Blue}{B}                                 & +\color{Blue}{+B-B+} \\
+B $\rightarrow$ $\epsilon$ & ++\color{Blue}{B}-B+                             & ++B-B+ \\
+B $\rightarrow$ $\epsilon$ & ++-\color{Blue}{B}+                              & ++-+  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{\label{tab:table-name} Ambigüitat Figura 2}
+\centering
+\begin{tabular}{lll}
+\hline
+\hline
+RULE                       & APPLICATION                        & RESULT  \\
+Start $\rightarrow$ S      & Start                              & S       \\
+S $\rightarrow$ A          & \color{Blue}{S} & \color{Blue}{A}       \\
+A $\rightarrow$ B+B        & \color{Blue}{A}                                  & \color{Blue}{B+B}     \\
+B $\rightarrow$ +B-B+      & \color{Blue}{B}+B                                & \color{Blue}{+B+B-}+B \\
+B $\rightarrow$ $\epsilon$ & +\color{Blue}{B}+B-+B                            & ++B-+B  \\
+B $\rightarrow$ $\epsilon$ & ++\color{Blue}{B}-+B+                            & ++-+B   \\
+B $\rightarrow$ $\epsilon$ & ++-+\color{Blue}{B}                              & ++-+   
+\end{tabular}
+\end{table}
+
+\section{Chomsky Normal Form}
+
+\textit{Veure Definició 2.8, pàg 109 [1]}.
+
+\textit{“Qualsevol llenguatge lliure de context és generat per una gramàtica lliure de context en forma normal de chomsky” - Theorem 2.9 - Michael Sipser}.
+
+Per tant per generar la teotalitat el L(\pda{}) ens n’assegurem passant la \pdaCFG{} a $CNF$. Emprem el programa \textit{JFLAP [6]} que segueix els passos descrits a \textit{Exemple 2.10, pàg 110 [1]}.
+
+\begin{lstlisting}
+S -> BF|EB|EA|BO|+|BE
+B -> CB|i|BC|DL|DK|DJ|EI|EH|EG|EW|EV|EU|BT|DR|EQ|EP
+F -> EA
+E -> +
+A -> EB|+|BE|EA|BO|BF
+O -> EB
+C -> i
+D -> -
+L -> EE
+K -> EN
+N -> BE
+J -> BL
+I -> DE
+H -> DN
+G -> BI
+W -> ED
+V -> EM
+M -> BD
+U -> BW
+T -> CB
+R -> BK
+Q -> BH
+P -> BV
+\end{lstlisting}
+
+\clearpage
 
 \chapter{Turing Machine}
 
@@ -1052,11 +1724,11 @@ q19   & \{q19\}     & \{q19\}     & \{q19\}                & $\emptyset$ &  &  &
 
 
 \begin{thebibliography}{9}
-\bibitem{FC} 
+\bibitem{FC}
 Fundamental of Computation - Michael Sipser
- 
+
 \bibitem{patterns}
-\hyperlink{http://ima.udg.edu/~rigau/FC/FC_patterns.pdf}{Problema Patterns (i.e., Cerca de Patrons) - Jaume Rigau} 
+\hyperlink{http://ima.udg.edu/~rigau/FC/FC_patterns.pdf}{Problema Patterns (i.e., Cerca de Patrons) - Jaume Rigau}
 
 \bibitem{Hopcroft}
 \hyperlink{http://ima.udg.edu/~rigau/FC/MFAP.pdf}{Lexical analisys - part 4}
@@ -1067,10 +1739,16 @@ Fundamental of Computation - Michael Sipser
 \bibitem{Matrix Transposition Wikipedia}
 \hyperlink{https://en.wikipedia.org/wiki/Transpose}{Matrix Transposition Wikipedia}
 
+\bibitem{jflap}
+\hyperlink{http://www.jflap.org/}{JFlap Automaton software}
+
+\bibitem{chomsky normal form translator}
+\hyperlink{https://mpeveler.com/assets/content/projects/cfg2cnf.php}{Generador de formes normals de chomsky}
+
+\bibitem{Standford Automata web tool}
+\hyperlink{https://web.stanford.edu/class/archive/cs/cs103/cs103.1156/tools/cfg/}{eina web de la pàgina web d’standford}
 
 \end{thebibliography}
 
 \printindex
 \end{document}
-
-
