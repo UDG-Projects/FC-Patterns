@@ -37,8 +37,8 @@
 		<Unit filename="CMakeLists.txt" />
 		<Unit filename="DFA.cpp" />
 		<Unit filename="DFA.h" />
-		<Unit filename="Matrix.cpp" />
-		<Unit filename="Matrix.h" />
+		<Unit filename="MatrixPattern.cpp" />
+		<Unit filename="MatrixPattern.h" />
 		<Unit filename="PDA.cpp" />
 		<Unit filename="PDA.h" />
 		<Unit filename="Utils.cpp" />

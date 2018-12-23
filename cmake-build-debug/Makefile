@@ -177,32 +177,32 @@ DFA.cpp.s:
 	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/DFA.cpp.s
 .PHONY : DFA.cpp.s
 
-Matrix.o: Matrix.cpp.o
+MatrixPattern.o: MatrixPattern.cpp.o
 
-.PHONY : Matrix.o
+.PHONY : MatrixPattern.o
 
 # target to build an object file
-Matrix.cpp.o:
-	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/Matrix.cpp.o
-.PHONY : Matrix.cpp.o
+MatrixPattern.cpp.o:
+	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/MatrixPattern.cpp.o
+.PHONY : MatrixPattern.cpp.o
 
-Matrix.i: Matrix.cpp.i
+MatrixPattern.i: MatrixPattern.cpp.i
 
-.PHONY : Matrix.i
+.PHONY : MatrixPattern.i
 
 # target to preprocess a source file
-Matrix.cpp.i:
-	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/Matrix.cpp.i
-.PHONY : Matrix.cpp.i
+MatrixPattern.cpp.i:
+	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/MatrixPattern.cpp.i
+.PHONY : MatrixPattern.cpp.i
 
-Matrix.s: Matrix.cpp.s
+MatrixPattern.s: MatrixPattern.cpp.s
 
-.PHONY : Matrix.s
+.PHONY : MatrixPattern.s
 
 # target to generate assembly for a file
-Matrix.cpp.s:
-	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/Matrix.cpp.s
-.PHONY : Matrix.cpp.s
+MatrixPattern.cpp.s:
+	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/MatrixPattern.cpp.s
+.PHONY : MatrixPattern.cpp.s
 
 PDA.o: PDA.cpp.o
 
@@ -230,6 +230,33 @@ PDA.s: PDA.cpp.s
 PDA.cpp.s:
 	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/PDA.cpp.s
 .PHONY : PDA.cpp.s
+
+TM.o: TM.cpp.o
+
+.PHONY : TM.o
+
+# target to build an object file
+TM.cpp.o:
+	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/TM.cpp.o
+.PHONY : TM.cpp.o
+
+TM.i: TM.cpp.i
+
+.PHONY : TM.i
+
+# target to preprocess a source file
+TM.cpp.i:
+	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/TM.cpp.i
+.PHONY : TM.cpp.i
+
+TM.s: TM.cpp.s
+
+.PHONY : TM.s
+
+# target to generate assembly for a file
+TM.cpp.s:
+	$(MAKE) -f CMakeFiles/practicafinal.dir/build.make CMakeFiles/practicafinal.dir/TM.cpp.s
+.PHONY : TM.cpp.s
 
 Utils.o: Utils.cpp.o
 
@@ -300,12 +327,15 @@ help:
 	@echo "... DFA.o"
 	@echo "... DFA.i"
 	@echo "... DFA.s"
-	@echo "... Matrix.o"
-	@echo "... Matrix.i"
-	@echo "... Matrix.s"
+	@echo "... MatrixPattern.o"
+	@echo "... MatrixPattern.i"
+	@echo "... MatrixPattern.s"
 	@echo "... PDA.o"
 	@echo "... PDA.i"
 	@echo "... PDA.s"
+	@echo "... TM.o"
+	@echo "... TM.i"
+	@echo "... TM.s"
 	@echo "... Utils.o"
 	@echo "... Utils.i"
 	@echo "... Utils.s"

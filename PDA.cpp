@@ -15,8 +15,8 @@ void PDA::init(){
 bool PDA::eval(string word) {
 
     // Going from q0 to q1 and adding the delimiter to the stack.
-    _actualState = q1;
     _stack.push(Alphabet::Delta::DOLLAR);
+    _actualState = q1;
 
     int symbolNumber = 0;
     while(symbolNumber < word.size()) {

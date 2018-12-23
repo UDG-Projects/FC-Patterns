@@ -17,7 +17,7 @@
 			<Cursor1 position="280" topLine="1" />
 		</Cursor>
 	</File>
-	<File name="Matrix.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MatrixPattern.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3242" topLine="130" />
 		</Cursor>
@@ -27,7 +27,7 @@
 			<Cursor1 position="581" topLine="12" />
 		</Cursor>
 	</File>
-	<File name="Matrix.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="MatrixPattern.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="734" topLine="53" />
 		</Cursor>

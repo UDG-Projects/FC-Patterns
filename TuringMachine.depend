@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1543859542 source:c:\users\gil\desktop\3r geinf\arquitecturacompus\turingmachine\main.cpp
 	<iostream>
-	"Matrix.h"
+	"MatrixPattern.h"
 	<fstream>
 	<vector>
 
@@ -11,11 +11,11 @@
 1543858183 source:c:\users\gil\desktop\3r geinf\arquitecturacompus\turingmachine\matrix.cpp
 	<iostream>
 	<vector>
-	"Matrix.h"
+	"MatrixPattern.h"
 
 1544190671 source:d:\bitbucket\practicafinal\main.cpp
 	<iostream>
-	"Matrix.h"
+	"MatrixPattern.h"
 	<fstream>
 	<vector>
 	"DFA.h"
@@ -52,7 +52,7 @@
 1544178595 source:d:\bitbucket\practicafinal\matrix.cpp
 	<iostream>
 	<vector>
-	"Matrix.h"
+	"MatrixPattern.h"
 
 1544889875 source:d:\bitbucket\practicafinal\pda.cpp
 	"PDA.h"

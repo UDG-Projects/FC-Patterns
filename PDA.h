@@ -27,12 +27,13 @@ public:
     bool eval(string word);
 
     /**
-     *
+     * Reset all values for PDA Automata (starting state)
      */
     void init();
 
 private:
 
+    /** Declaring all states as a private constants **/
     const string q0 = "";
     const string q1 = "buida";
     const string q2 = "trec +";

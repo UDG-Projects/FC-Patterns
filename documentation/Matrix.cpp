@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#include "Matrix.h"
+#include "MatrixPattern.h"
 
 Matrix::Matrix()
 {

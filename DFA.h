@@ -14,6 +14,9 @@ class DFA {
 
 public:
 
+    /**
+     * Constructor
+     */
     DFA();
 
     /**
@@ -24,13 +27,13 @@ public:
     bool eval(string word);
 
     /**
-     *
+     * Resets all values for DFA automata (starting state)
      */
     void init();
 
 private:
 
-    /** Declarin all states as a private constants **/
+    /** Declaring all states as a private constants **/
     const string q0 = "";
     const string q1 = "+";
     const string q2 = "++";

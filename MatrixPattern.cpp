@@ -1,20 +1,20 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#include "Matrix.h"
+#include "MatrixPattern.h"
 
-Matrix::Matrix(){
+MatrixPattern::MatrixPattern(){
     _delimiter=' ';
     _matrix= vector<vector<char>>(0);
 }
 
-Matrix::Matrix(string patternAsString, char delimiter)
+MatrixPattern::MatrixPattern(string patternAsString, char delimiter)
 {
     _delimiter = delimiter;
     createFromPattern(patternAsString);
 }
 
-void Matrix::transpose() {
+void MatrixPattern::transpose() {
 
     vector<vector<char>> transposed = vector<vector<char>>(cols());
     for(int col = 0; col < cols(); col++){
@@ -27,7 +27,7 @@ void Matrix::transpose() {
     _matrix=transposed;
 }
 
-void Matrix::createFromPattern(string patternAsString){
+void MatrixPattern::createFromPattern(string patternAsString){
     vector<string> dividedPattern = Utils::split(patternAsString, _delimiter);
     _matrix = vector<vector<char>>();
 
@@ -40,15 +40,14 @@ void Matrix::createFromPattern(string patternAsString){
     }
 }
 
-void Matrix::minimize() {
+void MatrixPattern::minimize() {
     minimizeByRows();
     transpose();
     minimizeByRows();
     transpose();
-
 }
 
-void Matrix::minimizeByRows(){
+void MatrixPattern::minimizeByRows(){
 
     bool firstPlusOnPattern = false;
     bool plusOnBread = false;
@@ -82,11 +81,11 @@ void Matrix::minimizeByRows(){
     createFromPattern(validPattern);
 }
 
-int Matrix::rows(){
+int MatrixPattern::rows(){
     return _matrix.size();
 }
 
-int Matrix::cols(){
+int MatrixPattern::cols(){
     if(_matrix.size() == 0){
         return 0;
     }
@@ -95,7 +94,7 @@ int Matrix::cols(){
     }
 }
 
-void Matrix::show() {
+void MatrixPattern::show() {
 
     for(int row = 0; row < _matrix.size(); row++){
         for(int col = 0; col < _matrix[row].size(); col++){
@@ -105,20 +104,20 @@ void Matrix::show() {
     }
 }
 
-void Matrix::performTick(){
+void MatrixPattern::performTick(){
     vector<vector<char>> wrapped = vector<vector<char>>(rows()+2);
 
     for(int row = 0; row< rows()+2; row++){
         wrapped[row] = vector<char>(cols()+2);
         for(int col = 0;col<cols()+2; col++){
-            wrapped[row][col]=newCellValue(wrapped, rows()+2,cols()+2,row,col);
+            wrapped[row][col]=newCellValue(row,col);
         }
     }
     _matrix=wrapped;
     minimize();
 }
 
-string Matrix::toString(){
+string MatrixPattern::toString(){
     string pattern="";
     for(int row=0; row<rows();row++){
         for(int col = 0; col < cols();col++){
@@ -131,7 +130,7 @@ string Matrix::toString(){
 
 }
 
-char Matrix::newCellValue(vector<vector<char>> wrappedMatrix, int wrappedRows,int wrappedColumns, int row, int column){
+char MatrixPattern::newCellValue(int row, int column){
     int actives = 0;
     for(int subRow = row-1; subRow<=row+1;subRow++){
         for(int subCol = column-1;subCol<=column+1;subCol++){
@@ -148,7 +147,7 @@ char Matrix::newCellValue(vector<vector<char>> wrappedMatrix, int wrappedRows,in
 
 }
 
-bool Matrix::equals(Matrix matrixToEval){
+bool MatrixPattern::equals(MatrixPattern matrixToEval){
     bool equals = true;
     if(rows()!=matrixToEval.rows() || cols()!=matrixToEval.cols())
         return false;
