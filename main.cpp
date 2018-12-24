@@ -74,7 +74,7 @@ void generationMode(){
     int percentage;
     int columns;
     int rows;
-    int factor;
+    double factor;
     string logFile;
 
     cout << "* Please enter the following paramters : " << endl;
@@ -91,18 +91,24 @@ void generationMode(){
     cout << "* statistics file name printed in csv?> ";
     cin >> logFile;
 
-    // Initialitze Clock timming
-    clock_t tfirst = clock();
-    clock_t ti = tfirst;
-    clock_t tf;
-
+    /**
+     * Preparing log file in csv format!
+     */
     // Delete logfile if exists
     Utils::removeExistingFile(logFile);
+    // Printing variables on csv
+    Utils::printOnFile(logFile, "Grow Factor;Percentage Apparitions;Expected Iterations");
+    Utils::printOnFile(logFile, to_string(factor) + ";" + to_string(percentage) + ";" + to_string(iterations));
+    for(int separation = 0; separation < 5; separation++){
+        Utils::printOnFile(logFile, "");
+    }
     // Printing header for logFile
-    Utils::printOnFile(logFile, "Iteration;Rows;Columns;TI;TF;Result");
+    Utils::printOnFile(logFile, "Iteration;Rows;Columns;Clocks;Ticks");
 
     int i = 0;
     while(i < iterations) {
+
+
 
         MatrixPattern A = MatrixPattern(rows, columns, Utils::L_PATTERN_DELIMITER, percentage);
         MatrixPattern B = MatrixPattern(rows, columns, Utils::L_PATTERN_DELIMITER, percentage);
@@ -118,16 +124,19 @@ void generationMode(){
 
         // Execute turing machine
         TM tm(true);
+
+        // Getting time befor start
+        clock_t ti = clock();
+
         int tick = tm.eval(word);
 
         // Getting time and filling statistics
-        tf=clock();
+        clock_t tf=clock();
 
         // Printing details on logFile
-        Utils::printOnFile(logFile,to_string(rows) +";"+ to_string(columns) + ";"+ to_string(ti - tfirst) +";"+ to_string(tf - tfirst) +";"+ to_string(tick));
+        Utils::printOnFile(logFile,to_string(rows) +";"+ to_string(columns) + ";"+ to_string(tf - ti) +";"+ to_string(tick));
 
         // Init variables
-        ti = tf;
         rows *= factor;
         columns *= factor;
         i++;

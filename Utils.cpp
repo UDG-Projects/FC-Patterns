@@ -58,7 +58,8 @@ void Utils::removeExistingFile(string fileName) {
 
 void Utils::printOnFile(string filename, string toPrint) {
     ofstream stream;
-    stream.open(filename);
+    // Append mode
+    stream.open(filename, ios_base::app);
     stream << toPrint << endl;
     stream.close();
     cout << "## Printed : " << toPrint << endl;
