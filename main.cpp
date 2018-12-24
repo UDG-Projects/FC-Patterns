@@ -103,7 +103,7 @@ void generationMode(){
         Utils::printOnFile(logFile, "");
     }
     // Printing header for logFile
-    Utils::printOnFile(logFile, "Iteration;Rows;Columns;Clocks;Ticks");
+    Utils::printOnFile(logFile, "Iteration;Rows;Columns;Clocks;Ticks;Matrix A;Matrix B");
 
     int i = 0;
     while(i < iterations) {
@@ -134,7 +134,7 @@ void generationMode(){
         clock_t tf=clock();
 
         // Printing details on logFile
-        Utils::printOnFile(logFile,to_string(rows) +";"+ to_string(columns) + ";"+ to_string(tf - ti) +";"+ to_string(tick));
+        Utils::printOnFile(logFile,to_string(rows) +";"+ to_string(columns) + ";"+ to_string(tf - ti) +";"+ to_string(tick) + ";" + A.toString() + ";" + B.toString());
 
         // Init variables
         rows *= factor;
