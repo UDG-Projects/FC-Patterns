@@ -31,6 +31,23 @@ public:
      * @param lDelimiter
      */
     static string readPatternFromFile(string nFile, char l2Delimiter, char lDelimiter);
+
+    /**
+     * PRE : True
+     * @param fileName is the filename to check and remove
+     * POST: If filename exists, filename is deleted, else nothing happens
+     */
+    static void removeExistingFile(string fileName);
+
+    /**
+     * PRE : True
+     * @param filename file to open for print
+     * @param toPrint string to be stored in filename
+     * POST: toPrint added at the end of filename
+     */
+    static void printOnFile(string filename, string toPrint);
+
+
 private:
 
 

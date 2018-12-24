@@ -20,15 +20,16 @@ public:
 
     /**
      * Connstructor for Turing Machine class.
-     * @param patterns w € L²
+     * @param if true eval ever returns tick counter
+     * @param showAllMatrix if true eval prints all evolutions throught stdout
      */
     TM(bool debug = false, bool showAllMatrix = false);
 
 
     /**
      * Executes Machine TM with input stored at creation.
-     * @param debug if true prints some spects throught output.
-     * @return integer representing tick for evolution from MatrixA to MatrixB, or -1 if can't be evoluted to MatrixB.
+     * @param patterns w € L²
+     * @return integer representing tick for evolution from MatrixA to MatrixB, or -1 if can't be evoluted to MatrixB, else loop (nothing returned).
      */
     int eval(string patterns);
 

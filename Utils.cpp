@@ -2,6 +2,7 @@
 // Created by marc on 06/12/18.
 //
 #include <fstream>
+#include <iostream>
 
 #include "Utils.h"
 
@@ -45,4 +46,20 @@ string Utils::readPatternFromFile(string nFile, char l2Delimiter, char lDelimite
     }
 
     return matrix1D;
+}
+
+
+void Utils::removeExistingFile(string fileName) {
+    std::ifstream ifile(fileName);
+    if((bool)ifile){
+        remove(fileName.c_str());
+    }
+}
+
+void Utils::printOnFile(string filename, string toPrint) {
+    ofstream stream;
+    stream.open(filename);
+    stream << toPrint << endl;
+    stream.close();
+    cout << "## Printed : " << toPrint << endl;
 }

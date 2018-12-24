@@ -27,8 +27,6 @@ int TM::eval(string patterns) {
         if(_showAll){
             _matrixA.show();
             cout << endl;
-            _matrixB.show();
-            cout << endl;
         }
 
         _matrixA.performTick();

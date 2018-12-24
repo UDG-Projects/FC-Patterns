@@ -10,11 +10,10 @@
 
 using namespace std;
 
-
-//TODO: extreure entrada a part
 /**
- * PRE:
- * POST:
+ * PRE: True
+ * POST: Filename containing L² word asked, pattern(s) from filename will be passed to DFA, PDA and TM.
+ *       Prints result for *5.4 Fusió*
  */
 void normalMode(bool debug = false, bool showAll = false){
 
@@ -64,8 +63,9 @@ void normalMode(bool debug = false, bool showAll = false){
 }
 
 /**
- * PRE:
- * POST:
+ * PRE: True
+ * POST: Patterns will be generated and passed to TM, log File will be created.
+ *       Params asked to pattern generation and factor growing.
  */
 void generationMode(){
 
@@ -78,9 +78,9 @@ void generationMode(){
     string logFile;
 
     cout << "* Please enter the following paramters : " << endl;
-    cout << "* Number of iterations :> ";
+    cout << "* How much patterns will be generated?> ";
     cin >> iterations;
-    cout << "* + symbol percentage of apparitions (0 -100)> ";
+    cout << "* + symbol percentage of apparitions (0 -100) :> ";
     cin >> percentage;
     cout << "* Number of rows :> ";
     cin >> rows;
@@ -91,23 +91,19 @@ void generationMode(){
     cout << "* statistics file name printed in csv?> ";
     cin >> logFile;
 
-
-    /** For debug purposes **/
-    ofstream stream;
+    // Initialitze Clock timming
     clock_t tfirst = clock();
     clock_t ti = tfirst;
     clock_t tf;
-    stream.open(logFile);
-    stream << "Iteration;Rows;Columns;TI;TF;Result" << endl;
 
     // Delete logfile if exists
-    std::ifstream ifile(logFile);
-    if((bool)ifile){
-        remove(logFile.c_str());
-    }
+    Utils::removeExistingFile(logFile);
+    // Printing header for logFile
+    Utils::printOnFile(logFile, "Iteration;Rows;Columns;TI;TF;Result");
 
     int i = 0;
     while(i < iterations) {
+
         MatrixPattern A = MatrixPattern(rows, columns, Utils::L_PATTERN_DELIMITER, percentage);
         MatrixPattern B = MatrixPattern(rows, columns, Utils::L_PATTERN_DELIMITER, percentage);
         cout << "*******************************************" << endl;
@@ -125,11 +121,10 @@ void generationMode(){
         int tick = tm.eval(word);
 
         // Getting time and filling statistics
-
         tf=clock();
-        string result = to_string(rows) +";"+ to_string(columns) + ";"+ to_string(ti - tfirst) +";"+ to_string(tf - tfirst) +";"+ to_string(tick);
-        stream << result << endl;
-        cout << result << endl;
+
+        // Printing details on logFile
+        Utils::printOnFile(logFile,to_string(rows) +";"+ to_string(columns) + ";"+ to_string(ti - tfirst) +";"+ to_string(tf - tfirst) +";"+ to_string(tick));
 
         // Init variables
         ti = tf;
@@ -138,14 +133,14 @@ void generationMode(){
         i++;
     }
     // Close log file
-    stream.close();
+
 
 }
 
 /**
  * PRE: Execute program in debug mode.
  * POST: Patterns will be generated or entered from file.
- * The generation will be random taking + 75% of possibilities to appear and - 25%.
+ * The generation will be random taking variable integer from user for + symbol possibilities apparition.
  */
 void godMode(){
 
@@ -184,11 +179,16 @@ void godMode(){
 
 }
 
-
+/**
+ * PRE:
+ * @param argc Number of arguments for main
+ * @param argv Option "-d" will enter in debug mode
+ * @return 0 if all ok, if loop will stand running
+ */
 int main(int argc, char *argv[])
 {
 
-    bool debug = true; //= argc > 1 && strcmp(argv[1], "-d") == 0;
+    bool debug = argc > 1 && strcmp(argv[1], "-d") == 0;
 
     if(debug){
         godMode();
