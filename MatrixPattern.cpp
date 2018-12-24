@@ -14,6 +14,18 @@ MatrixPattern::MatrixPattern(string patternAsString, char delimiter)
     createFromPattern(patternAsString);
 }
 
+MatrixPattern::MatrixPattern(int rows, int columns, char delimiter, int percentage){
+    _delimiter = delimiter;
+    _matrix = vector<vector<char>>(0);
+    for(int row = 0; row < rows; row++){
+        _matrix.push_back(vector<char>(columns));
+        for(int column = 0; column < columns; column++){
+            rand() % 100 < percentage ? _matrix[row][column] = '+' : _matrix[row][column] = '-';
+        }
+    }
+}
+
+
 void MatrixPattern::transpose() {
 
     vector<vector<char>> transposed = vector<vector<char>>(cols());

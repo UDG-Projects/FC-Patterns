@@ -23,6 +23,8 @@ public:
      */
     MatrixPattern(string patternAsString, char delimiter);
 
+    MatrixPattern(int rows, int columns, char delimiter, int percentage);
+
     /**
      * prints pattern like matrix throught cout
      */

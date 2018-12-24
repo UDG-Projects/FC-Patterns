@@ -5,18 +5,9 @@
 
 #include "TM.h"
 
-
-TM::TM(bool debug){
+TM::TM(bool debug, bool showAllMatrix){
     _debug = debug;
-    if(debug) {
-        _logFile;
-        cout << "Enter a log file please : ";
-        cin >> _logFile;
-        std::ifstream ifile(_logFile);
-        if((bool)ifile){
-            remove(_logFile.c_str());
-        }
-    }
+    _showAll = showAllMatrix;
 }
 
 int TM::eval(string patterns) {
@@ -29,36 +20,21 @@ int TM::eval(string patterns) {
     MatrixPattern estabilizedMatrix;
     MatrixPattern window3OscilationMatrix;
 
-    /** For debug purposes **/
-    ofstream stream;
-    clock_t tfirst = clock();
-    clock_t ti = tfirst;
-    clock_t tf;
-    if(_debug){
-        stream.open(_logFile);
-        stream << "TI;TF;Tick" << endl;
-    }
-
     while(!_matrixB.equals(_matrixA)  &&  !_matrixA.equals(estabilizedMatrix) && !_matrixA.equals(window3OscilationMatrix)){
         window3OscilationMatrix = estabilizedMatrix;
         estabilizedMatrix = _matrixA;
 
+        if(_showAll){
+            _matrixA.show();
+            cout << endl;
+            _matrixB.show();
+            cout << endl;
+        }
+
         _matrixA.performTick();
 
-        if(_debug){ /** For debug purposes **/
-            _matrixA.show();
-            cout << "TICK = " << ticks << endl;
-            cout << endl;
-
-            tf=clock();
-            stream << ti - tfirst << ";" << tf - tfirst<< ";" << ticks << endl;
-            ti = tf;
-        }
         ticks++;
     }
-    if(_debug){ /** For debug purposes **/
-        stream.close();
-    }
 
-    return _matrixB.equals(_matrixA) ? ticks : -1;
+    return (_matrixB.equals(_matrixA) or _debug) ? ticks : -1;
 }

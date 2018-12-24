@@ -22,7 +22,7 @@ public:
      * Connstructor for Turing Machine class.
      * @param patterns w € L²
      */
-    TM(bool debug = false);
+    TM(bool debug = false, bool showAllMatrix = false);
 
 
     /**
@@ -38,7 +38,7 @@ private:
     MatrixPattern _matrixA;
     MatrixPattern _matrixB;
     bool _debug;
-    string _logFile;
+    bool _showAll;
 
 };
 
