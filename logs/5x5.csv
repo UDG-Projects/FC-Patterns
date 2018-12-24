@@ -1,0 +1,10 @@
+Grow Factor;Percentage Apparitions;Expected Iterations
+1.500000;50;2
+
+
+
+
+
+Iteration;Rows;Columns;Clocks;Ticks;Matrix A;Matrix B
+2;2;93;1;+-i-+;++i-+
+3;3;1834;12;+--i+++i+--;---i+--i+--

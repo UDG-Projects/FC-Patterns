@@ -76,6 +76,7 @@ void generationMode(){
     int rows;
     double factor;
     string logFile;
+    bool printAll;
 
     cout << "* Please enter the following paramters : " << endl;
     cout << "* How much patterns will be generated?> ";
@@ -90,6 +91,8 @@ void generationMode(){
     cin >> factor;
     cout << "* statistics file name printed in csv?> ";
     cin >> logFile;
+    cout << "* Print all matrix (true = 1, false = 0)? :>";
+    cin >> printAll;
 
     /**
      * Preparing log file in csv format!
@@ -123,7 +126,7 @@ void generationMode(){
         string word = A.toString() + Utils::L2_PATTERN_DELIMITER + B.toString();
 
         // Execute turing machine
-        TM tm(true);
+        TM tm(true, printAll);
 
         // Getting time befor start
         clock_t ti = clock();
