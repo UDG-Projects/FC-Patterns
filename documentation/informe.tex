@@ -74,6 +74,8 @@ inputencoding=utf8}
 \def \pdaCFG{$GGRCFG{PDA} $}
 \def \pda{$GGR_{PDA} $}
 \def \tm{$MSP_{TM} $}
+\def \tmz{$MSP_{TM0} $}
+\def \tmu{$MSP_{TM1} $}
 \def \context{$\Phi$}
 \def \contextDFA{$\Phi_{DFA}$}
 \def \contextPDA{$\Phi_{PDA}$}
@@ -84,6 +86,7 @@ inputencoding=utf8}
 \def \postDFA{$\Psi_{DFA}$}
 \def \postPDA{$\Psi_{PDA}$}
 \def \llesca{$\gamma$}
+\def \ld{$L^{2}$}
 
 \begin{document}
 
@@ -1435,6 +1438,14 @@ U-> p
 
 En aquest format la $CNF$ està en la seva mínima expressió i no conté ambigüetats.
 
+\section{Referència al codi}
+
+El codi de l'autòmata finit determinista està a la classe DFA representada per els fitxers DFA.h i DFA.cpp a l'arrel del directori de la pràctica.
+
+\section{Reconeixibilitat i Decidibilitat}
+
+Tot llenguatge reconegut per un autòmata finit determinista o indeterminista forma part dels llenguatges lliures de context i per definició \textbf{son reconeixibles per PDA i per TM i decidibles}.
+
 \clearpage
 
 \chapter{Push-Down Automata}
@@ -1712,16 +1723,410 @@ Q -> BH
 P -> BV
 \end{lstlisting}
 
+\section{Referència al codi}
+
+El codi del Push-Down Automata és a la classe PDA representada per els fitxers PDA.h i PDA.cpp a l'arrel del directori de la pràctica.
+
+\section{Reconeixibilitat i Decidibilitat}
+
+Tot llenguatge reconegut per un push-down autòmata determinista o indeterminista forma part dels llenguatges lliures de context i per definició \textbf{son reconeixibles per TM i decidibles}.
+
+
 \clearpage
 
 \chapter{Turing Machine}
 
+\section{Disseny descendent i pseudocodi}
+
+Donat el problema presentat a l’\textit{exercici 5.3 que parla de Llenguatge Recursivament Enumerable, [1]}. Proposem el següent disseny descendent explicat també en pseudocodi per resoldre el problema PE on Pe son els patrons explícits comentats a l'\textit{enunciat del problema [2] apartat 3.4}.
+
+\begin{itemize}
+\item Llegim patterns
+\item return eval(patterns)
+\end{itemize}
+
+On patterns està compost dels patrons P1 i P2, i eval serà l'algoritme encarregat d'intentar decidir l'acceptació o rebuig de si P2 és un patró generacional fruit d'una evolució de P1 retornant el tick en el que P1 deriva a P2, \textbf{sempre que el pugui}.
+
+Es pretén treballar amb patrons de manera genèrica, la millor manera de poder comparar si un patró és el mateix que un altre, és mitjançant la seva representació mínima. Per tant actuem sobre l’entrada per realitzar la següent operació sobre patrons : 
+
+\subsection{Minimització}
+
+\begin{itemize}
+\item PRE : Donat Py,x on x >= 0
+\item POST : Retorna Py,0
+\end{itemize}
+
+Les minimitzacions contemplen la possibilitat que un patró estigui embolcallat dins de files amb cèl·lules inactives o columnes de cèl·lules inactives. \textit{Veiem apartat 3.1 Definició de patrons [2]}. La idea és extreure les files sobrants de cèl·les inactives de la part superior i inferior del patró, transposar el patró, aplicar la extracció de les cel·les inactives de la part superior i inferior altre cop i tornar a transposar el patró retornant així la seva representació mínima. 
+
+\begin{itemize}
+\item Input P1
+\item MinimizeByRows(P1)
+\item Transpose(P1)
+\item MinimizeByRows(P1)
+\item Return Transpose(P1)
+
+\end{itemize}
+
+\subsection{Minimitzar per files}
+
+La idea general és extreure les files plenes de cel·les inactives tant a principi com a final de patró. Comencem amb el patró inicial, només ens podem trobar cel·les inactives a les primeres files. Les regles son : 
+
+\begin{enumerate}
+\item Ignorar les files que no continguin cel·les actives. 
+\item Quan trobem primera activa ho notifiquem i desem la fila en el patró resultant
+\item per cada fila 
+	\begin{enumerate}
+		\item Si no n’hi ha, acumulem fila en patró temporal
+		\item si hi ha cel·la activa, persistim acumolat en patró resultant
+	\end{enumerate}
+\end{enumerate}
+
+Per contra ignorarem al final totes les files acumolades que no tinguin cel·la activa. 
+
+\subsection{Transposició}
+
+Operació matricial de transposició. \textit{Veiem Referència bibliogràfica [5].}
+
+\subsection{Algoritme eval}
+
+L’objectiu és anar contant el nombre de ticks que trigarà P1 en evolucionar a P2, per tant s’haurà de pensar l’evolució de P1 fent l’algoritme performTick que ens permeti crear el nou patró a partir de l’anterior. 
+
+A cada tick, el que fem és mirar cel·la a cel·la si P1 és igual en totes les posicions a P2. Per mirar això, fem un recorregut per les dues matrius alhora comparant les posicions entre elles.
+
+\begin{itemize}
+\item tickCounter = 0
+\item While P1 != P2 
+	\begin{itemize}
+	\item P1 = performTick(P1)
+	\item tickCounter++;
+	\end{itemize}
+\item fi while
+\item Return tickCounter
+\end{itemize}
+
+\subsection{Algoritme performTick}
+
+Hem de preveure que el patró P1 pot crèixer, per tant el patró resultant pot ser més gran que P1. Si afirmem que P1 creix en nombre de files i columnes cap a P1', podem dir que existeix un patró P1’ > P1 on : 
+ 
+\begin{center}
+$P1' > P1 = (|files(P1’)|>|files(P1)|) ^ (|columnes(P1')>|columnes(P1)|)$
+\end{center}
+
+Per tant, si el patró P1 evoluciona fóra dels límits de P1, P1’ estarà preparat per poder representar-lo, en cas que no evolucioni fóra dels límits de la representació de P1, la minimització del mateix prèvia a la comparació farà la feina de representar-lo de manera inferior en nombre de files i columnes si escau. 
+
+Per cada cel·la de P1’ s’hi posa el resultat de la funció newCellValue que aplica les regles d’evolució per cada cel·la. 
+
+\subsection{Algoritme newCellValue}
+
+Compararà donada una fila i una columna, les cel·les adjacents a aquesta fila i columna per determinar les caràcterísitiques a seguir de l’evolució, explicades a \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [1]}.
+
+Aquest algoritme fa un recorregut \textbf{constant} per les 8 posicions on hi h pot haver un possible canvi. Concretament mira els veïns de la cel·la tractada i determina en funció de les normes especificades \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [1]} si la cel·la es manté en el seu estat o si reb un canvi. 
+
+\subsection{Referència al codi}
+
+El codi de la Màquina de Turing es troba al directori / del directori de la pràctica, concretament en formen part : 
+
+\begin{itemize}
+\item classe TM (TM.h i TM.cpp): Representa la màquina de turing. 
+\item classe MatrixPattern (MatrixPattern.h i MatrixPattern.cpp): Representa la manera de tractar els patrons dins de la màquina de turing.
+\item classe Utils  (Utils.h i Utils.cpp): Eines útils per al tractament grobla de la mateixa màquina de turing i per el main del programa.
+\end{itemize}
+
+\section{Reconeixibilitat del problema}
+
+Definim \tmz{} com la primera versió de la \tmu{}, on la primera versió és la màquina Turing Reconeixible del llenguatge \ld{}. 
+
+MSPTM accepta tots els mots que pertanyen al llenguatge \ld{} descrit a l’\textit{apartat 5.3 Llenguatge Recursivament Enumerable, [2]}. Per construcció demostrem que el problema és Turing Reconeixible presentant un programa en C++. 
+
+Si un mot w pertany a \ld{} llavors \tmz{} el reconeix, altrament loop. 
+
+En aquesta primera versió de la màquina \tmz{} ens centrem en la reconeixença del llenguatge i per tant només es contempla l’acceptació determinant que la màquina entrarà en un $QAccept$ quan es compleixi la igualtat en l’evolució. Altrament no podem determinar que la màquina (en aquesta primera versió) entri mai en un $QReject$.
+
+\subsubsection{Exemple d'execució}
+
+\textbf{Input : amb P1 i P2}
+
+\begin{lstlisting}
+++++++++++++
++----------+
++-++++++++-+
++-+------+-+
++-+-++++-+-+
++-+-++++-+-+
++-+-++++-+-+
++-+-++++-+-+
++-+------+-+
++-++++++++-+
++----------+
+++++++++++++
+
+------++++++------
+------++++++------
+------++++++------
+------------------
+------++++++------
+-----++++++++-----
++++-++-++++-++-+++
++++-+++----+++-+++
++++-+++----+++-+++
++++-+++----+++-+++
++++-+++----+++-+++
++++-++-++++-++-+++
+-----++++++++-----
+------++++++------
+------------------
+------++++++------
+------++++++------
+------++++++------
+
+\end{lstlisting}
+
+\textbf{Output :}
+
+\begin{lstlisting}
+t = 3
+\end{lstlisting}
+
+\textbf{Concluïm que :}
+
+P2 = P1$^3$
 
 
-\begin{multicols}{2}
-\end{multicols}
+\section{Decidibilitat del problema}
+
+La decidibilitat planteja el món dels problemes que presenten complexitats finites en la seva resolució. En aquest cas proposem diverses modificacions per \textbf{acostar} la implementació de \tm0{} -> \tm on \tm{} reconeix un conjunt més ampli de patrons. 
+
+En el nostre escenari el problema sabem que és reconeixible, peró encara no podem afirmar que el problema sigui, o no, decidible, per tant anirem treballant sobre \tmz{} aplicant modificacions per intentar portar el problema al món dels decidibles. Per fer-ho estudiarem en les següents seccions els patrons i els seus comportaments. 
+
+\subsection{Comportaments de l’evolució de patrons}
+
+Comentem les següents propietats detectades en el comportament de l’evolució de patrons.
+
+\begin{itemize}
+\item Derivació
+\item Estabilització
+	\begin{itemize}
+	\item Extinció
+	\end{itemize}
+\item Oscil·lació
+\item Creixement
+\end{itemize}
+
+\subsection{Derivació}
+
+Per parlar de la decidibilitat del problema el primer cas que ens apareix és que el problema sigui turing reconeixible tal com s’ha demostrat a l’apartat [Reconeixibilitat del problema]. Llavors la derivació serà el que en decidibilitat es diu acceptació. Quan P1 evoluciona amb t = n a P2, llavors \w{} pertany al llenguatge L(\tm{}) i la màquina accepta. 
+
+\subsection{Estabilització}
+
+\tmz{} no detecta quan $P2 != P1^t$, és a dir, no detecta cap cas en el que es pugui afirmar que un patró P1 no tindrà una evolució a P2. L’estabilització d’un patró s’enten com :
+
+\begin{center}
+$P1^t = P1^{t+1}$
+\end{center} 
+
+En aquest cas direm que el patró s’ha estabilitzat per que : 
+
+\begin{center}
+$\nexists P1^{t+n} != P1^t$
+\end{center} 
+
+on : $n > 0$
+
+I per tant en aquest cas es pot afirmar que P1 no evolucionarà mai fins P2 si no ho ha fet en $P1^t$.
+
+Modifiquem \tmz{} -> \tmu{} per què rebutgi ($QReject$) aquest cas. Amb aquesta acció podem descartar patrons com a candidats de formar part de \ld{}. S’ha acotat el conjunt de \w{} possibles a formar part de \ld{}.
+
+\subsubsection{Exemple d'execució}
+
+\textbf{Input : amb P1 i P2}
+
+\begin{lstlisting}
+
+++++++++++++
++----------+
++-++++++++-+
++-+------+-+
++-+-++++-+-+
++-+-++++-+-+
++-+-++++-+-+
++-+-++++-+-+
++-+------+-+
++-++++++++-+
++----------+
+++++++++++++
+
+------++++++------
+------++++++------
+------++++++------
+
+\end{lstlisting}
+
+\textbf{Output :}
+
+t = -1
+
+\textbf{Concluim que :}
+
+$P2 != P1^8 \wedge P1^7 = P1^8$
+
+\subsubsection{Extinció}
+
+L’extinció d’un patró és un cas particular de l’estabilització. Un patró es pot extingit, i un cop extingit no pot tornar a aparèixer cap cel·la activa. Si $P1^y$ on y fa P1 extingit llavors : 
+
+\begin{center}
+$\nexists P1^n \{n | n \in \mathbb{N} \wedge n > y\}$
+\end{center}
+
+\textbf{Veiem per la següent entrada :}
+
+\begin{lstlisting}
+----------
+-+------+-
+----------
+
+-+-
+-+-
+\end{lstlisting}
+
+\textbf{La següent sortida :}
+
+t = -1
 
 
+\textbf{conclusió}
+
+P1 s'extingeix per t=1, P1$^2$ s'estabilitza.
+
+
+\textbf{Veiem un altre exemple d’execució : }
+
+\begin{lstlisting}
+----------
+-+------+-
+----------
+
+---
+---
+\end{lstlisting}
+
+\textbf{La següent sortida}
+
+t = 1
+
+\textbf{Conclusió}
+
+Fent l’anterior entrada estem detectant si P1 tendirà a la seva extinció. 
+
+\subsection{Oscil·lació}
+
+El problema de l’oscil·lació comporta un repte més gran que els que ens hem plantejat fins ara, Detectem que un patró pot ser que oscili, és a dir que : 
+
+\begin{center}
+$P1^1 = P1^3 = P1^5 = P1^n \{ n | n \in \mathbb{N} \% 2 \neq 0 \wedge n > 5 \} $
+\end{center}
+
+L’expressió anterior no està acotada a un finit de possibilitats. n és infinit. Per tant podria quedar oscil·lant amb la conseqüència que en termes de decidibilitat el problema entrés en loop. El repte de detectar aquest fet és plantejar-se la comparació en aquest cas amb una finestra de 3 patrons, i la comparació de $P1^{t+1}$ amb $P1^t$ i $P1^{t-1}$ on $t > 0$. D’aquesta manera, la oscil·lació amb una finestra de 3 és decidible, presentem la màquina \tm{} com la màquina capaç de reconèixer aquestes oscilacions. 
+
+\textbf{Veiem per la següent entrada :}
+
+\begin{lstlisting}
+++++++++++++
++----------+
++-++++++++-+
++-+------+-+
++-+-++++-+-+
++-+-++++-+-+
++-+-++++-+-+
++-+------+-+
++-++++++++-+
++----------+
+++++++++++++
+
+++++++++++++
++----------+
++-++++++++-+
++-+------+-+
++-+-++++-+-+
++-+-+--+-+-+
++-+-++++-+-+
++-+------+-+
++-++++++++-+
++----------+
+++++++++++++
+\end{lstlisting}
+
+\textbf{La següent sortida}
+
+t = -1
+
+\textbf{Conclusió}
+
+El patró oscil·la amb finestra de 3 per t = 481.
+
+
+El problema de la oscil·lació és que en aquest cas ha entrat en joc una altre variable, la variable finestra. I és que si n és la finestra i n és infinit, llavors, totes les possibilitats en la oscil·lació també ho són. 
+
+En aquest escenari n $\rightarrow \infty$, referenciant-nos al problema de l’aturada explicat a \textit{4.2. Halting problem, [1]}, veiem que requerim de un problema indecidible per poder decidir la resposta del nostre problema. Necessitem saber abans de provar totes les possibilitats infinites de n si donat un mot \w{} la \tm{} no queda en loop, per poder afirmar que el problema representat amb la màquina \tm{} és decidible. \textbf{Aquest fet fa que el problema de detectar la oscil·lació per n $\rightarrow \infty$,  sigui indecidible}.
+
+\textbf{Veiem per la següent entrada :}
+
+\begin{lstlisting}
+-+-
+-++
++-+
+
+--+
+---
+\end{lstlisting}
+
+\textbf{silence to the eternity...}
+
+\textbf{Conclusió}
+
+Si estudiem el cas de manera detallada ens trobem que l'evolució d'aquest patró segueix la següent evolució: 
+
+
+$P1^0$
+\begin{lstlisting}
+-+-
+-++
++-+
+\end{lstlisting}
+
+$P1^1$
+\begin{lstlisting}
+-++
++-+
+--+
+\end{lstlisting}
+
+$P1^2$
+\begin{lstlisting}
+++-
+-++
++--
+\end{lstlisting}
+
+$P1^3$
+\begin{lstlisting}
++++
+--+
+-+-
+\end{lstlisting}
+
+$P1^4$
+\begin{lstlisting}
+-+-
+-++
++-+
+\end{lstlisting}
+
+
+\subsection{Creixement}
+
+El creixement és indeterminat, és a dir, detectar que un patró sempre creix és afirmar que per tots els $t > 0 P1^t < P1^{t+1} on t \rightarrow \infty$. Aquest cas no es pot determinar sense altre cop la màquina que reconeix el \textit{llenguatge del 4.2. Halting problem, [1]}. Per tant no podem determinar que un patró deriva a un altre en un t si tenim $\infty$ t per mirar, afirmant que l’evolució de P1 sempre creix.
+
+\textbf{Si un patró sempre creix, podríem donar una resposta negativa (modificant \tm{}), el problema és determinar que sempre creix.}
 
 \begin{thebibliography}{9}
 \bibitem{FC}
