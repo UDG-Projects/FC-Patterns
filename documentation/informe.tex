@@ -54,7 +54,7 @@
 }
 \lstset{
 style=mystyle,
-columns=flexible,	
+columns=flexible,
 breaklines=true,
 inputencoding=utf8}
 
@@ -135,28 +135,28 @@ inputencoding=utf8}
 
 \section{Definicions}
 
-Es defineixen una série de noms que seran utilitzats al llarc de la pràctica per ajudar a la simplificació i l'enteniment de la mateixa.
+Es defineixen una sèrie de noms que seran utilitzats al llarg de la pràctica per ajudar a la simplificació i l'enteniment d'aquesta.
 
 \begin{itemize}
-\item Definim \dfa{} com l’autòmata finit determinista capaç de reconéixer el llenguatge L(\dfa{}).
+\item Definim \dfa{} com l’autòmat finit determinista capaç de reconèixer el llenguatge L(\dfa{}).
 \item Definim L (\dfa{}) com el conjunt infinit de mots \w{} que accepta \dfa{}
 \item Definim \wdfa{} com un mot tal que \wdfa{} $\in$ L(\dfa{})
 \item Definim \alphabetDFA{} com el conjunt de símbols amb el que es construeix el llenguatge L(\dfa{})
-\item Definim context \context{} com l’escenari ideal en el que l’autòmata a dissenyar es comportarà de manera correcta, \context{} = < \pre{}, \post{} >
-\item Definim \pre{} com la precondició que s'ha de complir al utilitzar els nostres autòmates.
-\item Definim \post{} com la postcondició de l'autómata.
-\item Definim \pda{} com l'autòmata de Pila capaç de reconèixer el llenguatge L(\pda{}).
+\item Definim context \context{} com l’escenari ideal en el que l’autòmat a dissenyar es comportarà de manera correcta, \context{} = < \pre{}, \post{} >
+\item Definim \pre{} com la precondició que s'ha de complir a l'utilitzar els nostres autòmats.
+\item Definim \post{} com la postcondició de l'autòmat.
+\item Definim \pda{} com l'autòmat de Pila capaç de reconèixer el llenguatge L(\pda{}).
 \item Definim L(\pda{}) com el conjunt finit de mots $\sigma$ que accepta \pda{}.
 \item Definim \wpda{} com un mot del llenguatge L(\pda{}).
 \item Definim \alphabetPDA{} com el conjunt de símbols amb el que es construeix el llenguatge L(\pda).
 
 \end{itemize}
 
-\chapter{Autòmata Finit}
+\chapter{autòmat Finit}
 
 \section{Definició del context}
 
-Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la Secció 3.Patrons[2]. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, veure [2].
+Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmat com l'espai estipulat a la Secció 3. Patrons[2]. Per tant acabem d'adquirir totes les definicions assumides a l'enunciat del problema, veure [2].
 
 \textbf{Fem les següents afirmacions sobre \preDFA{} :}
 \begin{itemize}
@@ -171,29 +171,29 @@ Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'es
 \end{itemize}
 on : PIP és la propietat dels patrons implícits parcials definida a [2] apartat 3.3.1.
 
-\section{Dissenyant el nostre autòmata finit}
+\section{Dissenyant el nostre autòmat finit}
 
-Primerament cal observar possibles propietats del problema que ens puguin servir per a la construcció de l’autòmata.
+Primerament cal observar possibles propietats del problema que ens puguin servir per a la construcció de l’autòmat.
 
 \begin{itemize}
 \item Definim 4+ com la seqüència de símbols ‘++++’ d’un mot \wdfa{} comprés dins del llenguatge L(\dfa{}).
 \end{itemize}
 
-\textbf{Realitzem les següents observacions :}
+\textbf{Realitzem les següents observacions:}
 
 \begin{enumerate}
 \item Abans i després de la seqüència 4+ hi pot haver qualsevol símbol 0 o més vegades comprés dins de \alphabetDFA{}.
-\item Aïllada és la seqüència de simbols ‘-+-’ dins de \wdfa{}
+\item Aïllada és la seqüència de símbols ‘-+-’ dins de \wdfa{}
 \item Entre dues seqüències 4+ hi trobem 3 aïllades.
-\item 2 aïllades poden compartir el symbol inicial o el symbol final o ambdós.
+\item 2 aïllades poden compartir el símbol inicial o el símbol final o ambdós.
 \item S’accepta ‘-+-+-’ com a dues cèl·lules aïllades on -+ comparteix - amb +-.
 \item S’accepta ‘-+-+-+-’ coma  tres cèl·lules aïllades on -+ comparteix- amb +-+- i -+-+ comparteix - amb +-.
-\item Entre 2 aïllades hi pot aparèixer qualsevol combinació de symbols pertanyent a \alphabetDFA{}.
-\item El symbol \Return ens fa tornar a començar a cercar el PIP (RESET).
+\item Entre 2 aïllades hi pot aparèixer qualsevol combinació de símbols pertanyent a \alphabetDFA{}.
+\item El símbol \Return ens fa tornar a començar a cercar el PIP (RESET).
 \end{enumerate}
 
 
-Dissenyarem doncs l’autòmata per construcció tenint en compte les anteriors propietats. En la construcció del nostre autòmata reduim el problema al tractament d’un subconjunt dels símbols de l’alfabet, concretament es construeix a partir del subconjunt {+,-}, ja que detectem que el símbol \Return actúa com a RESET. La funció del RESET en \dfa{} és exemplificada al capítol 1 del llibre [1], concretament als exemples 1.15 i 1.17.
+Dissenyarem doncs l’autòmat per construcció tenint en compte les anteriors propietats. En la construcció del nostre autòmat reduïm el problema al tractament d’un subconjunt dels símbols de l’alfabet, concretament es construeix a partir del subconjunt {+,-}, ja que detectem que el símbol \Return actua com a RESET. La funció del RESET en \dfa{} és exemplificada al capítol 1 del llibre [1], concretament als exemples 1.15 i 1.17.
 
 Incorporarem el RESET al nostre disseny a l’últim pas de la construcció.
 
@@ -202,22 +202,22 @@ Incorporarem el RESET al nostre disseny a l’últim pas de la construcció.
 \begin{itemize}
 \item Definim pa com la seqüència ‘-+’
 \item Definim fa com la seqüència ‘+-’
-\item Definim l’operació CONCATENACIÓ amb el symbol |
+\item Definim l’operació CONCATENACIÓ amb el símbol |
 \item Definim 3aïllades com :
 \begin{itemize}
 \item ({+-}* | pa | (-{+-}*)* | pa | (-{+-}*)* | pa | - | {+-}*) $\vee$ ({+-}* | - | fa | (-{+-}*)* | fa | (-{+-}*)* | fa | {+-}*)
 \end{itemize}
 \end{itemize}
 
-Per tant podem concebre que en un entorn on no hi ha RESET es cerca si el mot conté la següent seqüència de simbols :
+Per tant podem concebre que en un entorn on no hi ha RESET es cerca si el mot conté la següent seqüència de símbols :
 
 \begin{center}
 {+-}* | 4+ | 3aïllades | 4+ | {+-}*
 \end{center}
 
-\subsection{Construïm l’autòmata sense RESET}
+\subsection{Construïm l’autòmat sense RESET}
 
-Veiem que els estats de l'autòmata van avançant a mesura que es van trobant el patró. Hi distingim cicles que ens interessen per controlar els casos que on per exemple hi pot haver qualsevol cosa entre cel·les actives o entre cel·les actives i principi o final del patró.
+Veiem que els estats de l'autòmat van avançant a mesura que es van trobant el patró. Hi distingim cicles que ens interessen per controlar els casos que on per exemple hi pot haver qualsevol cosa entre cel·les actives o entre cel·les actives i principi o final del patró.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
@@ -369,9 +369,9 @@ Veiem que els estats de l'autòmata van avançant a mesura que es van trobant el
 \end{tikzpicture}
 \end{center}
 
-\subsection{Construïm l’Autòmata Complet}
+\subsection{Construïm l’autòmat Complet}
 
-Afegim RESET a l’autòmata, en aquest cas tots els estats menys l’estat final tindran una transició a l’estat inicial amb el símbol \Return. L’estat final com que el mot ja està acceptat tindrà una transició a ell mateix amb el símbol \Return.
+Afegim RESET a l’autòmat, en aquest cas tots els estats menys l’estat final tindran una transició a l’estat inicial amb el símbol \Return. L’estat final com que el mot ja està acceptat tindrà una transició a ell mateix amb el símbol \Return.
 
 
 En aquest disseny, per simplificar la codificació del caràcter \Return el codifiquem com una \textit{i}.
@@ -566,7 +566,7 @@ En aquest disseny, per simplificar la codificació del caràcter \Return el codi
 
 \section{Definició formal de \dfa{}}
 
-Definim formalment el nostre autòmata.
+Definim formalment el nostre autòmat.
 
 \begin{center}
 	\dfa $=$ \{Q, $\Sigma{}$*, $\delta$, q0, q17\}
@@ -614,9 +614,9 @@ q17   & q17 & q17 & q17 \\
 
 \end{center}
 
-\section{Operacions regulars amb autòmates}
+\section{Operacions regulars amb autòmats}
 
-La definició 1.23 del llibre parla sobre les operacions que es poden realitzar sobre autòmates finits deterministes. En el nostre cas s’ha emprat una tècnica de construcció per el disseny de l’autòmata peró es podria emprar una construcció de subautòmates i mitjançant la concatenació dels mateixos (representada amb el caràcter $\bullet$ ) construïr el nostre \dfa{}. Hi ha hagut intents de la creació de l’autòmata mitjançant concatenació dels autòmates \dfa$_1$ i \dfa$_2$ intentant dividir el problema en :
+La definició 1.23 del llibre parla sobre les operacions que es poden realitzar sobre autòmats finits deterministes. En el nostre cas s’ha emprat una tècnica de construcció pel disseny de l’autòmat però es podria emprar una construcció de subautòmats i mitjançant la concatenació dels mateixos (representada amb el caràcter $\bullet$ ) construir el nostre \dfa{}. Hi ha hagut intents de la creació de l’autòmat mitjançant concatenació dels autòmats \dfa$_1$ i \dfa$_2$ intentant dividir el problema en :
 
 \begin{center}
 \dfa$_1$ $=$ 4+
@@ -632,7 +632,7 @@ on:
 4+ $\bullet$ 3aïllades $\bullet$ 4+
 \end{center}
 
-No s’ha seguit per la complexitat de tractar la funcionalitat del RESET, en el cas hipotètic que haguéssim presentat aquest tipus de construcció haguéssim derivat a el conjunt {\dfa$_1$, \dfa$_2$} que concatenat mitjançant l'ús d'un autòmata finit indeterminista s'hauria pogut agrupar en \nfa{}.
+No s’ha seguit per la complexitat de tractar la funcionalitat del RESET, en el cas hipotètic que haguéssim presentat aquest tipus de construcció haguéssim derivat a el conjunt {\dfa$_1$, \dfa$_2$} que concatenat mitjançant l'ús d'un autòmat finit indeterminista s'hauria pogut agrupar en \nfa{}.
 
 \section{Minimització de \dfa{}}
 
@@ -640,13 +640,13 @@ L’objectiu d’aquesta secció és cercar el \dfa{} mínim partint del \dfa{}.
 
 \textbf{Considerem que dos estats fan el mateix si i només si el resultat de les transicions és el mateix considerant tots els símbols de l’alfabet. }
 
-L'idea de la minimització parteix de la fusió d'estats. Podem trobar explicats els processos de minimització al document [3]. Podem utilitzar la manera manual aplicant l'algoritme de Hopcroft, o bé, podem obtar per utilitzar UTM.
+La idea de la minimització parteix de la fusió d'estats. Podem trobar explicats els processos de minimització al document [3]. Podem utilitzar la manera manual aplicant l'algoritme de Hopcroft, o bé, podem optar per utilitzar UTM.
 
-En aquest cas utilitzem l’algoritme de HopCroft per a la seva minimització implementant una matriu que ens permeti detectar les repeticions de les transicions donadat un estat.
+En aquest cas utilitzem l’algoritme de HopCroft per a la seva minimització implementant una matriu que ens permeti detectar les repeticions de les transicions donat un estat.
 
 
 \begin{center}
-\textbf{El nostre autòmata és mínim.}
+\textbf{El nostre autòmat és mínim.}
 \end{center}
 
 
@@ -837,13 +837,13 @@ q17 & 2  & 2  & 2 & 2    & 2  & 2  & 2 & 2    &  &  &  &  &  &  &  &  &  &  &  \
 
 \section{NFA (Nondeterministic finit automata)}
 
-L’equivalència de NFA i DFA està demostrada al capítol 1.2 del llibre [1], donat un autòmata NFA existeix un DFA equivalent. Per equivalència entenem que ambdós reconeixen el mateix llenguatge, en aquest cas el llenguatge L(\dfa{}).
+L’equivalència de NFA i DFA està demostrada al capítol 1.2 del llibre [1], donat un autòmat NFA existeix un DFA equivalent. Per equivalència entenem que ambdós reconeixen el mateix llenguatge, en aquest cas el llenguatge L(\dfa{}).
 
-Definim doncs \nfa{} com l’autòmata finit indeterminista equivalent a \dfa{}.
+Definim doncs \nfa{} com l’autòmat finit indeterminista equivalent a \dfa{}.
 
 \subsection{Disseny de \nfa{}}
 
-Dissenyem ANFA, en aquest cas ens convé només cercar el camí que ens porta directes a QAccept. Directament tracem un camí acceptador i el modifiquem per que es comporti de manera correcte afegint les branques indeterministes oportunes.
+Dissenyem \nfa{}, en aquest cas ens convé només cercar el camí que ens porta directes a QAccept. Directament tracem un camí acceptador i el modifiquem perquè es comporti de manera correcta afegint les branques indeterministes oportunes.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
@@ -978,7 +978,7 @@ Dissenyem ANFA, en aquest cas ens convé només cercar el camí que ens porta di
 
 \section{Definició formal de \nfa{}}
 
-Definim formalment el nostre autòmata.
+Definim formalment el nostre autòmat.
 
 \begin{center}
 	\dfa $=$ \{Q, $\Sigma{}$*, $\delta$, q0, q19\}
@@ -987,7 +987,7 @@ Definim formalment el nostre autòmata.
 \begin{itemize}
 \item \textbf{Q} = \{q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19\}
 \item $\Sigma$* $=$ \{ + , - , \Return{} , $\epsilon$ \}
-\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ P(Q) on P(Q) son possibles subconjunts de Q
+\item $\delta$ $=$ Q X $\Sigma$* $\rightarrow$ P(Q) on P(Q)sónpossibles subconjunts de Q
 \item q0 $\in{}$ Q
 \item q19 $\subseteq{}$ Q
 \end{itemize}
@@ -1029,11 +1029,11 @@ q19   & \{q19\}     & \{q19\}     & \{q19\}                & $\emptyset$ &  &  &
 
 \end{center}
 
-\subsection{Demostrem l’equivalència de \nfa i \dfa}
+\subsection{Demostrem l’equivalència de \nfa{} i \dfa{}}
 
-Per demostrar l’equivalència dels autòmates apliquem un procés de determinització sobre ANFA obtenint ADFA’. Ens ajudem de [UTM](referència al programa).
+Per demostrar l’equivalència dels autòmats apliquem un procés de determinització sobre \nfa{} obtenint \dfa{}'. Ens ajudem de \textit{UTM veure referència [4]}.
 
-Expressem l’autòmata en format UTM mitjançant un fitxer .def tenint en compte que UTM contempla alfabets $\Sigma$*
+Expressem l’autòmat en format UTM mitjançant un fitxer .def tenint en compte que UTM contempla alfabets $\Sigma$*
 
 \begin{lstlisting}
 
@@ -1094,7 +1094,7 @@ Final=[q19]
 
 \end{lstlisting}
 
-Aplicant el procés de determinització que permet UTM obtenim \dfa' on \dfa' Comprés dins del DFA. Tenir en compte que tal com comenta la \textit{PROOF IDEA de la pàgina 55 de la referència [1]}, NFA de k estats es pot determinitzar en un DFA de $n^k$ estats, és per aquest motiu que la següent representació pot semblar monstruosa. 
+Aplicant el procés de determinització que permet UTM obtenim \dfa{}' on \dfa{}' Comprés dins del DFA. Tenir en compte que tal com comenta la \textit{PROOF IDEA de la pàgina 55 de la referència [1]}, NFA de k estats es pot determinitzar en un DFA de $n^k$ estats, és per aquest motiu que la següent representació pot semblar monstruosa.
 
 \begin{lstlisting}
 ==========================================
@@ -1263,7 +1263,7 @@ End DFA definition
 
 \end{lstlisting}
 
-Per poder verificar que els dos autòmates reconeixen el mateix llenguatge i per treballar amb autòmates més manegables emprem la minimització explicada a l’apartat \textit{2.5 Minimització de \dfa{}} per minimitzar \dfa', concretament s’utilitza la sortida generada per UTM anomenat mfa.def que representa l’autòmata finit determinista mínim. 
+Per poder verificar que els dos autòmats reconeixen el mateix llenguatge i per treballar amb autòmats més manejables emprem la minimització explicada a l’apartat \textit{2.5 Minimització de \dfa{}} per minimitzar \dfa{}', concretament s’utilitza la sortida generada per UTM anomenat mfa.def que representa l’autòmat finit determinista mínim.
 
 \begin{lstlisting}
 
@@ -1347,11 +1347,11 @@ End MFA definition
 
 \end{lstlisting}
 
-Reconeixen el mateix llenguatge, per tant demostrem per construcció l’equivalència dels \dfa{} i \nfa{}. 
+Reconeixen el mateix llenguatge, per tant demostrem per construcció l’equivalència dels \dfa{} i \nfa{}.
 
 \section{Regular expression}
 
-La definició formal d’una expressió regular està explicada al \textit{capítol 1.3 de la referència [1]}, concretament a la \textit{Definition 1.52}. S’explica que de la mateixa manera que una expressió aritmètica retorna un valor (numèric) el valor d’una expressió regular és un llenguatge. 
+La definició formal d’una expressió regular està explicada al \textit{capítol 1.3 de la referència [1]}, concretament a la \textit{Definition 1.52}. S’explica que de la mateixa manera que una expressió aritmètica retorna un valor (numèric) el valor d’una expressió regular és un llenguatge.
 \begin{center}
 \textit{“When we want to distinguish between a regular expression R and the lan-
 guage that it describes, we write L(R) to be the language of R.” - Michael Sipser}
@@ -1361,15 +1361,15 @@ guage that it describes, we write L(R) to be the language of R.” - Michael Sip
 
 \subsection{Equivalència de les expressions regulars i $FA$}
 
-Al llibre es comenta que les expressions regulars i els autòmates finits son equivalents en quan el poder descriptiu. Sent LR un llenguatge regular, al \textit{Theorem 1.54 de la referència [1]} es demostra que un llenguatge és regular si i només si existeix una expressió regular que el descriu (La demostració és ambidireccional).
+Al llibre es comenta que les expressions regulars i els autòmats finits són equivalents pel que fa al poder descriptiu. Sent LR un llenguatge regular, al \textit{Theorem 1.54 de la referència [1]} es demostra que un llenguatge és regular si i només si existeix una expressió regular que el descriu (La demostració és bidireccional).
 
-Podem doncs extreure l’expressió regular sobre l’autòmata ADFA utilitzant l’algoritme explicat al llibre. En aquest cas l’automatització d’aquest procediment està disponible mitjançant el \textit{programa referenciat a [6].}
+Podem doncs extreure l’expressió regular sobre l’autòmat \dfa{} utilitzant l’algoritme explicat al llibre. En aquest cas l’automatització d’aquest procediment està disponible mitjançant el \textit{programa referenciat a [6].}
 
-Sent doncs \mfa{} l’autòmat \dfa{} representat de manera mínima definim \re{} com l’expressió regular equivalent a \dfa{}. 
+Sent doncs \mfa{} l’autòmat \dfa{} representat de manera mínima definim \re{} com l’expressió regular equivalent a \dfa{}.
 
 \subsection{Expressió regular equivalent a \dfa{}}
 
-Definim els canvis de símbols : 
+Definim els canvis de símbols :
 
 \begin{itemize}
 \item p = -
@@ -1377,7 +1377,7 @@ Definim els canvis de símbols :
 \item i = \Return
 \end{itemize}
 
-Es fan els canvis de signe per evitar problemes a l’hora de validar el funcionament de l’expressió regular a l’hora d’implementar-la en qualsevol evaluador. El símbol ‘+’ en les expressions regulars és una restricció de l’estrella de Klean i representa l’aparició de com a mínim 1 cop el símbol anterior (no té un màxim establert). 
+Es fan els canvis de signe per evitar problemes a l’hora de validar el funcionament de l’expressió regular a l’hora d’implementar-la en qualsevol avaluador. El símbol ‘+’ en les expressions regulars és una restricció de l’estrella de Klean i representa l’aparició de com a mínim 1 cop el símbol anterior (no té un màxim establert).
 
 
 \begin{lstlisting}
@@ -1389,7 +1389,7 @@ La primera part és la part que ens controla tots els loops possibles que ens po
 
 \subsubsection{Primera part.}
 
-En aquest tros d'expressió regular podem veure com controla els loops que se'ns poden produïr als estats q0,q1,q2,q3 i q4.
+En aquest tros d'expressió regular podem veure com controla els loops que se'ns poden produir als estats q0,q1,q2,q3 i q4.
 
 \begin{lstlisting}
 (i|p|m(p|i)|mm(i|p)|mmm(i|p)|mmmmm*i
@@ -1401,55 +1401,55 @@ Aquí tenim el patró fins a l'estat q5 amb un retorn a l'inici per un 'i'.
 mmmmm*pp*i
 \end{lstlisting}
 
-En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q4, q5, q6, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q4, q5, q6, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascun d'aquests estats.
 
 \begin{lstlisting}
 mmmmm*pp*m(mm*pp*m)*(i|mm*i|mm*pp*i)
 \end{lstlisting}
 
-Ara ja tenim una cel·la aïllada i controlem que després ens vingui una altre 'i'. En aquest punt ens trobem a l'estat q7.
+Ara ja tenim una cel·la aïllada i controlem que després ens vingui una altra 'i'. En aquest punt ens trobem a l'estat q7.
 
 \begin{lstlisting}
 mmmmm*pp*m(mm*pp*m)*pp*i
 \end{lstlisting}
 
-En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q7, q8, q9, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q7, q8, q9, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascun d'aquests estats.
 
 \begin{lstlisting}
 mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*(i|mm*(i|pp*i))
 \end{lstlisting}
 
-En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q10, q11, q12,  tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats. En el cas de mpp*i saltaria des de l'estat q13.
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q10, q11, q12,  tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascun d'aquests estats. En el cas de mpp*i saltaria des de l'estat q13.
 
 \begin{lstlisting}
 mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*(i|mi|mmm*i|mpp*i)
 \end{lstlisting}
 
-En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q13, q14, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q13, q14, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascun d'aquests estats.
 
 \begin{lstlisting}
 mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*(i|pp*i)
 \end{lstlisting}
 
 
-Finalment entrem amb els últims 4 símbols '+' .
-En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q13, q14, q15, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+Finalment entrem amb els últims 4 símbols '+'.
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q13, q14, q15, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascun d'aquests estats.
 
 \begin{lstlisting}
 mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i))
 \end{lstlisting}
 
-En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats  q14, q15, q16,  tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats (inclòs l'estat q13).
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats  q14, q15, q16,  tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascun d'aquests estats (inclòs l'estat q13).
 
 \begin{lstlisting}
 mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*m(pp*m(pp*m)*m(pp*m(pp*m)*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i)|pp*m(pp*m)*m(pp*m(pp*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i))))
 \end{lstlisting}
 
-La segona part on contolem que es trobi tot el patró fins a l'últim estat.
+La segona part on controlem que es trobi tot el patró fins a l'últim estat.
 
 \subsubsection{Segona part}
 
-Podem veure la part de l'expressió regular que contempla que es compleixi sencer fins arribar a l'últim estat.\\
+Podem veure la part de l'expressió regular que contempla que es compleixi sencer fins a arribar a l'últim estat.
 
 \begin{lstlisting}
 *mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*m(pp*m(pp*m)*m(pp*m(pp*m)*m)*m)*m(i|m|p)*
@@ -1457,17 +1457,17 @@ Podem veure la part de l'expressió regular que contempla que es compleixi sence
 
 \section{Regular Grammar}
 
-Les gramàtiques regulars son una especificació de les gramàtiques lliures de context. En el lllibre no se’n parla de gramàtiques regulars, es parla sobre gramàtiques lliures de context (\cfg{}). 
+Les gramàtiques regulars són una especificació de les gramàtiques lliures de context. En el llibre no se’n parla de gramàtiques regulars, es parla sobre gramàtiques lliures de context (\cfg{}).
 
-Així doncs una gramàtica regular és capaç de generar tots els mots d’un llenguatge regular. Al dir tots es parla del conjunt infinit de mots finits possibles que \dfa{} pot acceptar. En aquest cas utilitzem el \textit{programari referenciat a [6]} per extreure la gramàtica regular sobre l’autòmata \mfa{}. 
+Així doncs una gramàtica regular és capaç de generar tots els mots d’un llenguatge regular. Al dir tots es parla del conjunt infinit de mots finits possibles que \dfa{} pot acceptar. En aquest cas utilitzem el \textit{programari referenciat a [6]} per extreure la gramàtica regular sobre l’autòmat \mfa{}.
 
 \begin{center}
-Quan dues gramàtiques regulars generen els mateixos mots es diu que son equivalents.
+Quan dues gramàtiques regulars generen els mateixos mots es diu que són equivalents.
 \end{center}
 
 \subsection{\rg{} (generada amb jflap).}
 
-Representem $\epsilon$ amb el caràcter 3. 
+Representem $\epsilon$ amb el caràcter 3.
 
 \begin{lstlisting}
 S -> iS|pS|mA
@@ -1490,13 +1490,13 @@ P-> mQ|pL|iS
 Q-> 3|pQ|mQ|iQ
 \end{lstlisting}
 
-Una gramàtica regular està compresa dins de les gramàtiques lliures de context i es pot simplificar, ja que pot presentar ambigüetats \textit{Definition 2.7, referència [1]}. S’entén ambigüetat en una $CFG$ com l’existència de 2 maneres de generar un únic mot, llavors es diu que el mot és derivat de manera ambigua.
+Una gramàtica regular està compresa dins de les gramàtiques lliures de context i es pot simplificar, ja que pot presentar ambigüitats \textit{Definition 2.7, referència [1]}. S’entén ambigüitat en una $CFG$ com l’existència de 2 maneres de generar un únic mot, llavors es diu que el mot és derivat de manera ambigua.
 
-Determinar si una gramàtica és ambigua comporta l’existència d’un mot generat per més d’una de les possibles branques de l’arbre de parsing. Per poder determinar que no hi ha dues branques possibles per un determinat mot es treballen les $CFG$ cercant la seva forma normal de chomsky. 
+Determinar si una gramàtica és ambigua comporta l’existència d’un mot generat per més d’una de les possibles branques de l’arbre de parsing. Per poder determinar que no hi ha dues branques possibles per un determinat mot es treballen les $CFG$ cercant la seva forma normal de Chomsky.
 
 \subsection{Chomsky Normal Form}
 
-S’utilitzen les CNF (Chomsky Normal Form), \textit{Definition 2.8 de la pàgina 107 de la referència [1]}, per representar les gramàtiques regulars de manera simplificada i sense ambigüetats. Utilitzem \textit{l’eina web [7]} per passar la nostre $CFG$ a $CNF$. 
+S’utilitzen les CNF (Chomsky Normal Form), \textit{Definition 2.8 de la pàgina 107 de la referència [1]}, per representar les gramàtiques regulars de manera simplificada i sense ambigüitats. Utilitzem \textit{l’eina web [7]} per passar la nostra $CFG$ a $CNF$.
 
 \begin{lstlisting}
 S-> RS|US|TA
@@ -1523,15 +1523,15 @@ U-> p
 
 \end{lstlisting}
 
-En aquest format la $CNF$ està en la seva mínima expressió i no conté ambigüetats.
+En aquest format la $CNF$ està en la seva mínima expressió i no conté ambigüitats.
 
 \section{Referència al codi}
 
-El codi de l'autòmata finit determinista està a la classe DFA representada per els fitxers DFA.h i DFA.cpp a l'arrel del directori de la pràctica.
+El codi de l'autòmat finit determinista està a la classe DFA representada pels fitxers DFA.h i DFA.cpp a l'arrel del directori de la pràctica.
 
 \section{Reconeixibilitat i Decidibilitat}
 
-Tot llenguatge reconegut per un autòmata finit determinista o indeterminista forma part dels llenguatges lliures de context i per definició \textbf{son reconeixibles per PDA i per TM i decidibles}.
+Tot llenguatge reconegut per un autòmat finit determinista o indeterminista forma part dels llenguatges lliures de context i per definició \textbf{són reconeixibles per PDA i per TM i decidibles}.
 
 \clearpage
 
@@ -1539,7 +1539,7 @@ Tot llenguatge reconegut per un autòmata finit determinista o indeterminista fo
 
 \section{Definició del context}
 
-Sigui \contextPDA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la \textit{Secció 3.Patrons[2]}. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, \textit{veure [2]}.
+Sigui \contextPDA{} l'espai de funcionament lògic del nostre autòmat com l'espai estipulat a la \textit{Secció 3.Patrons[2]}. Per tant acabem d'adquirir totes les definicions assumides a l'enunciat del problema, \textit{veure [2]}.
 
 \textbf{Fem les següents afirmacions sobre \prePDA{} :}
 \begin{itemize}
@@ -1548,37 +1548,37 @@ Sigui \contextPDA{} l'espai de funcionament lògic del nostre autòmata com l'es
 
 \textbf{Fem les següents afirmacions sobre \postPDA{} :}
 \begin{itemize}
-\item retorna True quan \pda{} Accepta, és a dir quan \wpda{} $\in$ $PIG$.
+\item retorna True quan \pda{} Accepta, és a dir per \wpda{} $\in$ $PIG$.
 \item retorna False altrament.
 \end{itemize}
 on : $PIG$ és el conjunt de patrons que compleixen la propietat de patró implícit global \textit{definida a [2] apartat 3.3.2}.
 
-\section{Anàlisi per el disseny}
+\section{Anàlisi pel disseny}
 
-PIG requereix un nombre de cel·les actives (+) estrictament superior al doble de les negatives (-) : 
+PIG requereix un nombre de cel·les actives (+) estrictament superior al doble de les negatives (-) :
 
 \begin{center}
 | + | > 2 * | - |
 \end{center}
 
-Necesitem una manera de contar tant el nombre de cel·les actives com les inactives. Per aixó ens servirem de la pila. Utilitzant el lema del bombeig podem detectar si L(\pda{}) $\not\in$ $RL$ on $RL$ son el conjunt dels llenguatges regulars, \textit{Theorem 1.70 [1]}, Deduïm per tant que L(\pda) no és un llenguatge regular i que necessitem un autòmata més potent per reconèixer mots de L(\pda).
+Necessitem una manera de contar tant el nombre de cel·les actives com les inactives. Per això ens servirem de la pila. Utilitzant el lema del bombeig podem detectar si L(\pda{}) $\not\in$ $RL$ on $RL$ són el conjunt dels llenguatges regulars, \textit{Theorem 1.70 [1]}, Deduïm per tant que L(\pda) no és un llenguatge regular i que necessitem un autòmat més potent per reconèixer mots de L(\pda).
 
-\section{Definició informal de l’autòmata}
+\section{Definició informal de l’autòmat}
 
-Primerament cal observar possibles propietats del problema que ens puguin servir per a la construcció de l’autòmata. Per poder contar correctament que hi ha estrictament el doble de positus que negatius \pda{} fara servir les seguents regles:
+Primerament cal observar possibles propietats del problema que ens puguin servir per a la construcció de l’autòmat. Per poder contar correctament que hi ha estrictament el doble de positius que negatius \pda{} farà servir les següents regles:
 
 \begin{itemize}
-\item Les cel·les actives es contabilitzaran 1 sol cop a la pila.
-\item Les cel·les inactives es contabilitzaran 2 cops a la pila.
-\item Una cel·la activa pot cancelar 1 inacitva a la pila.
+\item Les cel·les actives es comptabilitzaran 1 sol cop a la pila.
+\item Les cel·les inactives es comptabilitzaran 2 cops a la pila.
+\item Una cel·la activa pot cancel·lar 1 inactiva a la pila.
 \item Una cel·la inactiva pot cancel·lar 2 actives a la pila
-\item La prioritat de cada cel·la sera cancelar les de simbol contrari que hi hagi a la pila.
-\item Si no hi ha cel·les del simbol contrari a la pila, s’empilaran.
-\item A la pila només hi podrà haber 1 tipus de simbol simultaniament (apart del simbol de control de pila buida \$).
-\item Quan el mot hagi estat llegit s’acceptara només si hi ha 1 o més cel·les actives a la pila.
+\item La prioritat de cada cel·la serà cancel·lar les de símbol contrari que hi hagi a la pila.
+\item Si no hi ha cel·les del símbol contrari a la pila, s’empilaran.
+\item A la pila només hi podrà haver 1 tipus de símbol simultàniament (apart del símbol de control de pila buida \$).
+\item Quan el mot hagi estat llegit s’acceptarà només si hi ha 1 o més cel·les actives a la pila.
 \end{itemize}
 
-Realitzem un mètode constructiu per treure el diagrama d’estats i transicions que representa l’autòmata.
+Realitzem un mètode constructiu per treure el diagrama d’estats i transicions que representa l’autòmat.
 
 \section{Diagrama \pda{}}
 
@@ -1708,17 +1708,17 @@ Q6               &     &     &      &             &            &            &   
 
 \section{Equivalència entre PDA i CFG}
 
-Els PDA i el CFG son equivalents a nivell de potència. 
+Els PDA i el CFG són equivalents a nivell de potència.
 
-Com diu al \textit{Theorem 2.20 de la referència [1]}, un llenguatge és lliure de context si i només si un autòmata de Pila és capaç de reconeixe’l i ho demostra al \textit{Lema 2.21 i al 2.27 [1]}.
+Com diu al \textit{Theorem 2.20 de la referència [1]}, un llenguatge és lliure de context si i només si un autòmat de Pila és capaç de reconèixe’l i ho demostra al \textit{Lema 2.21 i al 2.27 [1]}.
 
-Afirmem doncs, que poguent representar l’autòmata \pda{} com un Push-Down autòmata existeix una $CFG$ capaç de generar tots els mots de \pda{}.
+Afirmem doncs, que podent representar l’autòmat \pda{} com un Push-Down autòmat existeix una $CFG$ capaç de generar tots els mots de \pda{}.
 
 \section{Gramàtica lliure de context}
 
 \textit{Veure Formal Definition de CFG, Definition 2.2, pàg 104 [1]}.
 
-Denotem la construcció dels possibles mots com la obligació d’afegir sempre un símbol + a un \wpda{} que tingui com a mínim el doble de símbols '+' que de '-'.
+Denotem la construcció dels possibles mots com l'obligació d’afegir sempre un símbol + a un \wpda{} que tingui com a mínim el doble de símbols '+' que de '-'.
 
 Expressem \pdaCFG{} = (V,T,P,S)
 
@@ -1736,11 +1736,11 @@ Aquesta gramàtica és capaç de generar tots els mots del L(\pda{}).
 
 \section{Ambigüitat}
 
-Una gramàtica lliure de context pot donar pas a diferents generacions d’un mateix mot, \textit{Definition 2.7, pàg 108 [1]}. 
+Una gramàtica lliure de context pot donar pas a diferents generacions d’un mateix mot, \textit{Definition 2.7, pàg 108 [1]}.
 
-Podem detectar ambigüitat amb el mot \wpda on \wpda = '++-+', ens ajudem de \textit{l'eina sobre autòmates de la pàgina web d'standford [8]} per demostrar-la. 
+Podem detectar ambigüitat amb el mot \wpda on \wpda = '++-+', ens ajudem de \textit{l'eina sobre autòmats de la pàgina web d'Standford [8]} per demostrar-la.
 
-Representem l'ambigüitat mitjançant les següents taules : 
+Representem l'ambigüitat mitjançant les següents taules :
 
 \begin{table}[ht]
 \caption{\label{tab:table-name} Ambigüitat Figura 1}
@@ -1772,7 +1772,7 @@ A $\rightarrow$ B+B        & \color{Blue}{A}                                  & 
 B $\rightarrow$ +B-B+      & \color{Blue}{B}+B                                & \color{Blue}{+B+B-}+B \\
 B $\rightarrow$ $\epsilon$ & +\color{Blue}{B}+B-+B                            & ++B-+B  \\
 B $\rightarrow$ $\epsilon$ & ++\color{Blue}{B}-+B+                            & ++-+B   \\
-B $\rightarrow$ $\epsilon$ & ++-+\color{Blue}{B}                              & ++-+   
+B $\rightarrow$ $\epsilon$ & ++-+\color{Blue}{B}                              & ++-+
 \end{tabular}
 \end{table}
 
@@ -1780,9 +1780,9 @@ B $\rightarrow$ $\epsilon$ & ++-+\color{Blue}{B}                              & 
 
 \textit{Veure Definició 2.8, pàg 109 [1]}.
 
-\textit{“Qualsevol llenguatge lliure de context és generat per una gramàtica lliure de context en forma normal de chomsky” - Theorem 2.9 - Michael Sipser}.
+\textit{“Qualsevol llenguatge lliure de context és generat per una gramàtica lliure de context en forma normal de Chomsky” - Theorem 2.9 - Michael Sipser}.
 
-Per tant per generar la teotalitat el L(\pda{}) ens n’assegurem passant la \pdaCFG{} a $CNF$. Emprem el programa \textit{JFLAP [6]} que segueix els passos descrits a \textit{Exemple 2.10, pàg 110 [1]}.
+Per tant per generar la totalitat el L(\pda{}) ens n’assegurem passant la \pdaCFG{} a $CNF$. Emprem el programa \textit{JFLAP [6]} que segueix els passos descrits a \textit{Exemple 2.10, pàg 110 [1]}.
 
 \begin{lstlisting}
 S -> BF|EB|EA|BO|+|BE
@@ -1812,11 +1812,11 @@ P -> BV
 
 \section{Referència al codi}
 
-El codi del Push-Down Automata és a la classe PDA representada per els fitxers PDA.h i PDA.cpp a l'arrel del directori de la pràctica.
+El codi del Push-Down Automata és a la classe PDA representada pels fitxers PDA.h i PDA.cpp a l'arrel del directori de la pràctica.
 
 \section{Reconeixibilitat i Decidibilitat}
 
-Tot llenguatge reconegut per un push-down autòmata determinista o indeterminista forma part dels llenguatges lliures de context i per definició \textbf{son reconeixibles per TM i decidibles}.
+Tot llenguatge reconegut per un push-down autòmat determinista o indeterminista forma part dels llenguatges lliures de context i per definició \textbf{són reconeixibles per TM i decidibles}.
 
 
 \clearpage
@@ -1825,10 +1825,10 @@ Tot llenguatge reconegut per un push-down autòmata determinista o indeterminist
 
 \section{Definició del Context}
 
-Sigui \contextTM{} l'espai de funcionament lògic de la nostre màquina de Turing com l'espai estipulat a la \textit{Secció 3.Patrons[2]}. Per tant acabem d'adquirir totes les definicions assumides a l'enunciat del problema, veure \textit{[2]}.
+Sigui \contextTM{} l'espai de funcionament lògic de la nostra màquina de Turing com l'espai estipulat a la \textit{Secció 3.Patrons[2]}. Per tant acabem d'adquirir totes les definicions assumides a l'enunciat del problema, veure \textit{[2]}.
 
 \textbf{Fem les següents afirmacions sobre \preTM{} :}
- 
+
 \begin{itemize}
 \item \w{} $\in$ $L^2$
 \end{itemize}
@@ -1845,7 +1845,7 @@ on : $L^2$ definit a l'apartat \textit{4.Llenguatge Formal de l'enunciat del pro
 
 \section{Disseny descendent i pseudocodi}
 
-Donat el problema presentat a l’\textit{exercici 5.3 que parla de Llenguatge Recursivament Enumerable, [2]}. Proposem el següent disseny descendent explicat també en pseudocodi per resoldre el problema PE on Pe son els patrons explícits comentats a l'\textit{enunciat del problema [2] apartat 3.4}.
+Donat el problema presentat a l’\textit{exercici 5.3 que parla de Llenguatge Recursivament Enumerable, [2]}. Proposem el següent disseny descendent explicat també en pseudocodi per resoldre el problema PE on PE són els patrons explícits comentats a l'\textit{enunciat del problema [2] apartat 3.4}.
 
 \begin{itemize}
 \item Llegim patterns
@@ -1854,7 +1854,7 @@ Donat el problema presentat a l’\textit{exercici 5.3 que parla de Llenguatge R
 
 On patterns està compost dels patrons P1 i P2, i eval serà l'algoritme encarregat d'intentar decidir l'acceptació o rebuig de si P2 és un patró generacional fruit d'una evolució de P1 retornant el tick en el que P1 deriva a P2, \textbf{sempre que el pugui}.
 
-Es pretén treballar amb patrons de manera genèrica, la millor manera de poder comparar si un patró és el mateix que un altre, és mitjançant la seva representació mínima. Per tant actuem sobre l’entrada per realitzar la següent operació sobre patrons : 
+Es pretén treballar amb patrons de manera genèrica, la millor manera de poder comparar si un patró és el mateix que un altre, és mitjançant la seva representació mínima. Per tant actuem sobre l’entrada per realitzar la següent operació sobre patrons:
 
 \subsection{Minimització}
 
@@ -1863,7 +1863,7 @@ Es pretén treballar amb patrons de manera genèrica, la millor manera de poder 
 \item POST : Retorna Py,0
 \end{itemize}
 
-Les minimitzacions contemplen la possibilitat que un patró estigui embolcallat dins de files amb cèl·lules inactives o columnes de cèl·lules inactives. \textit{Veiem apartat 3.1 Definició de patrons [2]}. La idea és extreure les files sobrants de cèl·les inactives de la part superior i inferior del patró, transposar el patró, aplicar la extracció de les cel·les inactives de la part superior i inferior altre cop i tornar a transposar el patró retornant així la seva representació mínima. 
+Les minimitzacions contemplen la possibilitat que un patró estigui embolcallat dins de files amb cèl·lules inactives o columnes de cèl·lules inactives. \textit{Veiem apartat 3.1 Definició de patrons [2]}. La idea és extreure les files sobrants de cel·les inactives de la part superior i inferior del patró, transposar el patró, aplicar l'extracció de les cel·les inactives de la part superior i inferior altre cop i tornar a transposar el patró retornant així la seva representació mínima.
 
 \begin{itemize}
 \item Input P1
@@ -1876,19 +1876,19 @@ Les minimitzacions contemplen la possibilitat que un patró estigui embolcallat 
 
 \subsection{Minimitzar per files}
 
-La idea general és extreure les files plenes de cel·les inactives tant a principi com a final de patró. Comencem amb el patró inicial, només ens podem trobar cel·les inactives a les primeres files. Les regles son : 
+La idea general és extreure les files plenes de cel·les inactives tant a principi com a final de patró. Comencem amb el patró inicial, només ens podem trobar cel·les inactives a les primeres files. Les regles són:
 
 \begin{enumerate}
-\item Ignorar les files que no continguin cel·les actives. 
+\item Ignorar les files que no continguin cel·les actives.
 \item Quan trobem primera activa ho notifiquem i desem la fila en el patró resultant
-\item per cada fila 
+\item per cada fila
 	\begin{enumerate}
 		\item Si no n’hi ha, acumulem fila en patró temporal
-		\item si hi ha cel·la activa, persistim acumolat en patró resultant
+		\item si hi ha cel·la activa, persistim acumulat en patró resultant
 	\end{enumerate}
 \end{enumerate}
 
-Per contra ignorarem al final totes les files acumolades que no tinguin cel·la activa. 
+Per contra ignorarem al final totes les files acumulades que no tinguin cel·la activa.
 
 \subsection{Transposició}
 
@@ -1896,13 +1896,13 @@ Operació matricial de transposició. \textit{Veiem Referència bibliogràfica [
 
 \subsection{Algoritme eval}
 
-L’objectiu és anar contant el nombre de ticks que trigarà P1 en evolucionar a P2, per tant s’haurà de pensar l’evolució de P1 fent l’algoritme performTick que ens permeti crear el nou patró a partir de l’anterior. 
+L’objectiu és anar contant el nombre de ticks que trigarà P1 a evolucionar a P2, per tant s’haurà de pensar l’evolució de P1 fent l’algoritme performTick que ens permeti crear el nou patró a partir de l’anterior.
 
 A cada tick, el que fem és mirar cel·la a cel·la si P1 és igual en totes les posicions a P2. Per mirar això, fem un recorregut per les dues matrius alhora comparant les posicions entre elles.
 
 \begin{itemize}
 \item tickCounter = 0
-\item While P1 != P2 
+\item While P1 != P2
 	\begin{itemize}
 	\item P1 = performTick(P1)
 	\item tickCounter++;
@@ -1913,39 +1913,39 @@ A cada tick, el que fem és mirar cel·la a cel·la si P1 és igual en totes les
 
 \subsection{Algoritme performTick}
 
-Hem de preveure que el patró P1 pot crèixer, per tant el patró resultant pot ser més gran que P1. Si afirmem que P1 creix en nombre de files i columnes cap a P1', podem dir que existeix un patró P1’ > P1 on : 
- 
+Hem de preveure que el patró P1 pot créixer, per tant el patró resultant pot ser més gran que P1. Si afirmem que P1 creix en nombre de files i columnes cap a P1', podem dir que existeix un patró P1’ > P1 on :
+
 \begin{center}
 $P1' > P1 = (|files(P1’)|>|files(P1)|) ^ (|columnes(P1')>|columnes(P1)|)$
 \end{center}
 
-Per tant, si el patró P1 evoluciona fóra dels límits de P1, P1’ estarà preparat per poder representar-lo, en cas que no evolucioni fóra dels límits de la representació de P1, la minimització del mateix prèvia a la comparació farà la feina de representar-lo de manera inferior en nombre de files i columnes si escau. 
+Per tant, si el patró P1 evoluciona fóra dels límits de P1, P1’ estarà preparat per poder representar-lo, en cas que no evolucioni fóra dels límits de la representació de P1, la minimització del mateix prèvia a la comparació farà la feina de representar-lo de manera inferior en nombre de files i columnes si escau.
 
-Per cada cel·la de P1’ s’hi posa el resultat de la funció newCellValue que aplica les regles d’evolució per cada cel·la. 
+Per cada cel·la de P1’ s’hi posa el resultat de la funció newCellValue que aplica les regles d’evolució per cada cel·la.
 
 \subsection{Algoritme newCellValue}
 
-Compararà donada una fila i una columna, les cel·les adjacents a aquesta fila i columna per determinar les caràcterísitiques a seguir de l’evolució, explicades a \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [2]}.
+Compararà donada una fila i una columna, les cel·les adjacents a aquesta fila i columna per determinar les caracterísitiques a seguir de l’evolució, explicades a \textit{l’apartat 3.4 Model, Enunciat de la pràctica [2]}.
 
-Aquest algoritme fa un recorregut \textbf{constant} per les 8 posicions on hi h pot haver un possible canvi. Concretament mira els veïns de la cel·la tractada i determina en funció de les normes especificades \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [2]} si la cel·la es manté en el seu estat o si reb un canvi. 
+Aquest algoritme fa un recorregut \textbf{constant} per les 8 posicions on hi pot haver un possible canvi. Concretament mira els veïns de la cel·la tractada i determina en funció de les normes especificades \textit{l’apartat 3.4 Model, Enunciat de la pràctica [2]} si la cel·la es manté en el seu estat o si rep un canvi.
 
 \subsection{Referència al codi}
 
-El codi de la Màquina de Turing es troba al directori / del directori de la pràctica, concretament en formen part : 
+El codi de la Màquina de Turing es troba al directori / del directori de la pràctica, concretament en formen part :
 
 \begin{itemize}
-\item classe TM (TM.h i TM.cpp): Representa la màquina de turing. 
-\item classe MatrixPattern (MatrixPattern.h i MatrixPattern.cpp): Representa la manera de tractar els patrons dins de la màquina de turing.
-\item classe Utils  (Utils.h i Utils.cpp): Eines útils per al tractament grobla de la mateixa màquina de turing i per el main del programa.
+\item classe TM (TM.h i TM.cpp): Representa la màquina de Turing.
+\item classe MatrixPattern (MatrixPattern.h i MatrixPattern.cpp): Representa la manera de tractar els patrons dins de la màquina de Turing.
+\item classe Utils  (Utils.h i Utils.cpp): Eines útils per al tractament global de la mateixa màquina de Turing i pel main del programa.
 \end{itemize}
 
 \section{Reconeixibilitat del problema}
 
-Definim \tmz{} com la primera versió de la \tmu{}, on la primera versió és la màquina Turing Reconeixible del llenguatge \ld{}. 
+Definim \tmz{} com la primera versió de la \tmu{}, on la primera versió és la màquina Turing Reconeixible del llenguatge \ld{}.
 
-MSPTM accepta tots els mots que pertanyen al llenguatge \ld{} descrit a l’\textit{apartat 5.3 Llenguatge Recursivament Enumerable, [2]}. Per construcció demostrem que el problema és Turing Reconeixible presentant un programa en C++. 
+MSPTM accepta tots els mots que pertanyen al llenguatge \ld{} descrit a l’\textit{apartat 5.3 Llenguatge Recursivament Enumerable, [2]}. Per construcció demostrem que el problema és Turing Reconeixible presentant un programa en C++.
 
-Si un mot w pertany a \ld{} llavors \tmz{} el reconeix, altrament loop. 
+Si un mot \w{} pertany a \ld{} llavors \tmz{} el reconeix, altrament loop.
 
 En aquesta primera versió de la màquina \tmz{} ens centrem en la reconeixença del llenguatge i per tant només es contempla l’acceptació determinant que la màquina entrarà en un $QAccept$ quan es compleixi la igualtat en l’evolució. Altrament no podem determinar que la màquina (en aquesta primera versió) entri mai en un $QReject$.
 
@@ -2001,9 +2001,9 @@ P2 = P1$^3$
 
 \section{Decidibilitat del problema}
 
-La decidibilitat planteja el món dels problemes que presenten complexitats finites en la seva resolució. En aquest cas proposem diverses modificacions per \textbf{acostar} la implementació de \tm0{} -> \tm on \tm{} reconeix un conjunt més ampli de patrons. 
+La decidibilitat planteja el món dels problemes que presenten complexitats finites en la seva resolució. En aquest cas proposem diverses modificacions per \textbf{acostar} la implementació de \tm0{} -> \tm on \tm{} reconeix un conjunt més ampli de patrons.
 
-En el nostre escenari el problema sabem que és reconeixible, peró encara no podem afirmar que el problema sigui, o no, decidible, per tant anirem treballant sobre \tmz{} aplicant modificacions per intentar portar el problema al món dels decidibles. Per fer-ho estudiarem en les següents seccions els patrons i els seus comportaments. 
+En el nostre escenari el problema sabem que és reconeixible, però encara no podem afirmar que el problema sigui, o no, decidible, per tant anirem treballant sobre \tmz{} aplicant modificacions per intentar portar el problema al món dels decidibles. Per fer-ho estudiarem en les següents seccions els patrons i els seus comportaments.
 
 \subsection{Comportaments de l’evolució de patrons}
 
@@ -2021,27 +2021,27 @@ Comentem les següents propietats detectades en el comportament de l’evolució
 
 \subsection{Derivació}
 
-Per parlar de la decidibilitat del problema el primer cas que ens apareix és que el problema sigui turing reconeixible tal com s’ha demostrat a l’apartat [Reconeixibilitat del problema]. Llavors la derivació serà el que en decidibilitat es diu acceptació. Quan P1 evoluciona amb t = n a P2, llavors \w{} pertany al llenguatge L(\tm{}) i la màquina accepta. 
+Per parlar de la decidibilitat del problema el primer cas que ens apareix és que el problema sigui turing reconeixible tal com s’ha demostrat a l’apartat [Reconeixibilitat del problema]. Llavors la derivació serà el que en decidibilitat es diu acceptació. Quan P1 evoluciona amb t = n a P2, llavors \w{} pertany al llenguatge L(\tm{}) i la màquina accepta.
 
 \subsection{Estabilització}
 
-\tmz{} no detecta quan $P2 != P1^t$, és a dir, no detecta cap cas en el que es pugui afirmar que un patró P1 no tindrà una evolució a P2. L’estabilització d’un patró s’enten com :
+\tmz{} no detecta quan $P2 != P1^t$, és a dir, no detecta cap cas en el qual es pugui afirmar que un patró P1 no tindrà una evolució a P2. L’estabilització d’un patró s’entén com :
 
 \begin{center}
 $P1^t = P1^{t+1}$
-\end{center} 
+\end{center}
 
-En aquest cas direm que el patró s’ha estabilitzat per que : 
+En aquest cas direm que el patró s’ha estabilitzat perquè :
 
 \begin{center}
 $\nexists P1^{t+n} != P1^t$
-\end{center} 
+\end{center}
 
 on : $n > 0$
 
 I per tant en aquest cas es pot afirmar que P1 no evolucionarà mai fins P2 si no ho ha fet en $P1^t$.
 
-Modifiquem \tmz{} -> \tmu{} per què rebutgi ($QReject$) aquest cas. Amb aquesta acció podem descartar patrons com a candidats de formar part de \ld{}. S’ha acotat el conjunt de \w{} possibles a formar part de \ld{}.
+Modifiquem \tmz{} -> \tmu{} perquè rebutgi ($QReject$) aquest cas. Amb aquesta acció podem descartar patrons com a candidats de formar part de \ld{}. S’ha acotat el conjunt de \w{} possibles a formar part de \ld{}.
 
 \subsubsection{Exemple d'execució}
 
@@ -2078,7 +2078,7 @@ $P2 != P1^8 \wedge P1^7 = P1^8$
 
 \subsubsection{Extinció}
 
-L’extinció d’un patró és un cas particular de l’estabilització. Un patró es pot extingit, i un cop extingit no pot tornar a aparèixer cap cel·la activa. Si $P1^y$ on y fa P1 extingit llavors : 
+L’extinció d’un patró és un cas particular de l’estabilització. Un patró es pot extingir, i un cop extingit no pot tornar a aparèixer cap cel·la activa. Si $P1^y$ on y fa P1 extingit llavors :
 
 \begin{center}
 $\nexists P1^n \{n | n \in \mathbb{N} \wedge n > y\}$
@@ -2122,17 +2122,17 @@ t = 1
 
 \textbf{Conclusió}
 
-Fent l’anterior entrada estem detectant si P1 tendirà a la seva extinció. 
+Fent l’anterior entrada estem detectant si P1 tendirà a la seva extinció.
 
 \subsection{Oscil·lació}
 
-El problema de l’oscil·lació comporta un repte més gran que els que ens hem plantejat fins ara, Detectem que un patró pot ser que oscili, és a dir que : 
+El problema de l’oscil·lació comporta un repte més gran que els que ens hem plantejat fins ara, Detectem que un patró pot ser que oscil·li, és a dir que :
 
 \begin{center}
 $P1^1 = P1^3 = P1^5 = P1^n \{ n | n \in \mathbb{N} \% 2 \neq 0 \wedge n > 5 \} $
 \end{center}
 
-L’expressió anterior no està acotada a un finit de possibilitats. n és infinit. Per tant podria quedar oscil·lant amb la conseqüència que en termes de decidibilitat el problema entrés en loop. El repte de detectar aquest fet és plantejar-se la comparació en aquest cas amb una finestra de 3 patrons, i la comparació de $P1^{t+1}$ amb $P1^t$ i $P1^{t-1}$ on $t > 0$. D’aquesta manera, la oscil·lació amb una finestra de 3 és decidible, presentem la màquina \tm{} com la màquina capaç de reconèixer aquestes oscilacions. 
+L’expressió anterior no està acotada a un finit de possibilitats. n és infinit. Per tant podria quedar oscil·lant amb la conseqüència que en termes de decidibilitat el problema entrés en loop. El repte de detectar aquest fet és plantejar-se la comparació en aquest cas amb una finestra de 3 patrons, i la comparació de $P1^{t+1}$ amb $P1^t$ i $P1^{t-1}$ on $t > 0$. D’aquesta manera, l'oscil·lació amb una finestra de 3 és decidible, presentem la màquina \tm{} com la màquina capaç de reconèixer aquestes oscil·lacions.
 
 \textbf{Veiem per la següent entrada :}
 
@@ -2171,9 +2171,9 @@ t = -1
 El patró oscil·la amb finestra de 3 per t = 481.
 
 
-El problema de la oscil·lació és que en aquest cas ha entrat en joc una altre variable, la variable finestra. I és que si n és la finestra i n és infinit, llavors, totes les possibilitats en la oscil·lació també ho són. 
+El problema de l'oscil·lació és que en aquest cas ha entrat en joc una altra variable, la variable finestra. I és que si n és la finestra i n és infinit, llavors, totes les possibilitats en l'oscil·lació també ho són.
 
-En aquest escenari n $\rightarrow \infty$, referenciant-nos al problema de l’aturada explicat a \textit{4.2. Halting problem, [1]}, veiem que requerim de un problema indecidible per poder decidir la resposta del nostre problema. Necessitem saber abans de provar totes les possibilitats infinites de n si donat un mot \w{} la \tm{} no queda en loop, per poder afirmar que el problema representat amb la màquina \tm{} és decidible. \textbf{Aquest fet fa que el problema de detectar la oscil·lació per n $\rightarrow \infty$,  sigui indecidible}.
+En aquest escenari n $\rightarrow \infty$, referenciant-nos al problema de l’aturada explicat a \textit{4.2. Halting problem, [1]}, veiem que requerim d'un problema indecidible per poder decidir la resposta del nostre problema. Necessitem saber abans de provar totes les possibilitats infinites de n si donat un mot \w{} la \tm{} no queda en loop, per poder afirmar que el problema representat amb la màquina \tm{} és decidible. \textbf{Aquest fet fa que el problema de detectar l'oscil·lació per n $\rightarrow \infty$,  sigui indecidible}.
 
 \textbf{Veiem per la següent entrada :}
 
@@ -2190,7 +2190,7 @@ En aquest escenari n $\rightarrow \infty$, referenciant-nos al problema de l’a
 
 \textbf{Conclusió}
 
-Si estudiem el cas de manera detallada ens trobem que l'evolució d'aquest patró segueix la següent evolució: 
+Si estudiem el cas de manera detallada, ens trobem que l'evolució d'aquest patró segueix la següent evolució:
 
 
 $P1^0$
@@ -2244,23 +2244,23 @@ El creixement és indeterminat, és a dir, detectar que un patró sempre creix �
 \item Codi
 \item Exemples $L^2$
 \item Sortides
-\item Documentació 
+\item Documentació
 \end{itemize}
 
 \section{Codi}
 
-El codi del programa es troba al directori arrel repartit en fitxers .h i .cpp. Es disposa de 4 parts diferenciades. 
+El codi del programa es troba al directori arrel repartit en fitxers .h i .cpp. Es disposa de 4 parts diferenciades.
 
 \begin{itemize}
 \item DFA : fitxers DFA.h/.cpp i Alphabet.h/.cpp
 \item PDA : fitxers PDA.h/.cpp i Alphabet.h/.cpp
-\item TM : fitxers TM.h/.cpp, MatrixPattern.h/.cpp 
+\item TM : fitxers TM.h/.cpp, MatrixPattern.h/.cpp
 \item Programa principal : main.h/.cpp i Utils.h/.cpp (i tots els anteriors)
 \end{itemize}
 
-La classe DFA conté el codi per l'autòmata finit determinista, la classe PDA conté el codi per l'autòmata de pila i la classe TM i MatrixPattern són els encarregats de gestionar el programa en C que representa la Màquina de Turing. 
+La classe DFA conté el codi per l'autòmat finit determinista, la classe PDA conté el codi per l'autòmat de pila i la classe TM i MatrixPattern són els encarregats de gestionar el programa en C que representa la Màquina de Turing.
 
-La classe Main i la classe Utils són complementaris per poder generar la fusió i que tot encaixi sense problema. La classe Alphabet conté les enumeracions utilitzades per el PDA i el DFA.
+La classe Main i la classe Utils són complementaris per poder generar la fusió i que tot encaixi sense problema. La classe Alphabet conté les enumeracions utilitzades pel PDA i el DFA.
 
 \section{Exemples $L^2$}
 
@@ -2268,15 +2268,15 @@ El directori data conté exemples de $L^2$ que poden ser executats a la fusió, 
 
 \section{Sortides}
 
-Utilitzant el paràmetre -d es pot entrar en mode Déu. El mode Déu permet rebre fitxers que continguin \w{} de \ld{}, i en algun dels casos permet generar-los també. En cas que es vulguin generar, es pot escollir la sortida en format csv on s'hi representen, el nombre de files i columnes de P1 on P1 és el patró que es farà evolucionar, els clocks de la màquina que triga en realitzar l'acció i el nombre de ticks que ha durat l'execució. 
+Utilitzant el paràmetre -d es pot entrar en mode Déu. El mode Déu permet rebre fitxers que continguin \w{} de \ld{}, i en algun dels casos permet generar-los també. En cas que es vulguin generar, es pot escollir la sortida en format csv on s'hi representen, el nombre de files i columnes de P1 on P1 és el patró que es farà evolucionar, els clocks de la màquina que triga a realitzar l'acció i el nombre de ticks que ha durat l'execució.
 
-Adicionalment es demana informació sobre la generació que també s'escriu a la sortida. 
+Addicionalment es demana informació sobre la generació que també s'escriu a la sortida.
 
 Totes les sortides generades per nosaltres es poden trobar dins del directori logs del directori de l'entrega.
 
 \section{Documentació}
 
-Els fitxers per generar la documentació en pdf estan dins del directori documentation. L'informe consta d'un sol fitxer en format pdf que conté totes les descripcions i les conclusions a les que hem arribat situat al directori arrel de l'entrega. 
+Els fitxers per generar la documentació en pdf estan dins del directori documentation. L'informe consta d'un sol fitxer en format pdf que conté totes les descripcions i les conclusions a les quals hem arribat situat al directori arrel de l'entrega.
 
 \begin{thebibliography}{9}
 \bibitem{FC}
