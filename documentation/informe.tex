@@ -59,6 +59,14 @@ breaklines=true,
 inputencoding=utf8}
 
 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
 % VARIABLES
 \def \w{$\omega$}
 \def \dfa{$FXBP_{DFA} $}
@@ -66,8 +74,8 @@ inputencoding=utf8}
 \def \alphabetPDA{$\Sigma$*\pda}
 \def \nfa{$FXBP_{NFA} $}
 \def \mfa{$FXBP_{MDFA} $}
-\def \wdfa{$\sigma_{DFA} $}
-\def \wpda{$\sigma_{PDA} $}
+\def \wdfa{$\omega_{DFA} $}
+\def \wpda{$\omega_{PDA} $}
 \def \re{$FXBP_{RE} $}
 \def \rg{$FXBP_{rg} $}
 \def \cfg{$CFG$}
@@ -79,12 +87,15 @@ inputencoding=utf8}
 \def \context{$\Phi$}
 \def \contextDFA{$\Phi_{DFA}$}
 \def \contextPDA{$\Phi_{PDA}$}
+\def \contextTM{$\Phi_{TM}$}
 \def \pre{$\Upsilon$}
 \def \preDFA{$\Upsilon_{DFA}$}
 \def \prePDA{$\Upsilon_{PDA}$}
+\def \preTM{$\Upsilon_{TM}$}
 \def \post{$\Psi$}
 \def \postDFA{$\Psi_{DFA}$}
 \def \postPDA{$\Psi_{PDA}$}
+\def \postTM{$\Psi_{TM}$}
 \def \llesca{$\gamma$}
 \def \ld{$L^{2}$}
 
@@ -145,7 +156,7 @@ Es defineixen una série de noms que seran utilitzats al llarc de la pràctica p
 
 \section{Definició del context}
 
-Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la Secció 3.Patrons[1]. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, veure [1].
+Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'espai estipulat a la Secció 3.Patrons[2]. Per tant acabem d'aquirir totes les definicions assumides a l'enunciat del problema, veure [2].
 
 \textbf{Fem les següents afirmacions sobre \preDFA{} :}
 \begin{itemize}
@@ -158,7 +169,7 @@ Sigui \contextDFA{} l'espai de funcionament lògic del nostre autòmata com l'es
 \item retorna True quan \dfa{} Accepta \wdfa{} $\leftrightarrow$ $\exists$ \llesca{} $\in$ $P$ que compleix PIP.
 \item retorna False quan $\nexists$ \llesca{} $\in$ $P$ que compleix PIP.
 \end{itemize}
-on : PIP és la propietat dels patrons implícits parcials definida a [1] apartat 3.3.1.
+on : PIP és la propietat dels patrons implícits parcials definida a [2] apartat 3.3.1.
 
 \section{Dissenyant el nostre autòmata finit}
 
@@ -1083,7 +1094,7 @@ Final=[q19]
 
 \end{lstlisting}
 
-Aplicant el procés de determinització que permet UTM obtenim \dfa' on \dfa' Comprés dins del DFA. Tenir en compte que tal com comenta la PROOF IDEA de la pàgina 55 de la referència [1], NFA de k estats es pot determinitzar en un DFA de $n^k$ estats, és per aquest motiu que la següent representació pot semblar monstruosa. 
+Aplicant el procés de determinització que permet UTM obtenim \dfa' on \dfa' Comprés dins del DFA. Tenir en compte que tal com comenta la \textit{PROOF IDEA de la pàgina 55 de la referència [1]}, NFA de k estats es pot determinitzar en un DFA de $n^k$ estats, és per aquest motiu que la següent representació pot semblar monstruosa. 
 
 \begin{lstlisting}
 ==========================================
@@ -1368,6 +1379,82 @@ Definim els canvis de símbols :
 
 Es fan els canvis de signe per evitar problemes a l’hora de validar el funcionament de l’expressió regular a l’hora d’implementar-la en qualsevol evaluador. El símbol ‘+’ en les expressions regulars és una restricció de l’estrella de Klean i representa l’aparició de com a mínim 1 cop el símbol anterior (no té un màxim establert). 
 
+
+\begin{lstlisting}
+(i|p|m(p|i)|mm(i|p)|mmm(i|p)|mmmmm*i|mmmmm*pp*i|mmmmm*pp*m(mm*pp*m)*(i|mm*i|mm*pp*i)|mmmmm*pp*m(mm*pp*m)*pp*i|mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*(i|mm*(i|pp*i))|mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*(i|mi|mmm*i|mpp*i)|mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*(i|pp*i)|mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i))|mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*m(pp*m(pp*m)*m(pp*m(pp*m)*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i)|pp*m(pp*m)*m(pp*m(pp*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i))))*mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*m(pp*m(pp*m)*m(pp*m(pp*m)*m)*m)*m(i|m|p)*
+\end{lstlisting}
+
+Podem dividir, a grans termes, l'expressió regular en dues parts.
+La primera part és la part que ens controla tots els loops possibles que ens podem trobar en un mot.
+
+\subsubsection{Primera part.}
+
+En aquest tros d'expressió regular podem veure com controla els loops que se'ns poden produïr als estats q0,q1,q2,q3 i q4.
+
+\begin{lstlisting}
+(i|p|m(p|i)|mm(i|p)|mmm(i|p)|mmmmm*i
+\end{lstlisting}
+
+Aquí tenim el patró fins a l'estat q5 amb un retorn a l'inici per un 'i'.
+
+\begin{lstlisting}
+mmmmm*pp*i
+\end{lstlisting}
+
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q4, q5, q6, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+
+\begin{lstlisting}
+mmmmm*pp*m(mm*pp*m)*(i|mm*i|mm*pp*i)
+\end{lstlisting}
+
+Ara ja tenim una cel·la aïllada i controlem que després ens vingui una altre 'i'. En aquest punt ens trobem a l'estat q7.
+
+\begin{lstlisting}
+mmmmm*pp*m(mm*pp*m)*pp*i
+\end{lstlisting}
+
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q7, q8, q9, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+
+\begin{lstlisting}
+mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*(i|mm*(i|pp*i))
+\end{lstlisting}
+
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q10, q11, q12,  tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats. En el cas de mpp*i saltaria des de l'estat q13.
+
+\begin{lstlisting}
+mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*(i|mi|mmm*i|mpp*i)
+\end{lstlisting}
+
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q13, q14, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+
+\begin{lstlisting}
+mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*(i|pp*i)
+\end{lstlisting}
+
+
+Finalment entrem amb els últims 4 símbols '+' .
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats q13, q14, q15, tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats.
+
+\begin{lstlisting}
+mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i))
+\end{lstlisting}
+
+En aquesta part es contemplen les possibilitats que  hi ha de crear loops amb els estats  q14, q15, q16,  tenint en compte els salts a inici produïts per l'input d'un símbol 'i' en cadascún d'aquests estats (inclòs l'estat q13).
+
+\begin{lstlisting}
+mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*m(pp*m(pp*m)*m(pp*m(pp*m)*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i)|pp*m(pp*m)*m(pp*m(pp*m)*m)*(i|pp*i|pp*m(pp*m)*(i|pp*i))))
+\end{lstlisting}
+
+La segona part on contolem que es trobi tot el patró fins a l'últim estat.
+
+\subsubsection{Segona part}
+
+Podem veure la part de l'expressió regular que contempla que es compleixi sencer fins arribar a l'últim estat.\\
+
+\begin{lstlisting}
+*mmmmm*pp*m(mm*pp*m)*pp*m(mm*pp*m)*p(p|mmm*p)*mpp*m(pp*m)*m(pp*m(pp*m)*m)*m(pp*m(pp*m)*m(pp*m(pp*m)*m)*m)*m(i|m|p)*
+\end{lstlisting}
+
 \section{Regular Grammar}
 
 Les gramàtiques regulars son una especificació de les gramàtiques lliures de context. En el lllibre no se’n parla de gramàtiques regulars, es parla sobre gramàtiques lliures de context (\cfg{}). 
@@ -1461,10 +1548,10 @@ Sigui \contextPDA{} l'espai de funcionament lògic del nostre autòmata com l'es
 
 \textbf{Fem les següents afirmacions sobre \postPDA{} :}
 \begin{itemize}
-\item retorna True quan \pda{} Accepta, és a dir quan \wpda{} $\in$ $PIG$ on $PIG$.
+\item retorna True quan \pda{} Accepta, és a dir quan \wpda{} $\in$ $PIG$.
 \item retorna False altrament.
 \end{itemize}
-on : $PIG$ és el conjunt de patrons que compleixen la propietat de patró implícit global \textit{definida a [1] apartat 3.3.2}.
+on : $PIG$ és el conjunt de patrons que compleixen la propietat de patró implícit global \textit{definida a [2] apartat 3.3.2}.
 
 \section{Anàlisi per el disseny}
 
@@ -1736,9 +1823,29 @@ Tot llenguatge reconegut per un push-down autòmata determinista o indeterminist
 
 \chapter{Turing Machine}
 
+\section{Definició del Context}
+
+Sigui \contextTM{} l'espai de funcionament lògic de la nostre màquina de Turing com l'espai estipulat a la \textit{Secció 3.Patrons[2]}. Per tant acabem d'adquirir totes les definicions assumides a l'enunciat del problema, veure \textit{[2]}.
+
+\textbf{Fem les següents afirmacions sobre \preTM{} :}
+ 
+\begin{itemize}
+\item \w{} $\in$ $L^2$
+\end{itemize}
+
+\textbf{Fem les següents afirmacions sobre \postTM{} :}
+
+\begin{itemize}
+\item retorna -1 quan QReject
+\item retorna t quan QAccept
+\item loop altrament
+\end{itemize}
+
+on : $L^2$ definit a l'apartat \textit{4.Llenguatge Formal de l'enunciat del problema [2]}.
+
 \section{Disseny descendent i pseudocodi}
 
-Donat el problema presentat a l’\textit{exercici 5.3 que parla de Llenguatge Recursivament Enumerable, [1]}. Proposem el següent disseny descendent explicat també en pseudocodi per resoldre el problema PE on Pe son els patrons explícits comentats a l'\textit{enunciat del problema [2] apartat 3.4}.
+Donat el problema presentat a l’\textit{exercici 5.3 que parla de Llenguatge Recursivament Enumerable, [2]}. Proposem el següent disseny descendent explicat també en pseudocodi per resoldre el problema PE on Pe son els patrons explícits comentats a l'\textit{enunciat del problema [2] apartat 3.4}.
 
 \begin{itemize}
 \item Llegim patterns
@@ -1818,9 +1925,9 @@ Per cada cel·la de P1’ s’hi posa el resultat de la funció newCellValue que
 
 \subsection{Algoritme newCellValue}
 
-Compararà donada una fila i una columna, les cel·les adjacents a aquesta fila i columna per determinar les caràcterísitiques a seguir de l’evolució, explicades a \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [1]}.
+Compararà donada una fila i una columna, les cel·les adjacents a aquesta fila i columna per determinar les caràcterísitiques a seguir de l’evolució, explicades a \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [2]}.
 
-Aquest algoritme fa un recorregut \textbf{constant} per les 8 posicions on hi h pot haver un possible canvi. Concretament mira els veïns de la cel·la tractada i determina en funció de les normes especificades \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [1]} si la cel·la es manté en el seu estat o si reb un canvi. 
+Aquest algoritme fa un recorregut \textbf{constant} per les 8 posicions on hi h pot haver un possible canvi. Concretament mira els veïns de la cel·la tractada i determina en funció de les normes especificades \textit{l’apartat 3.4 Model, Enunciat de la pràcitca [2]} si la cel·la es manté en el seu estat o si reb un canvi. 
 
 \subsection{Referència al codi}
 
@@ -2128,30 +2235,73 @@ El creixement és indeterminat, és a dir, detectar que un patró sempre creix �
 
 \textbf{Si un patró sempre creix, podríem donar una resposta negativa (modificant \tm{}), el problema és determinar que sempre creix.}
 
+
+\clearpage
+
+\chapter{Continguts de l'entrega}
+
+\begin{itemize}
+\item Codi
+\item Exemples $L^2$
+\item Sortides
+\item Documentació 
+\end{itemize}
+
+\section{Codi}
+
+El codi del programa es troba al directori arrel repartit en fitxers .h i .cpp. Es disposa de 4 parts diferenciades. 
+
+\begin{itemize}
+\item DFA : fitxers DFA.h/.cpp i Alphabet.h/.cpp
+\item PDA : fitxers PDA.h/.cpp i Alphabet.h/.cpp
+\item TM : fitxers TM.h/.cpp, MatrixPattern.h/.cpp 
+\item Programa principal : main.h/.cpp i Utils.h/.cpp (i tots els anteriors)
+\end{itemize}
+
+La classe DFA conté el codi per l'autòmata finit determinista, la classe PDA conté el codi per l'autòmata de pila i la classe TM i MatrixPattern són els encarregats de gestionar el programa en C que representa la Màquina de Turing. 
+
+La classe Main i la classe Utils són complementaris per poder generar la fusió i que tot encaixi sense problema. La classe Alphabet conté les enumeracions utilitzades per el PDA i el DFA.
+
+\section{Exemples $L^2$}
+
+El directori data conté exemples de $L^2$ que poden ser executats a la fusió, és a dir al programa principal anomenat main.
+
+\section{Sortides}
+
+Utilitzant el paràmetre -d es pot entrar en mode Déu. El mode Déu permet rebre fitxers que continguin \w{} de \ld{}, i en algun dels casos permet generar-los també. En cas que es vulguin generar, es pot escollir la sortida en format csv on s'hi representen, el nombre de files i columnes de P1 on P1 és el patró que es farà evolucionar, els clocks de la màquina que triga en realitzar l'acció i el nombre de ticks que ha durat l'execució. 
+
+Adicionalment es demana informació sobre la generació que també s'escriu a la sortida. 
+
+Totes les sortides generades per nosaltres es poden trobar dins del directori logs del directori de l'entrega.
+
+\section{Documentació}
+
+Els fitxers per generar la documentació en pdf estan dins del directori documentation. L'informe consta d'un sol fitxer en format pdf que conté totes les descripcions i les conclusions a les que hem arribat situat al directori arrel de l'entrega. 
+
 \begin{thebibliography}{9}
 \bibitem{FC}
 Fundamental of Computation - Michael Sipser
 
 \bibitem{patterns}
-\hyperlink{http://ima.udg.edu/~rigau/FC/FC_patterns.pdf}{Problema Patterns (i.e., Cerca de Patrons) - Jaume Rigau}
+\href{http://ima.udg.edu/~rigau/FC/FC_patterns.pdf}{Problema Patterns (i.e., Cerca de Patrons) - Jaume Rigau}
 
 \bibitem{Hopcroft}
-\hyperlink{http://ima.udg.edu/~rigau/FC/MFAP.pdf}{Lexical analisys - part 4}
+\href{http://ima.udg.edu/~rigau/FC/MFAP.pdf}{Lexical analisys - part 4}
 
 \bibitem{Manual UTM}
-\hyperlink{http://ima.udg.edu/~rigau/FC/utm_read_me.pdf}{Universal Turing Machine - Manual}
+\href{http://ima.udg.edu/~rigau/FC/utm_read_me.pdf}{Universal Turing Machine - Manual}
 
 \bibitem{MatrixPattern Transposition Wikipedia}
-\hyperlink{https://en.wikipedia.org/wiki/Transpose}{MatrixPattern Transposition Wikipedia}
+\href{https://en.wikipedia.org/wiki/Transpose}{MatrixPattern Transposition Wikipedia}
 
 \bibitem{jflap}
-\hyperlink{http://www.jflap.org/}{JFlap Automaton software}
+\href{http://www.jflap.org/}{JFlap Automaton software}
 
 \bibitem{chomsky normal form translator}
-\hyperlink{https://mpeveler.com/assets/content/projects/cfg2cnf.php}{Generador de formes normals de chomsky}
+\href{https://mpeveler.com/assets/content/projects/cfg2cnf.php}{Generador de formes normals de chomsky}
 
 \bibitem{Standford Automata web tool}
-\hyperlink{https://web.stanford.edu/class/archive/cs/cs103/cs103.1156/tools/cfg/}{eina web de la pàgina web d’standford}
+\href{https://web.stanford.edu/class/archive/cs/cs103/cs103.1156/tools/cfg/}{eina web de la pàgina web d’standford}
 
 \end{thebibliography}
 

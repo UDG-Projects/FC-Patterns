@@ -1,8 +1,9 @@
 #include <iostream>
-#include "MatrixPattern.h"
 #include <fstream>
 #include <vector>
 #include <cstring>
+#include <math.h>
+#include "MatrixPattern.h"
 #include "DFA.h"
 #include "PDA.h"
 #include "Utils.h"
@@ -140,8 +141,8 @@ void generationMode(){
         Utils::printOnFile(logFile,to_string(rows) +";"+ to_string(columns) + ";"+ to_string(tf - ti) +";"+ to_string(tick) + ";" + A.toString() + ";" + B.toString());
 
         // Init variables
-        rows *= factor;
-        columns *= factor;
+        rows = ceil(rows * factor);
+        columns = ceil(columns * factor);
         i++;
     }
     // Close log file
