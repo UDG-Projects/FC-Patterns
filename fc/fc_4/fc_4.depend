@@ -63,3 +63,67 @@
 	<iostream>
 	"Utils.h"
 
+1546103862 source:d:\bitbucket\fc_practicafinal\fc\fc_4\alphabet.cpp
+	"Alphabet.h"
+
+1546103862 d:\bitbucket\fc_practicafinal\fc\fc_4\alphabet.h
+
+1546103862 source:d:\bitbucket\fc_practicafinal\fc\fc_4\dfa.cpp
+	"DFA.h"
+
+1546103862 d:\bitbucket\fc_practicafinal\fc\fc_4\dfa.h
+	<set>
+	<iostream>
+	<string>
+
+1546103862 source:d:\bitbucket\fc_practicafinal\fc\fc_4\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<cstring>
+	<math.h>
+	"MatrixPattern.h"
+	"DFA.h"
+	"PDA.h"
+	"Utils.h"
+	"TM.h"
+
+1546103862 d:\bitbucket\fc_practicafinal\fc\fc_4\matrixpattern.h
+	<iostream>
+	<vector>
+	"Utils.h"
+
+1546103862 d:\bitbucket\fc_practicafinal\fc\fc_4\utils.h
+	<string>
+	<vector>
+
+1546103862 d:\bitbucket\fc_practicafinal\fc\fc_4\pda.h
+	<string>
+	<stack>
+	"Alphabet.h"
+
+1546103862 d:\bitbucket\fc_practicafinal\fc\fc_4\tm.h
+	<fstream>
+	<stdio.h>
+	<time.h>
+	<iostream>
+	<string>
+	"MatrixPattern.h"
+
+1546103862 source:d:\bitbucket\fc_practicafinal\fc\fc_4\matrixpattern.cpp
+	<iostream>
+	<vector>
+	"MatrixPattern.h"
+
+1546103862 source:d:\bitbucket\fc_practicafinal\fc\fc_4\pda.cpp
+	"PDA.h"
+	"Alphabet.h"
+
+1546103862 source:d:\bitbucket\fc_practicafinal\fc\fc_4\tm.cpp
+	"TM.h"
+
+1546103862 source:d:\bitbucket\fc_practicafinal\fc\fc_4\utils.cpp
+	<fstream>
+	<iostream>
+	"Utils.h"
+

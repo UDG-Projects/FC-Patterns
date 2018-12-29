@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1546097771 source:d:\bitbucket\fc_practicafinal\fc_2\alphabet.cpp
+	"Alphabet.h"
+
+1546097771 d:\bitbucket\fc_practicafinal\fc_2\alphabet.h
+
+1546103845 source:d:\bitbucket\fc_practicafinal\fc_2\main.cpp
+	<iostream>
+	"PDA.h"
+	"Utils.h"
+
+1546097771 d:\bitbucket\fc_practicafinal\fc_2\pda.h
+	<string>
+	<stack>
+	"Alphabet.h"
+
+1546097771 d:\bitbucket\fc_practicafinal\fc_2\utils.h
+	<string>
+	<vector>
+
+1546097771 source:d:\bitbucket\fc_practicafinal\fc_2\pda.cpp
+	"PDA.h"
+	"Alphabet.h"
+
+1546097771 source:d:\bitbucket\fc_practicafinal\fc_2\utils.cpp
+	<fstream>
+	<iostream>
+	"Utils.h"
+
