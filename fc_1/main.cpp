@@ -16,6 +16,6 @@ int main()
     dfa.init();
     string dfaResult = dfa.eval(pattern1D)? "+1" : "-1";
 
-    cout << endl << dfaResult << endl;
+    cout << dfaResult << endl;
 }
 

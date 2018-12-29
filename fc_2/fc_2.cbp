@@ -32,6 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Alphabet.cpp" />
+		<Unit filename="Alphabet.h" />
+		<Unit filename="PDA.cpp" />
+		<Unit filename="PDA.h" />
+		<Unit filename="Utils.cpp" />
+		<Unit filename="Utils.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

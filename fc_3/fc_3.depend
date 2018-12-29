@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1546088290 source:d:\bitbucket\fc_practicafinal\fc_3\matrixpattern.cpp
+	<iostream>
+	<vector>
+	"MatrixPattern.h"
+
+1546088290 d:\bitbucket\fc_practicafinal\fc_3\matrixpattern.h
+	<iostream>
+	<vector>
+	"Utils.h"
+
+1546088290 d:\bitbucket\fc_practicafinal\fc_3\utils.h
+	<string>
+	<vector>
+
+1546088290 source:d:\bitbucket\fc_practicafinal\fc_3\tm.cpp
+	"TM.h"
+
+1546088290 d:\bitbucket\fc_practicafinal\fc_3\tm.h
+	<fstream>
+	<stdio.h>
+	<time.h>
+	<iostream>
+	<string>
+	"MatrixPattern.h"
+
+1546088290 source:d:\bitbucket\fc_practicafinal\fc_3\utils.cpp
+	<fstream>
+	<iostream>
+	"Utils.h"
+
+1546096664 source:d:\bitbucket\fc_practicafinal\fc_3\main.cpp
+	<iostream>
+	"TM.h"
+	"Utils.h"
+

@@ -15,5 +15,5 @@ int main()
     pda.init();
     string pdaResult = pda.eval(pattern1D)? "+1" : "-1";
 
-    cout << endl << pdaResult << endl;
+    cout << pdaResult << endl;
 }
