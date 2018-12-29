@@ -26,3 +26,30 @@
 	"Utils.h"
 	"DFA.h"
 
+1546088290 source:d:\bitbucket\fc_practicafinal\fc_1\alphabet.cpp
+	"Alphabet.h"
+
+1546088290 d:\bitbucket\fc_practicafinal\fc_1\alphabet.h
+
+1546088290 source:d:\bitbucket\fc_practicafinal\fc_1\dfa.cpp
+	"DFA.h"
+
+1546088290 d:\bitbucket\fc_practicafinal\fc_1\dfa.h
+	<set>
+	<iostream>
+	<string>
+
+1546088290 source:d:\bitbucket\fc_practicafinal\fc_1\main.cpp
+	<iostream>
+	"Utils.h"
+	"DFA.h"
+
+1546088290 d:\bitbucket\fc_practicafinal\fc_1\utils.h
+	<string>
+	<vector>
+
+1546088290 source:d:\bitbucket\fc_practicafinal\fc_1\utils.cpp
+	<fstream>
+	<iostream>
+	"Utils.h"
+
