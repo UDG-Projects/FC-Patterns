@@ -69,21 +69,22 @@ inputencoding=utf8}
 
 % VARIABLES
 \def \w{$\omega$}
-\def \dfa{$FXBP_{DFA} $}
+\def \dfa{$DaffyDuck_{DFA} $}
 \def \alphabetDFA{$\Sigma$*\dfa}
 \def \alphabetPDA{$\Sigma$*\pda}
-\def \nfa{$FXBP_{NFA} $}
-\def \mfa{$FXBP_{MDFA} $}
+\def \nfa{$DaffyDuck_{NFA} $}
+\def \mfa{$DaffyDuck_{MDFA} $}
 \def \wdfa{$\omega_{DFA} $}
 \def \wpda{$\omega_{PDA} $}
-\def \re{$FXBP_{RE} $}
-\def \rg{$FXBP_{rg} $}
+\def \re{$DaffyDuck_{RE} $}
+\def \rg{$DaffyDuck_{rg} $}
 \def \cfg{$CFG$}
-\def \pdaCFG{$GGRCFG{PDA} $}
-\def \pda{$GGR_{PDA} $}
-\def \tm{$MSP_{TM} $}
-\def \tmz{$MSP_{TM0} $}
-\def \tmu{$MSP_{TM1} $}
+\def \pdaCFG{$PorkyPigCFG{PDA} $}
+\def \pda{$PorkyPig_{PDA} $}
+\def \tm{$BugsBunny_{TM} $}
+\def \tmz{$BugsBunny_{TM0} $}
+\def \tmu{$BugsBunny_{TM1} $}
+\def \tml3{$BugsBunny_{TML3} $}
 \def \context{$\Phi$}
 \def \contextDFA{$\Phi_{DFA}$}
 \def \contextPDA{$\Phi_{PDA}$}
@@ -1943,7 +1944,7 @@ El codi de la Màquina de Turing es troba al directori / del directori de la pr�
 
 Definim \tmz{} com la primera versió de la \tmu{}, on la primera versió és la màquina Turing Reconeixible del llenguatge \ld{}.
 
-MSPTM accepta tots els mots que pertanyen al llenguatge \ld{} descrit a l’\textit{apartat 5.3 Llenguatge Recursivament Enumerable, [2]}. Per construcció demostrem que el problema és Turing Reconeixible presentant un programa en C++.
+\tm{} accepta tots els mots que pertanyen al llenguatge \ld{} descrit a l’\textit{apartat 5.3 Llenguatge Recursivament Enumerable, [2]}. Per construcció demostrem que el problema és Turing Reconeixible presentant un programa en C++.
 
 Si un mot \w{} pertany a \ld{} llavors \tmz{} el reconeix, altrament loop.
 
@@ -2234,6 +2235,309 @@ $P1^4$
 El creixement és indeterminat, és a dir, detectar que un patró sempre creix és afirmar que per tots els $t > 0 P1^t < P1^{t+1} on t \rightarrow \infty$. Aquest cas no es pot determinar sense altre cop la màquina que reconeix el \textit{llenguatge del 4.2. Halting problem, [1]}. Per tant no podem determinar que un patró deriva a un altre en un t si tenim $\infty$ t per mirar, afirmant que l’evolució de P1 sempre creix.
 
 \textbf{Si un patró sempre creix, podríem donar una resposta negativa (modificant \tm{}), el problema és determinar que sempre creix.}
+
+\section{Complexitat respecte longitud d'entrada}
+
+No podem afirmar que $L^2$ sigui decidible. Obligatòriament la màquina \tm{} haurà de parar per poder avaluar el temps.
+
+Per tant el problema no pot ser avaluat en complexitat ja que no tenim la certesa que totes les execucions acabin. Com a requeriment, l’avaluació de complexitat especificada al \textit{capítol 7, primera frase del capítol [1]} ens estipula que sigui decidible.
+
+De totes maneres, invertint hores a poder fer una avaluació de la complexitat sobre el nostre problema ens adonem que, amb les variables que tenim, podem limitar els valors d’aquestes variables perquè la màquina doni una resposta en un tick finit.
+
+\subsection{Definició}
+
+Definim $L^3$ com el llenguatge de la màquina \tml3{} capaç de reconèixer tots els mots $\in$ $L^2$ que miren si P1 evoluciona a P2 abans de $tf$ ticks. Sent $tf$ el valor màxim d’evolucions que se li permet fer a la màquina \tml3{} donat \w{} on:
+
+\begin{center}
+si \w{} $\in$ $L^3$ $\wedge$ \w{} $\in$ $L^2$ sent $L^3$ $\subset$ $L^2$
+\end{center}
+
+Amb \tml3{} ja no correm el risc d’entrar en un loop infinit, per tant ja no ens trobem amb oscil·lacions que no acaben mai, ni creixement cap a l’infinit. 
+
+Per obtenir la complexitat total obtindrem la complexitat de cada una de les subtasques que realitza \tml3{} en funció de l’entrada.
+
+\subsection{Complexitat desglosada \tml3{}}
+
+La complexitat que estem estudiant deriva del desenvolupament del programa en C++. Per tant alguns algoritmes com la comparació que en el programa en C++ són O(n) si el portéssim a la definició formal de la TM(tenint en compte els moviments de la cinta) seria O(n2). Per tant la complexitat del nostre problema seria major.
+
+\subsubsection{Input}
+
+La primera tasca de \tml3{} és la de separar els 2 mots que formen \w{} en P1 i P2. Per tant la n que definirà la complexitat serà la llargada del mot \w{}. 
+
+\begin{center}
+n=|\w{}|
+\end{center}
+
+P1 i P2 se separen per un caràcter \Return que pot venir en qualsevol lloc del mot \w{}. Definim la posició on apareix aquest caràcter com a la variable u.
+
+\begin{center}
+p = |P1| = u-1
+
+
+q = |P2| = n-u-1
+\end{center}
+
+En notació asimptotica la divisió dels mot \w{} en P1 i P2 seria O(n) :
+
+\begin{center}
+O(p) + O(q) = O(u-1) +  O(n - u - 1) = O(n)
+\end{center}
+
+Per comoditat es treballen P1 i P2 com a matrius, separant les files pel símbol \Return. D’aquesta manera tenim 2 variables més, x i y que representen el nombre de files i columnes que s’obtenen a partir de P1 i P2.
+
+\begin{center}
+x1 * y1 = p (per el mot P1)
+
+x2 * y2 = q (per el mot P2)
+\end{center}
+
+Queda reflectit doncs que el fet de treballar amb una matriu no ens afecta en la complexitat, ja que la nostra n (p i q en el cas dels mots P1 i P2) és tot el mot. No ens hem de preocupar que el recorregut de la matriu sigui O(x*y) perquè al final recórrer tots els elements d’aquestes matrius acaben sent O(p) o O(q) per tant O(n).
+
+\subsubsection{Primera Minimització}
+
+Es minimitzen les dues parts de \w{}, P1 i P2. La minimització consta de 2 minimitzacions de fila i 2 traspocions. En el cas de la minimització per files es passa 1 sol cop per cada element de \w{}. Llavors tindrem:
+
+\begin{center}
+m(n) = O(n)  on m(n) és la funció de minimitzar per fila
+\end{center}
+
+En el cas de la transposició de les matrius, en funció de \w{} i no de x i y, es mira 1 sol cop cada element per tant:
+
+\begin{center}
+t(n) = O(n) on t(n) és la funció de transposició
+\end{center}
+
+Per un mot W’ la complexitat de la minimització seria:
+
+\begin{center}
+2*m(n) + 2*t(n) = 2*O(n) + 2*O(n) = 4*O(n) = O(n)
+\end{center}
+
+Com aquesta acció la fem tant per P1 com per P2 obtindríem una complexitat de 2*O(n) que acabarà sent O(n).
+
+\subsubsection{Evolució del mot P1}
+
+El mot P2 ja no es tornarà a modificar i només es farà servir per comparar a cada tick  amb  P1. 
+
+Per tant observarem ara la complexitat d’aplicar les regles d’evolució per al mot P1. S’ha de tenir en compte que a partir de l’evolució la llargada de P1, és a dir p, pot variar, ja que el mot pot augmentar o disminuir. Això farà que p passi a ser una p’ en les diferents evolucions, de manera que s'haurà de mirar més o menys elements segons p'. Aquest fet però no ens afecta en termes de complexitat, ja que seguirem en O(p') o cosa que és el mateix O(n).
+
+Per l’evolució del mot P1 passarem 1 sol cop per a cada caràcter i mirarem les 8 cel·les adjacents. Definim la funció d’evolució d’una cel·la com a ncv(x). Per tant:
+
+\begin{center}
+ncv(x) = 8*O(1)
+\end{center}
+
+Aplicat ncv(x) al mot P1 que ha de recórrer 1 cop tots els elements de P1 definint la funció ev(P1):
+
+\begin{center}
+ev(P1) = O(p)*ncv(x) = O(p)*8*O(1) =8*O(p) = O(n)
+\end{center}
+
+Un cop aplicada la funció d’evolució es torna a minimitzar el mot P1’ resultant. Definim la funció tick(P1) com a l'evolució de P1 + la minimització del mot P1' resultant.
+
+\begin{center}
+tick(P1) = ev(P1) + 2*m(p) + 2*t(p)
+\end{center}
+
+En termes de complexitat tick(n) serà:
+
+\begin{center}
+tick(P1) = O(p) + 2*O(p) + 2*O(p) = 5*O(p) = O(n)
+\end{center}
+
+\subsubsection{Generacions de T}
+
+Per cada t s'haurà de comparar que els mots P1 i P2, en forma mínima, siguin iguals. Si no ho són es realitzarà una nova evolució sobre P1.
+
+Per fer la comparació haurem de passar per cada element de P1 i P2 un sol cop i mirar que siguin iguals. Definim la funció de comparació com a eq(P1,P2). En termes de complexitat serà:
+
+\begin{center}
+eq(P1,P2) = \{ O(p) on p = | P1 | $\wedge$ | P1 | >= | P2 | \} = \textbf{O(n)}
+\end{center}
+
+Si tenim en compte MSPTM, és la modificació que mira si P1 s’estabilitza o oscil·la amb finestra f=3 haurem de fer 3 comparacions. Una per comparar P1 i P2, una altra per comparar P1 amb P1 de t-1 i una última per comparar P1 amb P1 de t-2 per tant:
+
+\begin{center}
+3* eq(P1,Px) = 3*O(n) = O(n)
+\end{center}
+
+Tenim doncs que la complexitat per a realitzar 1 tick, comptant la part de divisió de \w{} en P1 i P2 serà:
+
+\begin{center}
+O(p) + O(q) + 2*m(p) + 2*t(p) + 2*m(q) + 2*t(q) + G(P1,P2)
+
+G(P1, P2)=  eq(P1,P2) + eq(P1, P1 t-1) + eq(P1, P1 t-2) + tick(P1)
+\end{center}
+
+Per a cada tick haurem de sumar un G(P1,P2) fins que MSPTM s’aturi per tant haurem de fer T vegades G(P1,P2). En termes de complexitat:
+
+\begin{center}
+T*G(P1,P2)= T* [ eq(P1,P2) + eq(P1, P1 t-1) + eq(P1, P1 t-2) + tick(P1) ] =  T * [ 3*O(n) + O(n) ] = T*O(n)
+\end{center}
+
+\section{Generació de patrons “God Mode”}
+
+\tml3{} conté un mode d’execució anomenat "God Mode" executable amb el paràmetre "-d", veiem exemple d’execució: 
+
+\begin{lstlisting}
+./fc_4 -d
+\end{lstlisting}
+
+
+Ens apareix un menú com el següent (en l'execució queda ben indentat) :
+
+\begin{lstlisting}
+*********** You are in god mode ***********
+*******************************************
+*  Please enter one of following numbers  *
+*                                         *
+* Pattern Generation -----------------> 1 *
+* Pattern from file  -----------------> 2 *
+* Pattern from file show all matrix --> 3 *
+* Pattern L3 from file ------------ --> 4 *
+* Exit  ------------------------------> 0 *
+*******************************************
+\end{lstlisting}
+
+
+Aquest és un programa de testeig i generació de patrons per poder estressar la complexitat del problema i poder crear diferents execucions mitjançant un tf finit. Els mots que genera contenen 2 patrons sempre de la mateixa dimensió amb els valors de cel·les actives i inactives escampades de manera aleatòria, en funció d’un \% d’aparicions, de cel·les actives, configurable.
+
+Les sortides de la generació, opció 1 del menú mostrat anteriorment, escriuen un fitxer ".csv" que conté les dades relatives a n (files i columnes), el nombre de clocks que ha trigat la màquina, el nombre de ticks, el \w{} desglossat en P1 i P2 i informació sobre la configuració que ha utilitzat per a fer les execucions.
+
+\textit{"Feel free to improve!"}
+
+\subsubsection{Utilitzem "God Mode" per poder fixar $tf$. }
+
+La idea és demostrar amb execucions que el problema té una complexitat lineal tal com s’explica a l’apartat Generacions de T.
+
+Es genera l’execució amb els següents paràmetres sobre el "God Mode": 
+
+\begin{lstlisting}
+*********** You are in god mode ***********
+*******************************************
+*  Please enter one of following numbers  *
+*                                         *
+* Pattern Generation -----------------> 1 *
+* Pattern from file  -----------------> 2 *
+* Pattern from file show all matrix --> 3 *
+* Pattern L3 from file ------------ --> 4 *
+* Exit  ------------------------------> 0 *
+*******************************************
+> 1
+* Please enter the following paramters : 
+* How much patterns will be generated?> 50
+* + symbol percentage of apparitions (0 -100) :> 30
+* Number of rows :> 10
+* Number of columns :> 10
+* Growing factor :> 1.1
+* statistics file name printed in csv?> logs/last.csv
+* Print all matrix (true = 1, false = 0)? :>0
+* Is L3 word? if not -1, else put a tick limit :> 60 
+\end{lstlisting}
+
+S’especifica :
+
+\begin{itemize}
+\item 50 patrons i 50 execucions de \tml3{}
+\item El \% d’aparicions de cel·les actives a la matriu és de 30\%
+\item Comencem amb una matriu de 10 files i 10 columnes
+\item El creixement de les matrius serà multiplicar les files i les columnes per 1.1
+\item Els resultats es desen a logs/last.csv
+\item No mostra totes les matrius per pantalla
+\item Per dir que el mot pertany a $L^3$ limitem els ticks a 60.
+\end{itemize}
+
+Es pot veure el fitxer original de l’execució al directori /logs/last.csv inclòs a l’entrega del problema.
+
+\subsubsection{Dades extretes de l'execució}
+
+De l'execució anterior s'ha extret un csv que mostra la taula següent : 
+\begin{table}[ht]
+\caption{\label{tab:table-name} Data extraction}
+\centering
+\begin{tabular}{ccccc}
+\hline
+\hline
+Rows & Columns & Clocks    & Ticks & n       \\ \hline
+10   & 10      & 34719     & 100   & 100     \\ \hline
+11   & 11      & 733       & 9     & 121     \\ \hline
+13   & 13      & 27282     & 100   & 169     \\ \hline
+15   & 15      & 25161     & 100   & 225     \\ \hline
+17   & 17      & 62696     & 100   & 289     \\ \hline
+19   & 19      & 59056     & 100   & 361     \\ \hline
+21   & 21      & 62607     & 100   & 441     \\ \hline
+24   & 24      & 66811     & 100   & 576     \\ \hline
+27   & 27      & 77309     & 100   & 729     \\ \hline
+30   & 30      & 86647     & 100   & 900     \\ \hline
+33   & 33      & 103797    & 100   & 1089    \\ \hline
+37   & 37      & 94671     & 100   & 1369    \\ \hline
+41   & 41      & 155085    & 100   & 1681    \\ \hline
+46   & 46      & 175812    & 100   & 2116    \\ \hline
+51   & 51      & 209295    & 100   & 2601    \\ \hline
+57   & 57      & 277091    & 100   & 3249    \\ \hline
+63   & 63      & 307898    & 100   & 3969    \\ \hline
+70   & 70      & 309872    & 100   & 4900    \\ \hline
+77   & 77      & 429402    & 100   & 5929    \\ \hline
+85   & 85      & 490101    & 100   & 7225    \\ \hline
+94   & 94      & 541201    & 100   & 8836    \\ \hline
+104  & 104     & 658871    & 100   & 10816   \\ \hline
+115  & 115     & 869788    & 100   & 13225   \\ \hline
+127  & 127     & 980636    & 100   & 16129   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{\label{tab:table-name} Data extraction}
+\centering
+\begin{tabular}{ccccc}
+\hline
+\hline
+Rows & Columns & Clocks    & Ticks & n       \\ \hline
+140  & 140     & 1167342   & 100   & 19600   \\ \hline
+154  & 154     & 1329948   & 100   & 23716   \\ \hline
+170  & 170     & 1672998   & 100   & 28900   \\ \hline
+188  & 188     & 1874516   & 100   & 35344   \\ \hline
+207  & 207     & 2173532   & 100   & 42849   \\ \hline
+228  & 228     & 2666196   & 100   & 51984   \\ \hline
+251  & 251     & 3227996   & 100   & 63001   \\ \hline
+277  & 277     & 3776230   & 100   & 76729   \\ \hline
+305  & 305     & 4535434   & 100   & 93025   \\ \hline
+336  & 336     & 5673440   & 100   & 112896  \\ \hline
+370  & 370     & 6465573   & 100   & 136900  \\ \hline
+408  & 408     & 7776788   & 100   & 166464  \\ \hline
+449  & 449     & 9476329   & 100   & 201601  \\ \hline
+494  & 494     & 11287831  & 100   & 244036  \\ \hline
+544  & 544     & 13481008  & 100   & 295936  \\ \hline
+599  & 599     & 16380963  & 100   & 358801  \\ \hline
+659  & 659     & 19893390  & 100   & 434281  \\ \hline
+725  & 725     & 23513986  & 100   & 525625  \\ \hline
+798  & 798     & 28442093  & 100   & 636804  \\ \hline
+878  & 878     & 34203490  & 100   & 770884  \\ \hline
+966  & 966     & 41345181  & 100   & 933156  \\ \hline
+1063 & 1063    & 50071367  & 100   & 1129969 \\ \hline
+1170 & 1170    & 60121835  & 100   & 1368900 \\ \hline
+1287 & 1287    & 72147782  & 100   & 1656369 \\ \hline
+1416 & 1416    & 88056465  & 100   & 2005056 \\ \hline
+1558 & 1558    & 105824920 & 100   & 2427364 \\ \hline
+1714 & 1714    & 127344606 & 100   & 2937796 \\ \hline
+1886 & 1886    & 153392593 & 100   & 3556996 \\ \hline
+2075 & 2075    & 186453546 & 100   & 4305625 \\ \hline
+\end{tabular}
+\end{table}
+
+On en la taula 4.2 és la continuació de la taula 4.1 i ambdós s'hi ha afegit la columna n que significa la llargada del patró del mot p on resideix realment el condicionant.
+
+\clearpage
+
+\subsubsection{Representació gràfica de l'execució.}
+
+El següent gràfic mostra els clocks que ha trigat la \tml3 per realitzar la lectura de cada una de les execucions donat un n on n realiment és la que anteriorment s'ha denominat p. (seria el P1 del mot).
+
+\includegraphics[width=16cm]{complextm}
+
+En termes de complexitat veiem que el llenguatge $L^3$  és O(n). Per tant veiem que té una complexitat lineal compresa en una complexitat Polinòmica.
+
+Com que el disseny de \tml3{} és determinista i la complexitat és polinòmica podem dir que $L^3$ $\in$ CLASSE P \textit{secció 7.2 de [1]}.
 
 
 \clearpage
