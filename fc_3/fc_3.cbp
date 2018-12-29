@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Linker>
+			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+		</Linker>
 		<Unit filename="MatrixPattern.cpp" />
 		<Unit filename="MatrixPattern.h" />
 		<Unit filename="TM.cpp" />
