@@ -16,7 +16,7 @@ using namespace std;
  * POST: Filename containing L² word asked, pattern(s) from filename will be passed to DFA, PDA and TM.
  *       Prints result for *5.4 Fusió*
  */
-void normalMode(bool debug = false, bool showAll = false){
+void normalMode(bool debug = false, bool showAll = false, int l3 = -1){
 
     string fileName = "";
     cout << "Set file to eval which contains a L² word : ";
@@ -54,7 +54,7 @@ void normalMode(bool debug = false, bool showAll = false){
     globalResult += "(" +  firstPatternPdaResult + "," +  secondPatternPdaResult + ")";
 
     // Create Turing Machine
-    TM tm(debug, showAll);
+    TM tm(debug, showAll, l3);
     // To be more exats on the TM implementation we pass all the input to the turing machine.
     int ticks = tm.eval(pattern1D);
     globalResult += "," + to_string(ticks);
@@ -151,6 +151,17 @@ void generationMode(){
 }
 
 /**
+ * This function allows to make n evolutions where n is taken from the command line.
+ */
+void l3Mode(){
+    cout << "* How much ticks do you want to perform? " << endl;
+    int l3Ticks = -1;
+    cin >> l3Ticks;
+
+    normalMode(true, true, l3Ticks);
+}
+
+/**
  * PRE: Execute program in debug mode.
  * POST: Patterns will be generated or entered from file.
  * The generation will be random taking variable integer from user for + symbol possibilities apparition.
@@ -167,6 +178,7 @@ void godMode(){
         cout << "* Pattern Generation -----------------> 1 *" << endl;
         cout << "* Pattern from file  -----------------> 2 *" << endl;
         cout << "* Pattern from file show all matrix --> 3 *" << endl;
+        cout << "* Pattern L³ from file ------------ --> 4 *" << endl;
         cout << "* Exit  ------------------------------> 0 *" << endl;
         cout << "*******************************************" << endl;
         cout << "> ";
@@ -180,8 +192,11 @@ void godMode(){
         else if(option=="3"){
             normalMode(true, true);
         }
+        else if(option == "4") {
+            l3Mode();
+        }
         else if(option == "0") {
-            cout << "* Thank you!                              *" << endl;
+            cout << "* XIGIRÓP!!                              *" << endl;
         }
         else{
             cout << "* Bad Option!                             *" << endl;

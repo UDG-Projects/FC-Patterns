@@ -23,7 +23,7 @@ public:
      * @param if true eval ever returns tick counter
      * @param showAllMatrix if true eval prints all evolutions throught stdout
      */
-    TM(bool debug = false, bool showAllMatrix = false);
+    TM(bool debug = false, bool showAllMatrix = false, int l3 = -1);
 
 
     /**
@@ -40,6 +40,8 @@ private:
     MatrixPattern _matrixB;
     bool _debug;
     bool _showAll;
+    // When l3 takes a value upper than -1 then will perform l3 evolutions.
+    int _l3; // Attribute to control L³ language
 
 };
 
