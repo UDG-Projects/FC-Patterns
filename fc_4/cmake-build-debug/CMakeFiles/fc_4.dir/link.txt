@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/fc_4.dir/Alphabet.cpp.o CMakeFiles/fc_4.dir/DFA.cpp.o CMakeFiles/fc_4.dir/main.cpp.o CMakeFiles/fc_4.dir/MatrixPattern.cpp.o CMakeFiles/fc_4.dir/PDA.cpp.o CMakeFiles/fc_4.dir/TM.cpp.o CMakeFiles/fc_4.dir/Utils.cpp.o  -o fc_4 

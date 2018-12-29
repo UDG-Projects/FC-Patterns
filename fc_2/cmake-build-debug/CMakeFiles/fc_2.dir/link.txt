@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/fc_2.dir/Alphabet.cpp.o CMakeFiles/fc_2.dir/main.cpp.o CMakeFiles/fc_2.dir/PDA.cpp.o CMakeFiles/fc_2.dir/Utils.cpp.o  -o fc_2 
