@@ -62,3 +62,64 @@
 	<fstream>
 	"Utils.h"
 
+1545947984 source:d:\bitbucket\fc_practicafinal\alphabet.cpp
+	"Alphabet.h"
+
+1545947984 d:\bitbucket\fc_practicafinal\alphabet.h
+
+1545947984 source:d:\bitbucket\fc_practicafinal\dfa.cpp
+	"DFA.h"
+
+1545947984 d:\bitbucket\fc_practicafinal\dfa.h
+	<set>
+	<iostream>
+	<string>
+
+1546077530 source:d:\bitbucket\fc_practicafinal\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<cstring>
+	<math.h>
+	"MatrixPattern.h"
+	"DFA.h"
+	"PDA.h"
+	"Utils.h"
+	"TM.h"
+
+1545947984 d:\bitbucket\fc_practicafinal\matrixpattern.h
+	<iostream>
+	<vector>
+	"Utils.h"
+
+1545947984 d:\bitbucket\fc_practicafinal\utils.h
+	<string>
+	<vector>
+
+1545947984 d:\bitbucket\fc_practicafinal\pda.h
+	<string>
+	<stack>
+	"Alphabet.h"
+
+1546077530 d:\bitbucket\fc_practicafinal\tm.h
+	<fstream>
+	<stdio.h>
+	<time.h>
+	<iostream>
+	<string>
+	"MatrixPattern.h"
+
+1545947984 source:d:\bitbucket\fc_practicafinal\matrixpattern.cpp
+	<iostream>
+	<vector>
+	"MatrixPattern.h"
+
+1545947984 source:d:\bitbucket\fc_practicafinal\pda.cpp
+	"PDA.h"
+	"Alphabet.h"
+
+1545947984 source:d:\bitbucket\fc_practicafinal\utils.cpp
+	<fstream>
+	<iostream>
+	"Utils.h"
+
