@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.4)  29 DEC 2018 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.4)  29 DEC 2018 18:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -994,6 +994,12 @@ LaTeX Warning: Label `tab:table-name' multiply defined.
 
 LaTeX Warning: Label `tab:table-name' multiply defined.
 
+
+LaTeX Warning: Label `tab:table-name' multiply defined.
+
+
+LaTeX Warning: Label `tab:table-name' multiply defined.
+
 )
 \openout1 = `informe.aux'.
 
@@ -1096,7 +1102,7 @@ LaTeX Info: Redefining \nameref on input line 103.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<udg_logo.png, id=263, 167.00392pt x 113.82526pt>
+<udg_logo.png, id=271, 167.00392pt x 113.82526pt>
 File: udg_logo.png Graphic file (type png)
 <use udg_logo.png>
 Package pdftex.def Info: udg_logo.png  used on input line 108.
@@ -1117,17 +1123,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ...mberline {4}Turing Machine}{29}{chapter.4}
+l.46 ...mberline {4}Turing Machine}{31}{chapter.4}
                                                    [1
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 58.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
 )
 \tf@toc=\write7
 \openout7 = `informe.toc'.
@@ -1382,61 +1388,67 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 ) [23]
+<complexdfa.PNG, id=846, 408.3255pt x 253.54726pt>
+File: complexdfa.PNG Graphic file (type png)
+<use complexdfa.PNG>
+Package pdftex.def Info: complexdfa.PNG  used on input line 1572.
+(pdftex.def)             Requested size: 455.24408pt x 282.68652pt.
+ [24 <./complexdfa.PNG>]
 Chapter 3.
-[24
+[25
 
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1584.
+(hyperref)                removing `math shift' on input line 1622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1584.
+(hyperref)                removing `subscript' on input line 1622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1584.
+(hyperref)                removing `math shift' on input line 1622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1657.
+(hyperref)                removing `math shift' on input line 1695.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1657.
+(hyperref)                removing `subscript' on input line 1695.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1657.
+(hyperref)                removing `math shift' on input line 1695.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1670.
+(hyperref)                removing `math shift' on input line 1708.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\delta' on input line 1670.
+(hyperref)                removing `\delta' on input line 1708.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1670.
+(hyperref)                removing `math shift' on input line 1708.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1670.
+(hyperref)                removing `math shift' on input line 1708.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1670.
+(hyperref)                removing `subscript' on input line 1708.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1670.
+(hyperref)                removing `math shift' on input line 1708.
 
-[25] [26]
-Overfull \hbox (41.81104pt too wide) in paragraph at lines 1786--1787
+[26] [27]
+Overfull \hbox (41.81104pt too wide) in paragraph at lines 1824--1825
 []\T1/cmr/m/n/12 Per tant per generar la to-tal-i-tat el L($\OML/cmm/m/it/12 Po
 rkyPig[]$\T1/cmr/m/n/12 ) ens n'assegurem pas-sant la $\OML/cmm/m/it/12 PorkyPi
 gCFG[]$
@@ -1444,45 +1456,28 @@ gCFG[]$
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-) [27] [28]
+) [28]
+<copmlexpda.PNG, id=890, 562.5015pt x 348.1005pt>
+File: copmlexpda.PNG Graphic file (type png)
+<use copmlexpda.PNG>
+Package pdftex.def Info: copmlexpda.PNG  used on input line 1903.
+(pdftex.def)             Requested size: 455.24408pt x 281.72083pt.
+ [29] [30 <./copmlexpda.PNG>]
 Chapter 4.
-[29
+[31
 
 
-] [30]
+] [32]
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 1920.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 2003.
 
 
-[31] (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+[33] (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-) [32]
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-) [33]
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-)
-LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2128.
-
- [34]
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-)
-LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2177.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-)
+) [34]
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 ) [35]
@@ -1492,82 +1487,111 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2211.
+
+ [36]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+)
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 2260.
+
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-) [36]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 2259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2259.
-
-[37] (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+) [37]
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 ) [38]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 2342.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2342.
+
+[39] (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+) [40]
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-) [39] [40] [41]
-<complextm.png, id=1112, 745.78625pt x 456.70625pt>
+) [41] [42] [43]
+<complextm.png, id=1141, 745.78625pt x 456.70625pt>
 File: complextm.png Graphic file (type png)
 <use complextm.png>
-Package pdftex.def Info: complextm.png  used on input line 2536.
+Package pdftex.def Info: complextm.png  used on input line 2629.
 (pdftex.def)             Requested size: 455.24408pt x 278.77855pt.
- [42
+ [44
 
  <./complextm.png>]
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2569.
+(hyperref)                removing `math shift' on input line 2663.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 2569.
+(hyperref)                removing `superscript' on input line 2663.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2569.
+(hyperref)                removing `math shift' on input line 2663.
 
-[43
+[45
 
 
-] [44] [45
+] [46] [47
 
 ]
 runsystem(makeindex informe.idx)...executed safely (allowed).
 
  (./informe.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2613.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2613.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2711.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2711.
  (./informe.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2613.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2613.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2711.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2711.
 
-Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 29263D364DF12C3D7E30838DDFEE5817;4676.
 
+
+Package rerunfilecheck Warning: File `informe.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `informe.out':
+(rerunfilecheck)             Before: D7DF1FD45D2E4322223B988ED3F0F51D;4794
+(rerunfilecheck)             After:  6103DE38D82E3FF89365F0D70F1F5A77;4857.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2613.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2711.
  ) 
 Here is how much of TeX's memory you used:
- 20470 strings out of 494880
- 366370 string characters out of 6179601
+ 20500 strings out of 494880
+ 366742 string characters out of 6179601
  1116734 words of memory out of 5000000
- 22688 multiletter control sequences out of 15000+600000
+ 22698 multiletter control sequences out of 15000+600000
  26915 words of font info for 72 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  55i,11n,68p,1419b,2186s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1594,10 +1618,10 @@ t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msbm10.pfb>
-Output written on informe.pdf (46 pages, 530721 bytes).
+Output written on informe.pdf (48 pages, 559458 bytes).
 PDF statistics:
- 1933 PDF objects out of 2073 (max. 8388607)
- 1290 compressed objects within 13 object streams
- 694 named destinations out of 1000 (max. 500000)
- 542 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1967 PDF objects out of 2073 (max. 8388607)
+ 1315 compressed objects within 14 object streams
+ 705 named destinations out of 1000 (max. 500000)
+ 568 words of extra memory for PDF output out of 10000 (max. 10000000)
 
