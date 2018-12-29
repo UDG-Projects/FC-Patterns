@@ -107,7 +107,7 @@ void generationMode(){
         Utils::printOnFile(logFile, "");
     }
     // Printing header for logFile
-    Utils::printOnFile(logFile, "Iteration;Rows;Columns;Clocks;Ticks;Matrix A;Matrix B");
+    Utils::printOnFile(logFile, "Rows;Columns;Clocks;Ticks;Matrix A;Matrix B");
 
     int i = 0;
     while(i < iterations) {
