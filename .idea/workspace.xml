@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="practicafinal" targetName="practicafinal" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -12,10 +10,193 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4073ca72-f46d-48d4-a8f9-960b4116a468" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/practicafinal1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/Alphabet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/Alphabet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/DFA.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/DFA.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/Utils.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/Utils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/data/badMultiLine.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/data/basicPattern.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/data/multiLinePattern.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/data/nonMinimumPattern.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/fc_1.cbp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/fc_1.depend" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/fc_1.layout" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/obj/Debug/Alphabet.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/obj/Debug/DFA.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/obj/Debug/Utils.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_1/obj/Debug/main.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/Alphabet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/Alphabet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/PDA.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/PDA.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/Utils.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/Utils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/data/basicNotAccept.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/data/basicPDA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/data/complex.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/data/complexNotAccept.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/data/complexNotMinimal.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/fc_2.cbp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/fc_2.layout" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/obj/Debug/Alphabet.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/obj/Debug/PDA.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/obj/Debug/Utils.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_2/obj/Debug/main.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/Alphabet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/Alphabet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/MatrixPattern.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/MatrixPattern.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/TM.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/TM.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/Utils.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/Utils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/data/basic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/data/complex.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/data/short-data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/fc_3.cbp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/fc_3.depend" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/fc_3.layout" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/obj/Debug/MatrixPattern.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/obj/Debug/TM.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/obj/Debug/Utils.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_3/obj/Debug/main.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/Alphabet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/Alphabet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/DFA.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/DFA.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/MatrixPattern.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/MatrixPattern.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/PDA.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/PDA.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/TM.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/TM.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/Utils.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/Utils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/5window.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/embolcall.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/grow.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/loop.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/nf-data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/short-data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/data/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/Matrix.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/big-definition.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/definitions-NFA.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/final-nfa.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/informe.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/informe.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/pervi-definition.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/test.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/documentation/udg_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/fc_4.cbp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/fc_4.depend" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/fc_4.layout" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/10x10.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/5x5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/bulli.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/creix-meitat.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/equals.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/equals85.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/linear.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/n-mitjos.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/n-quadratica.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/nala2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/one.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/quadratic.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/sails.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/logs/salis.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/obj/Debug/Alphabet.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/obj/Debug/DFA.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/obj/Debug/MatrixPattern.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/obj/Debug/PDA.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/obj/Debug/TM.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/obj/Debug/Utils.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fc_4/obj/Debug/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TuringMachine.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/informe.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/informe.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/informe.tex" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/informe.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/10x10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/logs/10x10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alphabet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/Alphabet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alphabet.h" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/Alphabet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fc_4/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DFA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/DFA.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DFA.h" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/DFA.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MatrixPattern.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/MatrixPattern.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MatrixPattern.h" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/MatrixPattern.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/PDA.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDA.h" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/PDA.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TM.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/TM.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TM.h" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/TM.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TuringMachine.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/TuringMachine.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TuringMachine.depend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TuringMachine.layout" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/Utils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/Utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/TuringMachine.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/TuringMachine.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/5window.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/5window.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/embolcall.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/embolcall.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/grow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/grow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/loop.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/loop.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nf-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/nf-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/short-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/short-data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/data/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/Matrix.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/Matrix.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/big-definition.def" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/big-definition.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/definitions-NFA.def" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/definitions-NFA.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/final-nfa.def" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/final-nfa.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/informe.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/informe.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/informe.tex" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/informe.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/pervi-definition.def" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/pervi-definition.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/test.tex" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/test.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/udg_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/documentation/udg_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linear.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/linear.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/10x10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/10x10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/5x5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/5x5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/bulli.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/bulli.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/creix-meitat.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/creix-meitat.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/equals.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/equals.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/equals85.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/equals85.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/linear.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/linear.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/n-mitjos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/n-mitjos.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/n-quadratica.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/n-quadratica.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/nala2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/nala2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/one.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/one.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/quadratic.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/quadratic.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/sails.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/sails.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/salis.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/logs/salis.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Matrix.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/practicafinal" beforeDir="false" afterPath="$PROJECT_DIR$/TuringMachine_old/practicafinal" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,114 +206,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="144" selection-start-line="144" selection-end-line="144" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/last.csv">
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="455">
-              <caret line="37" column="103" selection-start-line="37" selection-start-column="103" selection-end-line="37" selection-end-column="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/logs/creix-meitat.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/10x10.csv">
-          <provider selected="true" editor-type-id="LargeFileEditor">
-            <state relative-caret-position="559">
-              <caret line="42" column="1891" selection-start-line="42" selection-start-column="1891" selection-end-line="42" selection-end-column="1891" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TM.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="75" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="75" />
-              <folding>
-                <element signature="e#115#133#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TM.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/equals85.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/linear.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/data.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/5x5.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -184,6 +259,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1082" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -195,32 +271,6 @@
             <path>
               <item name="practicafinal" type="b2602c69:ProjectViewProjectNode" />
               <item name="practicafinal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="practicafinal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="practicafinal" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="practicafinal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="practicafinal" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="Debug" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="practicafinal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="practicafinal" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="practicafinal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="practicafinal" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="practicafinal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="practicafinal" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -236,6 +286,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TuringMachine_old" />
       <recent name="$PROJECT_DIR$/logs" />
       <recent name="$PROJECT_DIR$/cmake-build-debug" />
       <recent name="$PROJECT_DIR$/cmake-build-debug/CMakeFiles" />
@@ -254,7 +305,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="practicafinal" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="practicafinal" TARGET_NAME="practicafinal" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="practicafinal" RUN_TARGET_NAME="practicafinal">
+    <configuration name="Main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -281,16 +332,15 @@
       <workItem from="1545825648850" duration="2342000" />
       <workItem from="1545902776390" duration="1036000" />
       <workItem from="1545903825852" duration="10767000" />
-      <workItem from="1546076217886" duration="8135000" />
+      <workItem from="1546076217886" duration="9023000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75731000" />
+    <option name="totallyTimeSpent" value="76619000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-2" width="1920" height="1082" extended-state="7" />
-    <editor active="true" />
+    <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22198506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -393,7 +443,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/tuputamadre.log">
+    <entry file="file://$PROJECT_DIR$/TuringMachine_old/cmake-build-debug/tuputamadre.log">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret lean-forward="true" />
@@ -710,18 +760,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/last.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="455">
-          <caret line="37" column="103" selection-start-line="37" selection-start-column="103" selection-end-line="37" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/creix-meitat.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/last.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="469">
+          <caret line="37" column="103" selection-start-line="37" selection-start-column="103" selection-end-line="37" selection-end-column="103" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

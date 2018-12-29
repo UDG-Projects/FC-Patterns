@@ -1,0 +1,53 @@
+Sigma=[-+i]
+Final=[8+]
+--------------------
+| Description: ANFA
+|   Sigma = {-,+,i}
+|   L = "exists the sequence '-+-' 3 times flanked both sides by the sequence '++++'"
+| Function: f : Sigma^* -> Boolean
+|   f(w) = 1, if word in L
+|        = 0, otherwise
+| Input: word w (e.g., ----+-+-+-+-+-+++-----+i++++---+-+-+++---+-++++i----+-+-+-+-+-+++-----+i)
+|   where i = ⏎
+| Output: 0 or 1
+| Date: November, 2018
+| Version: 1.0
+| UTM-version: 0.2357111317192329313741434753
+| Author: Copyright 2011 Gil Gassó Rovira, Marc Sànchez Pifarré, Francesc Xavier Bullich Parra
+--------------------------------------------------------------
+[start|-]=[start]
+[start|+]=[start]
+[start|i]=[start]
+[start|.]=[start]
+[start|+]=[1+]
+[1+|+]=[2+]
+[2+|+]=[3+]
+[3+|+]=[4+]
+[4+|+]=[4+]
+[4+|-]=[4+]
+[4+|-]=[1ca-]
+[1ca-|+]=[1ca-+]
+[1ca-+|-]=[1ca-+-]
+[1ca-+-|.]=[1a]
+[1ca-+-|.]=[2ca-]
+[1a|+]=[1a]
+[1a|-]=[1a]
+[1a|-]=[2ca-]
+[2ca-|+]=[2ca-+]
+[2ca-+|-]=[2ca-+-]
+[2ca-+-|.]=[2a]
+[2ca-+-|.]=[3ca-]
+[2a|+]=[2a]
+[2a|-]=[2a]
+[2a|-]=[3ca-]
+[3ca-|+]=[3ca-+]
+[3ca-+|-]=[3ca-+-]
+[3ca-+-|-]=[3ca-+-]
+[3ca-+-|+]=[3ca-+-]
+[3ca-+-|+]=[5+]
+[5+|+]=[6+]
+[6+|+]=[7+]
+[7+|+]=[8+]
+[8+|+]=[8+]
+[8+|-]=[8+]
+[8+|i]=[8+]

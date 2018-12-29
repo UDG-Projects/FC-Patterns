@@ -1,0 +1,75 @@
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Definicions}{3}{section.1.1}
+\contentsline {chapter}{\numberline {2}aut\IeC {\`o}mat Finit}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Definici\IeC {\'o} del context}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Dissenyant el nostre aut\IeC {\`o}mat finit}{4}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Constru\IeC {\"\i }m l\IeC {\textquoteright }aut\IeC {\`o}mat sense RESET}{5}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Constru\IeC {\"\i }m l\IeC {\textquoteright }aut\IeC {\`o}mat Complet}{6}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Definici\IeC {\'o} formal de $DaffyDuck_{DFA} ${}}{7}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Representaci\IeC {\'o} taula $\delta $}{7}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Operacions regulars amb aut\IeC {\`o}mats}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}Minimitzaci\IeC {\'o} de $DaffyDuck_{DFA} ${}}{8}{section.2.5}
+\contentsline {section}{\numberline {2.6}NFA (Nondeterministic finit automata)}{13}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Disseny de $DaffyDuck_{NFA} ${}}{13}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.7}Definici\IeC {\'o} formal de $DaffyDuck_{NFA} ${}}{13}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Representaci\IeC {\'o} taula $\delta $}{13}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Demostrem l\IeC {\textquoteright }equival\IeC {\`e}ncia de $DaffyDuck_{NFA} ${} i $DaffyDuck_{DFA} ${}}{14}{subsection.2.7.2}
+\contentsline {section}{\numberline {2.8}Regular expression}{20}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Equival\IeC {\`e}ncia de les expressions regulars i $FA$}{20}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Expressi\IeC {\'o} regular equivalent a $DaffyDuck_{DFA} ${}}{20}{subsection.2.8.2}
+\contentsline {subsubsection}{Primera part.}{21}{subsubsection*.2}
+\contentsline {subsubsection}{Segona part}{22}{subsubsection*.3}
+\contentsline {section}{\numberline {2.9}Regular Grammar}{22}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}$DaffyDuck_{rg} ${} (generada amb jflap).}{22}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}Chomsky Normal Form}{23}{subsection.2.9.2}
+\contentsline {section}{\numberline {2.10}Refer\IeC {\`e}ncia al codi}{23}{section.2.10}
+\contentsline {section}{\numberline {2.11}Reconeixibilitat i Decidibilitat}{23}{section.2.11}
+\contentsline {chapter}{\numberline {3}Push-Down Automata}{24}{chapter.3}
+\contentsline {section}{\numberline {3.1}Definici\IeC {\'o} del context}{24}{section.3.1}
+\contentsline {section}{\numberline {3.2}An\IeC {\`a}lisi pel disseny}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Definici\IeC {\'o} informal de l\IeC {\textquoteright }aut\IeC {\`o}mat}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}Diagrama $PorkyPig_{PDA} ${}}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Definici\IeC {\'o} formal de $PorkyPig_{PDA} ${}}{25}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Taula $\delta $ $PorkyPig_{PDA} ${}}{26}{subsection.3.5.1}
+\contentsline {section}{\numberline {3.6}Equival\IeC {\`e}ncia entre PDA i CFG}{26}{section.3.6}
+\contentsline {section}{\numberline {3.7}Gram\IeC {\`a}tica lliure de context}{26}{section.3.7}
+\contentsline {section}{\numberline {3.8}Ambig\IeC {\"u}itat}{27}{section.3.8}
+\contentsline {section}{\numberline {3.9}Chomsky Normal Form}{27}{section.3.9}
+\contentsline {section}{\numberline {3.10}Refer\IeC {\`e}ncia al codi}{28}{section.3.10}
+\contentsline {section}{\numberline {3.11}Reconeixibilitat i Decidibilitat}{28}{section.3.11}
+\contentsline {chapter}{\numberline {4}Turing Machine}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Definici\IeC {\'o} del Context}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}Disseny descendent i pseudocodi}{29}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Minimitzaci\IeC {\'o}}{30}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Minimitzar per files}{30}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Transposici\IeC {\'o}}{30}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Algoritme eval}{30}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Algoritme performTick}{31}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Algoritme newCellValue}{31}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Refer\IeC {\`e}ncia al codi}{31}{subsection.4.2.7}
+\contentsline {section}{\numberline {4.3}Reconeixibilitat del problema}{31}{section.4.3}
+\contentsline {subsubsection}{Exemple d'execuci\IeC {\'o}}{32}{subsubsection*.4}
+\contentsline {section}{\numberline {4.4}Decidibilitat del problema}{32}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Comportaments de l\IeC {\textquoteright }evoluci\IeC {\'o} de patrons}{33}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Derivaci\IeC {\'o}}{33}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Estabilitzaci\IeC {\'o}}{33}{subsection.4.4.3}
+\contentsline {subsubsection}{Exemple d'execuci\IeC {\'o}}{33}{subsubsection*.5}
+\contentsline {subsubsection}{Extinci\IeC {\'o}}{34}{subsubsection*.6}
+\contentsline {subsection}{\numberline {4.4.4}Oscil\IeC {\textperiodcentered }laci\IeC {\'o}}{34}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Creixement}{36}{subsection.4.4.5}
+\contentsline {section}{\numberline {4.5}Complexitat respecte longitud d'entrada}{36}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Definici\IeC {\'o}}{36}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Complexitat desglosada $BugsBunny_{TML3} ${}}{37}{subsection.4.5.2}
+\contentsline {subsubsection}{Input}{37}{subsubsection*.7}
+\contentsline {subsubsection}{Primera Minimitzaci\IeC {\'o}}{37}{subsubsection*.8}
+\contentsline {subsubsection}{Evoluci\IeC {\'o} del mot P1}{38}{subsubsection*.9}
+\contentsline {subsubsection}{Generacions de T}{38}{subsubsection*.10}
+\contentsline {section}{\numberline {4.6}Generaci\IeC {\'o} de patrons \IeC {\textquotedblleft }God Mode\IeC {\textquotedblright }}{39}{section.4.6}
+\contentsline {subsubsection}{Utilitzem "God Mode" per poder fixar $tf$. }{39}{subsubsection*.11}
+\contentsline {subsubsection}{Dades extretes de l'execuci\IeC {\'o}}{40}{subsubsection*.12}
+\contentsline {subsubsection}{Representaci\IeC {\'o} gr\IeC {\`a}fica de l'execuci\IeC {\'o}.}{42}{subsubsection*.13}
+\contentsline {chapter}{\numberline {5}Continguts de l'entrega}{43}{chapter.5}
+\contentsline {section}{\numberline {5.1}Codi}{43}{section.5.1}
+\contentsline {section}{\numberline {5.2}Exemples $L^2$}{43}{section.5.2}
+\contentsline {section}{\numberline {5.3}Sortides}{43}{section.5.3}
+\contentsline {section}{\numberline {5.4}Documentaci\IeC {\'o}}{44}{section.5.4}

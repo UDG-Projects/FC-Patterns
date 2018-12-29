@@ -1,0 +1,63 @@
+\BOOKMARK [0][-]{chapter.1}{Introducci\363}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Definicions}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{aut\362mat Finit}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Definici\363 del context}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Dissenyant el nostre aut\362mat finit}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.1}{Constru\357m l\220aut\362mat sense RESET}{section.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.2}{Constru\357m l\220aut\362mat Complet}{section.2.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Definici\363 formal de DaffyDuckDFA }{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.3.1}{Representaci\363 taula }{section.2.3}% 9
+\BOOKMARK [1][-]{section.2.4}{Operacions regulars amb aut\362mats}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.5}{Minimitzaci\363 de DaffyDuckDFA }{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.6}{NFA \(Nondeterministic finit automata\)}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.6.1}{Disseny de DaffyDuckNFA }{section.2.6}% 13
+\BOOKMARK [1][-]{section.2.7}{Definici\363 formal de DaffyDuckNFA }{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.7.1}{Representaci\363 taula }{section.2.7}% 15
+\BOOKMARK [2][-]{subsection.2.7.2}{Demostrem l\220equival\350ncia de DaffyDuckNFA \040i DaffyDuckDFA }{section.2.7}% 16
+\BOOKMARK [1][-]{section.2.8}{Regular expression}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.8.1}{Equival\350ncia de les expressions regulars i FA}{section.2.8}% 18
+\BOOKMARK [2][-]{subsection.2.8.2}{Expressi\363 regular equivalent a DaffyDuckDFA }{section.2.8}% 19
+\BOOKMARK [1][-]{section.2.9}{Regular Grammar}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.9.1}{DaffyDuckrg \040\(generada amb jflap\).}{section.2.9}% 21
+\BOOKMARK [2][-]{subsection.2.9.2}{Chomsky Normal Form}{section.2.9}% 22
+\BOOKMARK [1][-]{section.2.10}{Refer\350ncia al codi}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.11}{Reconeixibilitat i Decidibilitat}{chapter.2}% 24
+\BOOKMARK [0][-]{chapter.3}{Push-Down Automata}{}% 25
+\BOOKMARK [1][-]{section.3.1}{Definici\363 del context}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.2}{An\340lisi pel disseny}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.3}{Definici\363 informal de l\220aut\362mat}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.4}{Diagrama PorkyPigPDA }{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.5}{Definici\363 formal de PorkyPigPDA }{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.5.1}{Taula \040PorkyPigPDA }{section.3.5}% 31
+\BOOKMARK [1][-]{section.3.6}{Equival\350ncia entre PDA i CFG}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.7}{Gram\340tica lliure de context}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.8}{Ambig\374itat}{chapter.3}% 34
+\BOOKMARK [1][-]{section.3.9}{Chomsky Normal Form}{chapter.3}% 35
+\BOOKMARK [1][-]{section.3.10}{Refer\350ncia al codi}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.11}{Reconeixibilitat i Decidibilitat}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{Turing Machine}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Definici\363 del Context}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{Disseny descendent i pseudocodi}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.2.1}{Minimitzaci\363}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.2}{Minimitzar per files}{section.4.2}% 42
+\BOOKMARK [2][-]{subsection.4.2.3}{Transposici\363}{section.4.2}% 43
+\BOOKMARK [2][-]{subsection.4.2.4}{Algoritme eval}{section.4.2}% 44
+\BOOKMARK [2][-]{subsection.4.2.5}{Algoritme performTick}{section.4.2}% 45
+\BOOKMARK [2][-]{subsection.4.2.6}{Algoritme newCellValue}{section.4.2}% 46
+\BOOKMARK [2][-]{subsection.4.2.7}{Refer\350ncia al codi}{section.4.2}% 47
+\BOOKMARK [1][-]{section.4.3}{Reconeixibilitat del problema}{chapter.4}% 48
+\BOOKMARK [1][-]{section.4.4}{Decidibilitat del problema}{chapter.4}% 49
+\BOOKMARK [2][-]{subsection.4.4.1}{Comportaments de l\220evoluci\363 de patrons}{section.4.4}% 50
+\BOOKMARK [2][-]{subsection.4.4.2}{Derivaci\363}{section.4.4}% 51
+\BOOKMARK [2][-]{subsection.4.4.3}{Estabilitzaci\363}{section.4.4}% 52
+\BOOKMARK [2][-]{subsection.4.4.4}{Oscil\267laci\363}{section.4.4}% 53
+\BOOKMARK [2][-]{subsection.4.4.5}{Creixement}{section.4.4}% 54
+\BOOKMARK [1][-]{section.4.5}{Complexitat respecte longitud d'entrada}{chapter.4}% 55
+\BOOKMARK [2][-]{subsection.4.5.1}{Definici\363}{section.4.5}% 56
+\BOOKMARK [2][-]{subsection.4.5.2}{Complexitat desglosada BugsBunnyTML3 }{section.4.5}% 57
+\BOOKMARK [1][-]{section.4.6}{Generaci\363 de patrons \215God Mode\216}{chapter.4}% 58
+\BOOKMARK [0][-]{chapter.5}{Continguts de l'entrega}{}% 59
+\BOOKMARK [1][-]{section.5.1}{Codi}{chapter.5}% 60
+\BOOKMARK [1][-]{section.5.2}{Exemples L2}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.3}{Sortides}{chapter.5}% 62
+\BOOKMARK [1][-]{section.5.4}{Documentaci\363}{chapter.5}% 63
