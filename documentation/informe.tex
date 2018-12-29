@@ -2633,51 +2633,17 @@ En termes de complexitat veiem que el llenguatge $L^3$  és O(n). Per tant veiem
 
 Com que el disseny de \tml3{} és determinista i la complexitat és polinòmica podem dir que $L^3$ $\in$ CLASSE P \textit{secció 7.2 de [1]}.
 
-
 \clearpage
 
-\chapter{Continguts de l'entrega}
+\chapter{That's all Folks}
 
-\begin{itemize}
-\item Codi
-\item Exemples $L^2$
-\item Sortides
-\item Documentació
-\end{itemize}
+\section{Agreements}
 
-\section{Codi}
+\begin{center}
+\includegraphics[width=8cm]{thatsall2}
 
-El codi del programa es troba al directori arrel repartit en fitxers .h i .cpp. Es disposa de 4 parts diferenciades.
-
-\begin{itemize}
-\item DFA : fitxers DFA.h/.cpp i Alphabet.h/.cpp
-\item PDA : fitxers PDA.h/.cpp i Alphabet.h/.cpp
-\item TM : fitxers TM.h/.cpp, MatrixPattern.h/.cpp
-\item Programa principal : main.h/.cpp i Utils.h/.cpp (i tots els anteriors)
-\end{itemize}
-
-La classe DFA conté el codi per l'autòmat finit determinista, la classe PDA conté el codi per l'autòmat de pila i la classe TM i MatrixPattern són els encarregats de gestionar el programa en C que representa la Màquina de Turing.
-
-La classe Main i la classe Utils són complementaris per poder generar la fusió i que tot encaixi sense problema. La classe Alphabet conté les enumeracions utilitzades pel PDA i el DFA.
-
-\section{Exemples $L^2$}
-
-El directori data conté exemples de $L^2$ que poden ser executats a la fusió, és a dir al programa principal anomenat main.
-
-\section{Sortides}
-
-Utilitzant el paràmetre -d es pot entrar en mode Déu. El mode Déu permet rebre fitxers que continguin \w{} de \ld{}, i en algun dels casos permet generar-los també. En cas que es vulguin generar, es pot escollir la sortida en format csv on s'hi representen, el nombre de files i columnes de P1 on P1 és el patró que es farà evolucionar, els clocks de la màquina que triga a realitzar l'acció i el nombre de ticks que ha durat l'execució.
-
-Addicionalment es demana informació sobre la generació que també s'escriu a la sortida.
-
-Totes les sortides generades per nosaltres es poden trobar dins del directori logs del directori de l'entrega.
-
-\section{Documentació}
-
-Els fitxers per generar la documentació en pdf estan dins del directori documentation. L'informe consta d'un sol fitxer en format pdf que conté totes les descripcions i les conclusions a les quals hem arribat situat al directori arrel de l'entrega.
-
-\section{That's all Folks}
-
+Many thanks to Warner Bros for providing these crazy cartoons!
+\end{center}
 
 
 \begin{thebibliography}{9}

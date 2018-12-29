@@ -74,9 +74,5 @@
 \contentsline {subsubsection}{Utilitzem "God Mode" per poder fixar $tf$. }{41}{subsubsection*.15}
 \contentsline {subsubsection}{Dades extretes de l'execuci\IeC {\'o}}{42}{subsubsection*.16}
 \contentsline {subsubsection}{Representaci\IeC {\'o} gr\IeC {\`a}fica de l'execuci\IeC {\'o}.}{44}{subsubsection*.17}
-\contentsline {chapter}{\numberline {5}Continguts de l'entrega}{45}{chapter.5}
-\contentsline {section}{\numberline {5.1}Codi}{45}{section.5.1}
-\contentsline {section}{\numberline {5.2}Exemples $L^2$}{45}{section.5.2}
-\contentsline {section}{\numberline {5.3}Sortides}{45}{section.5.3}
-\contentsline {section}{\numberline {5.4}Documentaci\IeC {\'o}}{46}{section.5.4}
-\contentsline {section}{\numberline {5.5}That's all Folks}{46}{section.5.5}
+\contentsline {chapter}{\numberline {5}That's all Folks}{45}{chapter.5}
+\contentsline {section}{\numberline {5.1}Agreements}{45}{section.5.1}
