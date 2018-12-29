@@ -76,6 +76,7 @@ void generationMode(){
     int columns;
     int rows;
     double factor;
+    int tickLimitL3;
     string logFile;
     bool printAll;
 
@@ -94,6 +95,8 @@ void generationMode(){
     cin >> logFile;
     cout << "* Print all matrix (true = 1, false = 0)? :>";
     cin >> printAll;
+    cout << "* Is L³ word? if not -1, else put a tick limit : ";
+    cin >> tickLimitL3;
 
     /**
      * Preparing log file in csv format!
@@ -112,8 +115,6 @@ void generationMode(){
     int i = 0;
     while(i < iterations) {
 
-
-
         MatrixPattern A = MatrixPattern(rows, columns, Utils::L_PATTERN_DELIMITER, percentage);
         MatrixPattern B = MatrixPattern(rows, columns, Utils::L_PATTERN_DELIMITER, percentage);
         cout << "*******************************************" << endl;
@@ -127,7 +128,7 @@ void generationMode(){
         string word = A.toString() + Utils::L2_PATTERN_DELIMITER + B.toString();
 
         // Execute turing machine
-        TM tm(true, printAll);
+        TM tm(true, printAll, tickLimitL3);
 
         // Getting time befor start
         clock_t ti = clock();
